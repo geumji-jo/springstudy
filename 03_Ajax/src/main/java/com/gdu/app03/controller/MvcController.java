@@ -9,13 +9,16 @@ public class MvcController {
 
 	@RequestMapping("/")
 	public String index() {
-
 		return "index";
 	}
 
 	@GetMapping("/first.do")
 	public String first() {
 		return "first";
+	}
+	@GetMapping("/second.do")
+	public String second() {
+		return "second";
 	}
 
 }

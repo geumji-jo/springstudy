@@ -12,17 +12,8 @@
 </head>
 <body>
 
-
-
+	<a href="${contextPath}/first.do">이동1</a>
+	<a href="${contextPath}/second.do">이동2</a>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
