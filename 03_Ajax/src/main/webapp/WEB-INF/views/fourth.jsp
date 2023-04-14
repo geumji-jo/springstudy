@@ -9,7 +9,29 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/init.css">
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
+<style>
+
+
+
+span {
+
+padding: 10px;
+
+
+
+}
+
+
+
+
+</style>
+
+
 <script>
+
+
+
+
 
 $(function() {
 	
@@ -21,8 +43,8 @@ $(function() {
 	for(let n =1; n<=5; n++) {
 		let path = encodeURIComponent('C:\\GDJ61\\images');
 		let filename = 'flower' + n + '.jpg';
-		let str = '<div>';
-		str += '<img src="${contextPath}/image/display?path=' + path + '&filename=' + filename +'" width="300px">';
+		let str = '<span>';
+		str += '<img src="${contextPath}/image/display?path=' + path + '&filename=' + filename +'" width="250px">';
 		$('#result').append(str);
 	}
 	
