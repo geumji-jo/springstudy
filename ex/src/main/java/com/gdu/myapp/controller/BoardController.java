@@ -114,6 +114,8 @@ public class BoardController {
 	}
 	
 	*/
+	
+	/*
 	@GetMapping("/detail.do")
 	public String getDetail(BoardDTO board) {		// 파라미터를 객체로 받으면 자동으로 model에 저장이 된다.!속성명은 boardDTO로 저장이된다!(클래스를 이용해서 속성명을 만든다!)
 		return "detail";
@@ -122,6 +124,8 @@ public class BoardController {
 	public String postDetail(@ModelAttribute("board") BoardDTO board) {	// Model에 저장하는  속성명을 "board"로 하겠다.! 
 		return "detail";
 	}
+	
+	*/
 	
 	
 	
