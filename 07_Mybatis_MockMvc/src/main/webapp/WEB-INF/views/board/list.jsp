@@ -21,10 +21,26 @@
 
 </style>
 <script>
-function fnDetail(n) {
-	location.href="${contextPath}/board/detail.do?boardNo=" +n;
-}
-
+	
+	function fnDetail(n) {
+		location.href="${contextPath}/board/detail.do?board_no=" +n;
+	}
+	
+	$(function () {
+		/*
+		let addResult ='1';	삽입성공
+		let addResult ='0';	삽입실패
+		let addResult ='';	삽입과 상관 없음
+		*/
+		let addResult = ${addResult};
+		if(addResult != "") {
+			if(addResult = '1') {
+				alert('게시글이 등록되었습니다.');
+			}else {
+				alert('게시글이 등록이 실패했습니다.');
+			}
+		}
+	})
 </script>
 </head>
 <body>
@@ -47,10 +63,10 @@ function fnDetail(n) {
 					</c:if>
 					<c:if test="${not empty boardList}">
 						<c:forEach items="${boardList}" var="b">
-							<tr onclick="fnDetail(${b.board_no})">
+							<tr onclick="fnDetail(${b.boardNo})">
 								<td>${b.title}</td>
 								<td>${b.writer}</td>
-								<td>${b.created_at}</td>
+								<td>${b.createdAt}</td>
 							</tr>
 						</c:forEach>				
 					</c:if>

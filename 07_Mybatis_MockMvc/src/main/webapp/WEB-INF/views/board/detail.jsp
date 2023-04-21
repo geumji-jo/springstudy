@@ -24,9 +24,9 @@
 		$('#edit_screen').hide();
 		
 	}
-	function fnRemove() {
+	function fnRemove() {// post방식 처리
 		if(confirm("삭제할까요?")) {
-			location.href = '${contextPath}/board/remove.do?board_no=${b.board_no}';
+			$('#frm_remove').submit();			//form에 있는 submit을 action으로 보내는 메소드
 		}
 
 	}
@@ -50,24 +50,36 @@
 			]
 		
 		})
-		$('#edit_screen').hide();	// 최초편집화면은 숨김
+		$('#edit_screen').hide();
+		let modifyResult = '${modifyResult}';
+		if(modifyResult != ""){
+			if(modifyResult =='1'){
+				alert('게시글이 수정되었습니다');
+			}else {
+				alert('게시글이 수정이 실패했습니다.');
+			}
+		}
 	})
 </script>
 </head>
 <body>
 
 	<div id="detail_screen">
-		<h1>${b.board_no}게시글 상세보기</h1>
+		<h1>${b.boardNo}게시글 상세보기</h1>
 		<div>제목 : ${b.title}</div>
 		<div>작성자 : ${b.writer}</div>
-		<div>작성일 : ${b.created_at}</div>
-		<div>수정일 : ${b.modified_at}</div>
+		<div>작성일 : ${b.createdAt}</div>
+		<div>수정일 : ${b.modifiedAt}</div>
 		<div>${b.content}</div>
+		<form id="frm_remove" action="${contextPath}/board/remove.do" method="post">
+			<input type="hidden" name="boardNo" value="${b.boardNo}">
+		</form>
 		<div>
 			<input type="button" value="편집" onclick="fnEdit()">
 			<input type="button" value="삭제" onclick="fnRemove()">
 			<input type="button" value="목록" onclick="fnList()">
 		</div>
+		
 	</div>
 	
 	<div id="edit_screen">
@@ -84,7 +96,7 @@
 						<textarea id="content" name="content" >${b.content}</textarea>
 					</div>
 					<div>
-						<input type="hidden" name="board_no" value="${b.board_no}" >
+						<input type="hidden" name="boardNo" value="${b.boardNo}" >
 						<button>수정완료</button>
 						<input type="button" value="목록" onclick="fnList()">
 					</div>
