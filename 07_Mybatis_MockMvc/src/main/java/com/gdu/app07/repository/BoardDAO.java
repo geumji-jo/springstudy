@@ -17,12 +17,11 @@ public class BoardDAO {
 	private final String NS ="mybatis.mapper.board.";	//(NS란 NameSpace)
 	
 	public List<BoardDTO> selectBoardList() {
-		return sqlSessionTemplate.selectList("NS + selectBoardList");
+		return sqlSessionTemplate.selectList(NS + "selectBoardList");
 	}
 	
 	public BoardDTO selectBoardByNo(int boardNo) {
-	return	sqlSessionTemplate.selectOne(NS + "selectBoardByNo", boardNo);
-		
+		return sqlSessionTemplate.selectOne(NS + "selectBoardByNo", boardNo);
 	}
 	
 	public int insertBoard(BoardDTO board) {

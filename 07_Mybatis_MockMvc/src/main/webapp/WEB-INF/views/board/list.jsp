@@ -21,26 +21,30 @@
 
 </style>
 <script>
-	
-	function fnDetail(n) {
-		location.href="${contextPath}/board/detail.do?board_no=" +n;
-	}
-	
-	$(function () {
-		/*
-		let addResult ='1';	삽입성공
-		let addResult ='0';	삽입실패
-		let addResult ='';	삽입과 상관 없음
-		*/
-		let addResult = ${addResult};
-		if(addResult != "") {
-			if(addResult = '1') {
-				alert('게시글이 등록되었습니다.');
-			}else {
-				alert('게시글이 등록이 실패했습니다.');
-			}
+function fnDetail(n) {
+	location.href = '${contextPath}/board/detail.do?boardNo=' + n;
+	location.href = '/app07/board/detail.do?boardNo=' + n;
+}
+$(function(){
+	let addResult = '${addResult}';  // let addResult = '1';  삽입 성공
+	                                 // let addResult = '0';  삽입 실패
+	                                 // let addResult = '';   삽입과 상관 없음
+	if(addResult != ''){
+		if(addResult == '1'){
+			alert('게시글이 등록되었습니다.');
+		} else {
+			alert('게시글 등록이 실패했습니다.');
 		}
-	})
+	}
+	let removeResult = '${removeResult}';
+	if(removeResult != ''){
+		if(removeResult == '1'){
+			alert('게시글이 삭제되었습니다.');
+		} else {
+			alert('게시글 삭제가 실패했습니다.');
+		}
+	}
+})
 </script>
 </head>
 <body>
@@ -61,15 +65,15 @@
 							<td colspan="3">첫 글의 주인공이 되어보세요</td>
 						</tr>
 					</c:if>
-					<c:if test="${not empty boardList}">
-						<c:forEach items="${boardList}" var="b">
-							<tr onclick="fnDetail(${b.boardNo})">
-								<td>${b.title}</td>
-								<td>${b.writer}</td>
-								<td>${b.createdAt}</td>
-							</tr>
-						</c:forEach>				
-					</c:if>
+						<c:if test="${not empty boardList}">					
+					<c:forEach items="${boardList}" var="b">
+						<tr onclick="fnDetail(${b.boardNo})">
+							<td>${b.title}</td>
+							<td>${b.writer}</td>
+							<td>${b.createdAt}</td>
+						</tr>
+					</c:forEach>
+				</c:if>
 				</tbody>
 			</table>
 		</div>
