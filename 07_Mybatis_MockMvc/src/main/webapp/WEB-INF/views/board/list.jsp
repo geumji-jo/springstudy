@@ -23,7 +23,7 @@
 <script>
 function fnDetail(n) {
 	location.href = '${contextPath}/board/detail.do?boardNo=' + n;
-	location.href = '/app07/board/detail.do?boardNo=' + n;
+	
 }
 $(function(){
 	let addResult = '${addResult}';  // let addResult = '1';  삽입 성공

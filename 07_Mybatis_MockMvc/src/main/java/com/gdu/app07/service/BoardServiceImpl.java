@@ -77,20 +77,23 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 
+
 	@Override
 	public int removeBoard(HttpServletRequest request) {
-		//파라미터 boardNo를 받아온다.
-		int boardNo = Integer.parseInt(request.getParameter("boardNo"));
-		return boardDAO.deleteBoard(boardNo);
+		try {
+			// 파라미터 boardNo를 받아온다.
+			int boardNo = Integer.parseInt(request.getParameter("boardNo"));
+			return boardDAO.deleteBoard(boardNo);
+		} catch (Exception e) {
+			return 0;
+		}
 	}
 	
 	// 트랜잭션 확인
-	
-	@Transactional
+	@Transactional(readOnly=true)  // 성능 향상을 위해서 readOnly=true 추가
 	@Override
 	public void testTx() {
 		boardDAO.insertBoard(new BoardDTO(0, "타이틀", "콘텐트", "작성자", null, null));
 		boardDAO.insertBoard(new BoardDTO());
 	}
-
 }

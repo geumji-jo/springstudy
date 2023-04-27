@@ -33,8 +33,9 @@ public class BoardDAO {
 	 return	sqlSessionTemplate.selectOne(NS + "updateBoard", board);
 		
 	}
+
 	public int deleteBoard(int boardNo) {
-	return sqlSessionTemplate.selectOne(NS +"deleteBoard", boardNo);
+		return sqlSessionTemplate.delete(NS + "deleteBoard", boardNo);
 	}
 
 }
