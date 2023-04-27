@@ -41,18 +41,22 @@ public class EmployeeController {
 		return "employees/scroll";
 	}
 	
-	@ResponseBody
-	@GetMapping(value="/employee/scroll.do", produces="application/json")
+	@ResponseBody// ajax로 반환시켜주는 애너테이션
+	@GetMapping(value="/employees/scroll.do", produces="application/json")
 	public Map<String, Object> scroll(HttpServletRequest request) {
 		return employeeListService.getEmployeeListUsingScroll(request);
 	}
 	
 	
-	@GetMapping("/employees/search.page")
-	public String searchPage(HttpServletRequest request, Model model) {
+	@GetMapping("/employees/search.do")
+	public String search(HttpServletRequest request, Model model) {
 		employeeListService.getEmployeeListUsingSearch(request, model);
-		return "employees/scroll";
+		return "employees/search";
 	}
-	
+	@ResponseBody// ajax로 반환시켜주는 애너테이션(jsp로 읽혀지지 않게 해줌)
+	@GetMapping(value="/employees/autoComplete.do", produces="application/json")
+	public Map<String, Object> autoComplete(HttpServletRequest request) {
+		return employeeListService.getAutoComplete(request);
+	}
 	
 }

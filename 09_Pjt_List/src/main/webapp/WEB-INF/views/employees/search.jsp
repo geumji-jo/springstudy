@@ -12,29 +12,41 @@
 <script src="${contextPath}/resources/js/lib/jquery-3.6.4.min.js"></script>
 <script>
 	$(function(){
-		// recordPerPage의 변경
-		$('#recordPerPage').on('change', function(){
-			location.href = '${contextPath}/employees/change/record.do?recordPerPage=' + $(this).val();  // session에 recorePerPage 올리기
+		// 자동 완성 목록 초기화
+		$('#column').on('change', function(){
+			$('#auto_complete').empty();
+			$('#query').val('');
 		})
-		// 세션에 저장된 recordPerPage값으로 <select> 태그의 값을 세팅
-		let recordPerPage = '${sessionScope.recordPerPage}' == '' ? '10' : '${sessionScope.recordPerPage}';
-		$('#recordPerPage').val(recordPerPage);
-		// 제목을 클릭하면 정렬 방식을 바꿈
-		$('.title').on('click', function(){
-			location.href = '${contextPath}/employees/pagination.do?column=' + $(this).data('column') + '&order=' + $(this).data('order') + "&page=${page}";
+		// 자동 완성 목록 가져오기
+		$('#query').on('keyup', function(){
+			$('#auto_complete').empty();
+			$.ajax({
+				// 요청
+				type: 'get',
+				url: '${contextPath}/employees/autoComplete.do',
+				data: $('#frm1').serialize(),
+				// 응답
+				dataType: 'json',
+				success: function(resData){  // resData = {"employees": [{"firstName": "xxx", "phoneNumber": "xxx", "deptDTO": {"departmentName": "xxx"}}, {}, {}, ...]}
+					$.each(resData.employees, function(i, employee){
+						switch($('#column').val()) {
+						case "E.FIRST_NAME":
+							$('#auto_complete').append('<option value="' + employee.firstName + '" />');
+							break;
+						case "E.PHONE_NUMBER":
+							$('#auto_complete').append('<option value="' + employee.phoneNumber + '" />');
+							break;
+						case "D.DEPARTMENT_NAME":
+							$('#auto_complete').append('<option value="' + employee.deptDTO.departmentName + '" />');
+							break;
+						}
+					})
+				}
+			})
 		})
 	})
 </script>
 <style>
-	.title {
-		cursor: pointer;
-	}
-	.title:hover {
-		color: gray;
-	}
-	.title:active {
-		color: silver;
-	}
 	.pagination {
 		width: 350px;
 		margin: 0 auto;
@@ -64,20 +76,20 @@
 <body>
 
 	<div>
-		<a href="${contextPath}/employees/search.form">사원 조회 화면으로 이동</a>
-	</div>
-	
-	<div>
+		<h1>사원 검색</h1>
 		<form id="frm1" action="${contextPath}/employees/search.do">
-			<select name="column">
-				<option value="FIRST_NAME">FIRST_NAME</option>
-				<option value="PHONE_NUMBER">PHONE_NUMBER</option>
+			<select name="column" id="column">
+				<option value="E.FIRST_NAME">FIRST_NAME</option>
+				<option value="E.PHONE_NUMBER">PHONE_NUMBER</option>
+				<option value="D.DEPARTMENT_NAME">DEPARTMENT_NAME</option>
 			</select>
-			<input list="auto_comlete" type="text" name="query" id="query">
-			<datalist id="auto_comlete"></datalist>
+			<input list="auto_complete" type="text" name="query" id="query">
+			<datalist id="auto_complete"></datalist>
 			<button>조회</button>
 		</form>
 	</div>
+	
+	<hr>
 	
 	<div>
 		<table border="1">
