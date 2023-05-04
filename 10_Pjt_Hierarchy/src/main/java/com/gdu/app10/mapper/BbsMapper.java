@@ -13,5 +13,7 @@ public interface BbsMapper {
 	public List<BbsDTO> getBbsList(Map<String, Object> map);
 	public int addBbs(BbsDTO bbsDTO);
 	public int removeBbs(int BbsNo);
+	public int increaseGroupOrder(BbsDTO bbsDTO);
+	public int addReply(BbsDTO replyDTO);
 
 }
