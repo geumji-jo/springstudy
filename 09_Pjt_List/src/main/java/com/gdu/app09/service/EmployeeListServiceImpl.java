@@ -17,13 +17,14 @@ import com.gdu.app09.util.PageUtil;
 
 import lombok.AllArgsConstructor;
 
-@AllArgsConstructor	// field에 @Autowired 처리가 된다.
+@AllArgsConstructor  // field에 @Autowired 처리가 된다.
 @Service
 public class EmployeeListServiceImpl implements EmployeeListService {
 
-	
+	// field
 	private EmployeeListMapper employeeListMapper;
 	private PageUtil pageUtil;
+	
 	@Override
 	public void getEmployeeListUsingPagination(HttpServletRequest request, Model model) {
 		
@@ -38,12 +39,11 @@ public class EmployeeListServiceImpl implements EmployeeListService {
 		HttpSession session = request.getSession();
 		Optional<Object> opt2 = Optional.ofNullable(session.getAttribute("recordPerPage"));
 		int recordPerPage = (int)(opt2.orElse(10));
-		
-		
-		// 파라미터 order가 전달되지 않은 경우 order=ASC로 처리한다.
+
+		// 파라미터 order가 전달되지 않는 경우 order=ASC로 처리한다.
 		Optional<String> opt3 = Optional.ofNullable(request.getParameter("order"));
 		String order = opt3.orElse("ASC");
-		
+
 		// 파라미터 column이 전달되지 않는 경우 column=EMPLOYEE_ID로 처리한다.
 		Optional<String> opt4 = Optional.ofNullable(request.getParameter("column"));
 		String column = opt4.orElse("EMPLOYEE_ID");
@@ -63,14 +63,16 @@ public class EmployeeListServiceImpl implements EmployeeListService {
 		
 		// pagination.jsp로 전달할(forward)할 정보 저장하기
 		model.addAttribute("employees", employees);
-		model.addAttribute("pagination", pageUtil.getPagination(request.getContextPath() + "/employees/pagination.do?column="+column+"&order=" + order));
-		model.addAttribute("beginNo", totalRecord - (page -1) * recordPerPage);
+		model.addAttribute("pagination", pageUtil.getPagination(request.getContextPath() + "/employees/pagination.do?column=" + column + "&order=" + order));
+		model.addAttribute("beginNo", totalRecord - (page - 1) * recordPerPage);
 		switch(order) {
-		case "ASC" : model.addAttribute("order", "DESC"); break; // 현재 ASC 정렬이므로 다음 정렬은 DESC이라고 JSP에 알려준다.
-		case "DESC" : model.addAttribute("order", "ASC"); break;
+		case "ASC" : model.addAttribute("order", "DESC"); break;  // 현재 ASC 정렬이므로 다음 정렬은 DESC이라고 Jsp에 알려준다.
+		case "DESC": model.addAttribute("order", "ASC"); break;
 		}
 		model.addAttribute("page", page);
+		
 	}
+
 	@Override
 	public Map<String, Object> getEmployeeListUsingScroll(HttpServletRequest request) {
 		
@@ -104,40 +106,40 @@ public class EmployeeListServiceImpl implements EmployeeListService {
 		return resultMap;
 		
 		/*
-		resultMap이 json으로 변환될 때의 모습
-	
-		{
-			"employees": [
-				{
-					"employeeId": 100,
-					"firstName": "Steven",
-					"lastName": "King",
-					...,
-					"deptDTO": {
-						"departmentId": 90,
-						"departmentName": "Executive",
-						...
-					}
-				},
-				{
-					"employeeId": 101,
-					"firstName": "Neena",
-					"lastName": "Kochhar",
-					...,
-					"deptDTO": {
-						"departmentId": 90,
-						"departmentName": "Executive",
-						...
-					}
-				},
-				...
-			],
-			"totalPage": 12
-		}
-	*/
+			resultMap이 json으로 변환될 때의 모습
+		
+			{
+				"employees": [
+					{
+						"employeeId": 100,
+						"firstName": "Steven",
+						"lastName": "King",
+						...,
+						"deptDTO": {
+							"departmentId": 90,
+							"departmentName": "Executive",
+							...
+						}
+					},
+					{
+						"employeeId": 101,
+						"firstName": "Neena",
+						"lastName": "Kochhar",
+						...,
+						"deptDTO": {
+							"departmentId": 90,
+							"departmentName": "Executive",
+							...
+						}
+					},
+					...
+				],
+				"totalPage": 12
+			}
+		*/
+		
 	}
 	
-
 	@Override
 	public void getEmployeeListUsingSearch(HttpServletRequest request, Model model) {
 		
@@ -183,6 +185,7 @@ public class EmployeeListServiceImpl implements EmployeeListService {
 	
 	@Override
 	public Map<String, Object> getAutoComplete(HttpServletRequest request) {
+		
 		// 파라미터 column이 전달되지 않는 경우 column=""로 처리한다. (검색할 칼럼)
 		Optional<String> opt1 = Optional.ofNullable(request.getParameter("column"));
 		String column = opt1.orElse("");
@@ -194,17 +197,18 @@ public class EmployeeListServiceImpl implements EmployeeListService {
 		// DB로 보낼 Map 만들기(column + query)
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("column", column);
-		map.put("query", query);		
+		map.put("query", query);
 		
 		// 검색 결과 목록 가져오기
 		List<EmpDTO> employees = employeeListMapper.getAutoComplete(map);
 		
-		// scroll.jsp로 응답할 데이터
+		// search.jsp로 응답할 데이터
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("employees", employees);
 		
-		//
+		// 응답
 		return resultMap;
-		}
-
+		
+	}
+	
 }
