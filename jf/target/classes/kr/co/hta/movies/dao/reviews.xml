@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<select id="getReviewsCountByMovie" parameterClass="int" resultClass="int">
+		select count(*) as cnt
+		from jf_reviews
+        where movie_no = #value#
+	</select>
+	
+	<select id="getReviewsByRangeAndMovie" parameterClass="map" resultClass="Review">
+		select
+            row_no,
+		    no,
+		    gpa,
+		    rcomment,
+		    production,
+		    ost,
+		    story,
+		    actor,
+		    beauty, 
+		    memberId,
+		    movieNo,
+		    likes,
+		    createDate
+		from (
+				select
+	                ROW_NUMBER() OVER (ORDER BY
+	                 <dynamic>
+	                 <isEqual property="ono" compareValue="0">
+	                 		review_no
+	                 	</isEqual>
+	                 	<isEqual property="ono" compareValue="1">
+	                 		review_no
+	                 	</isEqual>
+	                 	<isEqual property="ono" compareValue="2">
+	                 		review_likes
+	                 	</isEqual>
+	                 </dynamic>
+	                  DESC) as row_no,
+				    REVIEW_NO as no,
+				    REVIEW_GPA as gpa,
+				    REVIEW_COMMENT as rcomment,
+				    REVIEW_PRODUCTION production,
+				    REVIEW_OST ost,
+				    REVIEW_STORY story,
+				    REVIEW_ACTOR actor,
+				    REVIEW_BEAUTY beauty, 
+				    MEMBER_ID memberId,
+				    MOVIE_NO movieNo,
+				    REVIEW_LIKES likes,
+				    REVIEW_CREATE_DATE createDate
+  					from
+  						jf_reviews
+  					where movie_no = #movieNo#)
+           where (row_no >=#begin# and row_no &lt;=#end#)  
+	</select>
+	
+	<select id="getGPAByMovie"  parameterClass="int" resultClass="int">
+		select
+			nvl(sum(review_gpa), 0)
+		from
+			jf_reviews
+		where movie_no = #value#
+	</select>
+	<insert id="insertReview" parameterClass="Review">
+		insert into jf_reviews
+					(REVIEW_NO,
+					REVIEW_GPA,
+					REVIEW_COMMENT,
+					REVIEW_PRODUCTION,
+					REVIEW_OST,
+					REVIEW_STORY,
+					REVIEW_ACTOR,
+					REVIEW_BEAUTY,
+					MEMBER_ID,
+					MOVIE_NO,
+					REVIEW_LIKES)
+					values(
+						JF_REVIEW_SEQ.nextval,
+						#gpa#,
+						#rcomment#,
+						#production#,
+						#ost#,
+						#story#,
+						#actor#,
+						#beauty#,
+						#memberId#,
+						#movieNo#,
+						#likes#
+					)
+	</insert>
+	<update id="updateReview" parameterClass="Review">
+		update jf_reviews
+		set
+			REVIEW_GPA = #gpa#,
+			REVIEW_COMMENT = #rcomment#,
+			REVIEW_PRODUCTION = #production#,
+			REVIEW_OST = #ost#,
+			REVIEW_STORY = #story#,
+			REVIEW_ACTOR = #actor#,
+			REVIEW_BEAUTY = #beauty#,
+			MOVIE_NO = #movieNo#,
+			REVIEW_CREATE_DATE = #createDate#,
+			REVIEW_LIKES = #likes#
+		where review_no = #no#
+	</update>
+	
+	<select id="getReviewByNo" parameterClass="int" resultClass="Review">
+		select
+			REVIEW_NO as no,
+			REVIEW_GPA as gpa,
+			REVIEW_COMMENT as rcomment,
+			REVIEW_PRODUCTION production,
+			REVIEW_OST ost,
+			REVIEW_STORY story,
+			REVIEW_ACTOR actor,
+			REVIEW_BEAUTY beauty, 
+			MEMBER_ID memberId,
+			MOVIE_NO movieNo,
+			REVIEW_LIKES likes,
+			REVIEW_CREATE_DATE createDate
+			from
+			    jf_reviews
+			where review_no = #value#
+	</select>
+	<select id="getReviewsById" parameterClass="string" resultClass="Review">
+		select
+			REVIEW_NO as no,
+			REVIEW_GPA as gpa,
+			REVIEW_COMMENT as rcomment,
+			REVIEW_PRODUCTION production,
+			REVIEW_OST ost,
+			REVIEW_STORY story,
+			REVIEW_ACTOR actor,
+			REVIEW_BEAUTY beauty, 
+			MEMBER_ID memberId,
+			MOVIE_NO movieNo,
+			REVIEW_LIKES likes,
+			REVIEW_CREATE_DATE createDate
+			from
+			    jf_reviews
+			where member_id = #value#
+			order by review_create_date desc
+	</select>
+	<select id="getFivePointByMovieNo" parameterClass="int" resultClass="FivePoint">
+		select
+			    nvl(round((sum(review_production) / count(review_production))*100), 0) as production,
+			    nvl(round((sum(REVIEW_OST) / count(REVIEW_OST))*100),0) as ost,
+			    nvl(round((sum(REVIEW_STORY) / count(REVIEW_STORY))*100),0) as story,
+			    nvl(round((sum(REVIEW_ACTOR) / count(REVIEW_ACTOR))*100),0) as actor,
+			    nvl(round((sum(REVIEW_BEAUTY) / count(REVIEW_BEAUTY))*100),0) as beauty
+			from jf_reviews
+		where movie_no = #value#
+	</select>
+	<delete id="deleteReviewByNo" parameterClass="int">
+		delete jf_reviews
+		where review_no = #value#
+	</delete>
+	<select id="getMemberIdByReviewNo" parameterClass="int" resultClass="string">
+		select member_id
+		from jf_reviews
+		where review_no = #value#
+	</select>
+</sqlMap>

@@ -1,0 +1,249 @@
+@charset "UTF-8";
+
+.step {
+  height: 595px;
+  border-bottom: 1px solid #aaa;
+}
+.col-head {
+  background-color: #333;
+}
+.col-body {
+  height: 560px;
+  background-color: #f2f0e4
+}
+.col-section {
+  height: 593px;
+  border: 1px solid #aaa;
+}
+h4 {
+  color: #aaa;
+  margin-top:7px;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+.theaters {
+  width: 227px;
+  padding-left: 7px;
+  padding-right: 0px;
+  margin-bottom: 0px;
+}
+.theaters li {
+  display: inline-block;
+  width: 45%;
+  height: 20px;
+  font-size: 12px;
+}
+.theaters li a {
+    color: #000;
+    font-weight: 500;
+}
+.ul-deco {
+  list-style: none;
+  padding-left: 15px;
+}
+.time-option {
+  border-bottom: 1px solid #aaa;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.placeholder {
+  height: 520px;
+}
+.theater {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+.theater-list {
+    margin-top: 15px;
+}
+.theater-area-list {
+    padding-right: 0px;
+}
+.theater-cgv-list {
+    padding-left: 0px;
+    margin-left: -10px;
+}
+.theater-area-list .ul-deco li {
+    margin-bottom: 3px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 5px;
+    text-align: right;
+    background-color: #e6e4d9;
+}
+.theater-area-list .ul-deco li.selected {
+    background-color: #f2f0e4;
+}
+.theater-cgv-list .ul-deco li.selected-city{
+    background-color: #333;
+}
+
+#day-box li.selected-city {
+	background-color: #333;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 5px;
+}
+#day-box li.selected-city a {
+	color: #fff!important;
+}
+
+.theater-cgv-list .ul-deco li.selected-city a {
+    color: #fff;
+}
+.theater-cgv-list .ul-deco li {
+    margin-bottom: 3px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 5px;
+    text-align: left;
+}
+.theater-area-list .ul-deco li a, .theater-cgv-list .ul-deco li a {
+    color: #000;
+}
+.movie-select {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #aaa;
+    margin-bottom: 5px;
+}
+.movie-select a {
+    color: #aaa;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.movie-select a.on {
+    color: #000;
+    border-bottom: 2px solid black;
+}
+#movie-menu li {
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+#movie-menu li.selected-movie {
+	background-color: #333;
+}
+#movie-menu li.selected-movie a {
+	color: #fff;
+}
+#movie-menu li a {
+    padding-left: 27px;
+    color: #000;
+}
+.favorite-cgv {
+    border-top: 2px solid #aaa;
+    border-bottom: 2px solid #aaa;
+}
+.favorite-cgv-title p{
+    margin-top: 10px;
+    color: #a15e1b;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.ico-grade {
+    display: block;
+    position: absolute;
+
+    width: 21px;
+    height: 21px;
+    background: url("http://img.cgv.co.kr/R2014/images/sprite/sprite_icon.png") no-repeat;
+    font: 0/0 a;
+    zoom: 1;
+}
+.ico-grade.grade-0{ background-position:-30px 0;}/* 전체 */
+.ico-grade.grade-12{ background-position:-51px 0;}/* 12세 */
+.ico-grade.grade-15{ background-position:-72px 0;}/* 15세 */
+.ico-grade.grade-18{ background-position:-93px 0;}/* 청불 */
+
+.year {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.month {
+    text-align: center;
+    font-size: 30px;
+    margin-top: -10px;
+    font-weight: bold;
+}
+.month span {
+    margin-top: 0px;
+}
+.dayweek-day {
+    text-align: center;
+    padding-left: 0px;
+}
+.dayweek-day li {
+    margin-bottom: 10px;
+}
+.dayweek-day li a {
+    color: #000;
+}
+.day {
+    font-weight: bold;
+}
+.saturday span {
+    color: #31597e;
+}
+.sunday span {
+    color: #ad2727;
+}
+.ico-sun {
+    height: 14px;
+    padding-left: 18px;
+    background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
+    background-position: 0 0;
+}
+.ico-moon {
+    height: 14px;
+    padding-left: 14px;
+    margin-left: 14px;
+    background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/icon/icon_morning_night.png) no-repeat left;
+    background-position: 0 -20px;
+}
+.res-ul {
+    padding-top: 10px;
+}
+.res-ul li {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.res-time {
+    border: 1px solid #d6d3ce;
+    padding: 3px;
+    color: #333;
+    font-weight: bold;
+}
+.res-time.select-time {
+	background-color:#333;
+	color: #fff;
+}
+.res-seat {
+    color: #3d7c35;
+}
+.return-res {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.btn-right {
+	background: url(http://img.cgv.co.kr/CGV_RIA/Ticket/image/reservation/tnb/tnb_buttons.png) no-repeat;
+    background-position: 0 -550px;
+    width: 220px;
+    overflow: hidden;
+    text-indent: -1000px;
+}
+
+.btn-right {
+	position: absolute;
+    top: 10px;
+    right: 0px;
+    height: 107px;
+}
+
+li {
+	cursor: pointer;
+}

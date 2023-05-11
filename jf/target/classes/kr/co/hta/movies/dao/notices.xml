@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+	<select id="selectSearchNoticesContentCount" parameterClass="string" resultClass="int">
+		select count(*)
+		from JF_NOTICES
+		where NOTICE_CONTENT like '%' || #keyword# || '%'
+	</select>	
+	<select id="selectSearchNoticesCount" parameterClass="string" resultClass="int">
+		select count(*)
+		from JF_NOTICES
+		where NOTICE_TITLE like '%' || #keyword# || '%'
+	</select>	
+	
+	<update id="viewUpdate" parameterClass="int" >
+		update JF_NOTICES
+		set NOTICE_VIEWS = NOTICE_VIEWS + 1
+		where NOTICE_NO = #value#
+	
+	</update>
+	
+	<delete id="deleteByNo" parameterClass="string">
+		DELETE FROM JF_NOTICES 
+		WHERE NOTICE_NO = #value#
+	</delete>
+	
+	<update id="updateByNo" parameterClass="Notice">
+		Update JF_NOTICES
+		set		NOTICE_TITLE = #title#			
+				,NOTICE_CONTENT	= #contents#
+		where	NOTICE_NO	= #no#
+	</update>
+	
+	<select id="selectSearchNotices" parameterClass="map" resultClass="Notice">
+		select
+			no
+			,title
+			,createDate
+			,views
+			,contents
+		from (select
+				row_number() over(order by notice_no desc) as row_no		
+				,NOTICE_NO				no 
+				,NOTICE_TITLE			title
+				,NOTICE_CREATE_DATE		 createDate
+				,NOTICE_VIEWS			views
+				,NOTICE_CONTENT			contents
+			from JF_NOTICES
+			where NOTICE_TITLE like '%' || #keyword# || '%'
+			)
+		where row_no >= #begin# and row_no &lt;= #end#
+		
+	</select>	
+	<select id="selectSearchNoticesByContent" parameterClass="map" resultClass="Notice">
+		select
+			no    
+			,title
+			,createDate
+			,views
+			,contents
+		from (select
+				row_number() over(order by notice_no desc) as row_no		
+				,NOTICE_NO				no 
+				,NOTICE_TITLE			title
+				,NOTICE_CREATE_DATE		createDate
+				,NOTICE_VIEWS			views
+				,NOTICE_CONTENT			contents
+			from JF_NOTICES
+			where NOTICE_CONTENT like '%' || #keyword# || '%'
+			)
+		where row_no >= #begin# and row_no &lt;= #end#
+	</select>
+
+	<insert id="insertNotice" parameterClass="Notice">
+		insert into jf_notices (
+			NOTICE_NO
+			,NOTICE_TITLE
+			,NOTICE_CONTENT
+			,NOTICE_CREATE_DATE
+			,NOTICE_VIEWS)
+		VALUES 
+			(jf_notice_seq.nextval, #title#, #contents#, sysdate, 0)
+	</insert>
+	
+	  
+	<select id="selectAllNotice" resultClass="Notice">
+		select
+			NOTICE_NO				no
+			,NOTICE_TITLE			title
+			,NOTICE_CREATE_DATE		 createDate
+			,NOTICE_VIEWS			views
+			,NOTICE_CONTENT			contents
+		from JF_NOTICES
+		order by NOTICE_NO
+	</select>
+
+	<select id="selectNoticeByNo" parameterClass="int" resultClass="Notice">
+		select
+			row_no no
+			,title
+			,createDate
+			,views
+			,contents
+		from (select
+				row_number() over(order by notice_no asc) as row_no		
+				,NOTICE_NO				no 
+				,NOTICE_TITLE			title
+				,NOTICE_CREATE_DATE		 createDate
+				,NOTICE_VIEWS			views
+				,NOTICE_CONTENT			contents
+		from JF_NOTICES)
+		where row_no = #value#
+	</select>
+	
+	<select id="selectNoticeByRange" parameterClass="map" resultClass="Notice">
+		select
+			row_no no
+			,title
+			,createDate
+			,views
+			,contents
+		from (select
+				row_number() over(order by notice_no asc) as row_no		
+				,NOTICE_NO				no 
+				,NOTICE_TITLE			title
+				,NOTICE_CREATE_DATE		 createDate
+				,NOTICE_VIEWS			views
+				,NOTICE_CONTENT			contents
+			from JF_NOTICES
+			
+			)
+		where row_no >= #begin# and row_no &lt;= #end#
+        order by createDate desc
+	</select>
+	<select id="selectNoticeByCriteria" parameterClass="kr.co.hta.vo.Criteria" resultClass="Notice">
+		select
+			row_no no
+			,title
+			,createDate
+			,views
+			,contents
+		from (select
+				row_number() over(order by notice_no asc) as row_no		
+				,NOTICE_NO				no 
+				,NOTICE_TITLE			title
+				,NOTICE_CREATE_DATE		 createDate
+				,NOTICE_VIEWS			views
+				,NOTICE_CONTENT			contents
+		from JF_NOTICES
+		<dynamic>
+			  <isNotNull property="sort">
+				<isEqual property="sort" compareValue="title">
+					where NOTICE_TITLE like '%' || #keyword# || '%'
+				</isEqual>
+				<isEqual property="sort" compareValue="contents">
+					where NOTICE_CONTENT like '%' || #keyword# || '%'
+				</isEqual>
+			</isNotNull>
+		 </dynamic>
+		)
+		where (row_no >= #beginIndex# and row_no &lt;= #endIndex#)
+		Order by row_no desc
+	</select>
+	<select id="selectNoticeByCriteriaCount" parameterClass="kr.co.hta.vo.Criteria" resultClass="int">
+		select count(*)
+		from JF_NOTICES
+		<dynamic>
+			  <isNotNull property="sort">
+				<isEqual property="sort" compareValue="title">
+					where NOTICE_TITLE like '%' || #keyword# || '%'
+				</isEqual>
+				<isEqual property="sort" compareValue="contents">
+					where NOTICE_CONTENT like '%' || #keyword# || '%'
+				</isEqual>
+			</isNotNull>
+		 </dynamic>
+	</select>
+	<select id="allCount" resultClass="int">
+		select
+			count(*)
+		from JF_NOTICES
+	</select>
+	<select id="selectNotice2ByRecent" resultClass="Notice">
+		select row_no, no , title, createDate,  views, 	contents           
+		from(
+		    select
+		    row_number() over(order by notice_no desc) as row_no
+		    ,NOTICE_NO				no
+		    ,NOTICE_TITLE			title
+		    ,NOTICE_CREATE_DATE		createDate
+		    ,NOTICE_VIEWS			views
+		    ,NOTICE_CONTENT			contents
+		    from jf_notices
+		    )
+		where row_no &lt; 3
+	</select>
+	
+	
+
+</sqlMap>

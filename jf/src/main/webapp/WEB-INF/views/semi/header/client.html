@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Nunito" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/header.css">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/footer.css">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/client.css">
+
+</head>
+
+<body>
+    <!--  헤더 시작  -->
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="">무비 차트</a></li>
+                <li class=""><a href="">빠른 예매</a></li>
+                <li><a href="">이벤트</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">로그인</a></li>
+                <li><a href="">로그아웃</a></li>
+                <li class=""><a href="">회원가입</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container main_container">
+        <div class="row text-center header top_header">
+            <div class="col-sm-3">
+                <a href="">
+                    <img src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png" alt="" style="max-width:70%; margin-top: 1px;">
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12 header_center1">
+                        <div class="row">
+                            <a href=""><img src="http://img.cgv.co.kr/R2014/images/title/h2_cultureplex.png" alt="" style="max-width:45%;"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 header_center2">
+                        <div class="row">
+                            <div class="col-sm-3 main_header dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">영화<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">무비차트</a></li>
+                                    <li><a href="">무비 파인더</a></li>
+                                    <li><a href="">트레일러</a></li>
+                                    <li><a href="">평점</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 main_header dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">예매<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">빠른 예매</a></li>
+                                    <li><a href="">상영 시간표</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">극장</a>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">이벤트</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--  헤더 끝  -->
+
+
+    <div class="container">
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-sm-2">
+                <div class="row ">
+                    <div class="col-sm-11 client_mainrow_left client_selected">
+                        고객센터 메인
+                    </div>
+                    <div class="col-sm-11 client_mainrow_left">
+                        고객센터 메인
+                    </div>
+                    <div class="col-sm-11 client_mainrow_left">
+                        고객센터 메인
+                    </div>
+                    <div class="col-sm-11 client_mainrow_left">
+                        고객센터 메인
+                    </div>
+                    <div class="col-sm-11 client_mainrow_left">
+                        고객센터 메인
+                    </div>
+                    <div class="col-sm-11 client_mainrow_left">
+                        고객센터 메인
+                    </div>
+                    <div class="col-sm-11 client_mainrow_left">
+                        고객센터 메인
+                    </div>
+                    <div class="col-sm-12 client_img_div">
+                        <img class="client_left_img" src="http://adimg.cgv.co.kr/images/201808/citi/0516_160x300.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <div class="row client_mainrow_right">
+                    <div class="col-sm-4 client_red client_icon text-center">
+                        <div class="row">
+                            <div class="col-sm-12 ">
+                                <img src="../../../../photos/client_question.png" />
+                            </div>
+                            <div class="col-sm-12 fastsearch">
+                                	자주찾는 질문 빠른검색
+                            </div>
+                        </div>
+                        <div class="search_box">
+                            <input id="searchtext" type="text" title="검색어 입력" placeholder="검색어를 입력해 주세요.">
+                            <button type="button" class="btn btn-default" title="검색하기" id="btn_search">검색</button>
+                        </div>
+                        <span><a class="search_items" href="">현금영수증</a></span>
+                        <span><a class="search_items" href="">관람권</a></span>
+                        <span><a class="search_items" href="">홈페이지</a></span>
+                        <span><a class="search_items" href="">예매</a></span>
+                        <span><a class="search_items" href="">환불</a></span>
+                    </div>
+                    <div class="col-sm-4 cilent_right_center">
+                        <div class="row">
+                            <div class="col-sm-12 text-center email_div">
+                                <img src="../../../../photos/email.PNG" alt="">
+                            </div>
+                            <div class="col-sm-12 client_email_question text-center">
+                                <span>이메일 문의</span>
+                            </div>
+                            <div class="col-sm-12 client_email_question_2 text-center">
+                                <span>24시간 365일 언제든지 문의해 주세요.</span>
+                            </div>
+                            <div class="col-sm-12 text-center client_email_question_3">
+                                <button class="btn-question">문의하기</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 client_right_right">
+                        <div class="row">
+                            <div class="col-sm-12 text-center email_div">
+                                <img src="../../../../photos/counsel.PNG" alt="">
+                            </div>
+                            <div class="col-sm-12 client_email_question text-center">
+                                <span>내 상담 내역 확인</span>
+                            </div>
+                            <div class="col-sm-12 client_email_question_2 text-center">
+                                <span>문의하신 내용을 확인하실 수 있습니다.</span>
+                            </div>
+                            <div class="col-sm-12 text-center client_email_question_3">
+                                <button class="btn-question2">문의내역 조회</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row main_left_row_2_1">
+                    <div class="col-sm-4 ">
+                       <div class="row_2_1_service_div">
+                        <span>자주찾는 서비스</span>
+                       </div>
+                        <div class="row service_main_row">
+                           <a href="">
+                            <div class="col-sm-6 row_2_1_1">
+                                <div class="row row_first">
+                                    <div class="col-sm-10 row_2_2_2">
+                                       <div class="row">
+                                           <div class="col-sm-12 row_2_2_div1">
+                                        <span class="r2_2_span">신용카드</span>
+                                           </div>
+                                           <div class="col-sm-12 row_2_2_div2">
+                                        <span class="r2_2_span">영수증 출력</span>
+                                           </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-2 left_2_1_col">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            <a href="">
+                            <div class="col-sm-6 row_2_1_1">
+                                <div class="row row_first">
+                                    <div class="col-sm-10 row_2_2_2">
+                                       <div class="row">
+                                           <div class="col-sm-12 row_2_2_div1">
+                                        <span class="r2_2_span">아이디/</span>
+                                           </div>
+                                           <div class="col-sm-12 row_2_2_div2">
+                                        <span class="r2_2_span">비밀번호 찾기</span>
+                                           </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-2 left_2_1_col">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            <a href="">
+                            <div class="col-sm-6 row_2_1_1">
+                                <div class="row row_first">
+                                    <div class="col-sm-10 row_2_2_2">
+                                       <div class="row">
+                                           <div class="col-sm-12 row_2_2_div1">
+                                        <span class="r2_2_span">예매/</span>
+                                           </div>
+                                           <div class="col-sm-12 row_2_2_div2">
+                                        <span class="r2_2_span">취소내역 확인</span>
+                                           </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-2 left_2_1_col">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            <a href="">
+                            <div class="col-sm-6 row_2_1_1">
+                                <div class="row row_first">
+                                    <div class="col-sm-10 row_2_2_2">
+                                       <div class="row">
+                                           <div class="col-sm-12 row_2_2_div1">
+                                        <span class="r2_2_span">비회원</span>
+                                           </div>
+                                           <div class="col-sm-12 row_2_2_div2">
+                                        <span class="r2_2_span">예매 / 취소</span>
+                                           </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-2 left_2_1_col">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            <a href="">
+                            <div class="col-sm-6 row_2_1_1">
+                                <div class="row row_first">
+                                    <div class="col-sm-10 row_2_2_2">
+                                       <div class="row">
+                                           <div class="col-sm-12 row_2_2_div1">
+                                        <span class="r2_2_span">멤버십포인트</span>
+                                           </div>
+                                           <div class="col-sm-12 row_2_2_div2">
+                                        <span class="r2_2_span">사용안내</span>
+                                           </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-2 left_2_1_col">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            <a href="">
+                            <div class="col-sm-6 row_2_1_1">
+                                <div class="row row_first">
+                                    <div class="col-sm-10 row_2_2_2">
+                                       <div class="row">
+                                           <div class="col-sm-12 row_2_2_div1">
+                                        <span class="r2_2_span">관람권</span>
+                                           </div>
+                                           <div class="col-sm-12 row_2_2_div2">
+                                        <span class="r2_2_span">할인쿠폰 등록</span>
+                                           </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-sm-2 left_2_1_col">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-12 notice_div">
+                                <span>공지 / 뉴스</span>
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                            </div>
+                        </div>
+                        <div class="row notive_1_1_row">
+                            <div class="col-sm-10">
+                                [시스템 점검] 2019년 2월 시스템 점검 안내
+                            </div>
+                            <div class="col-sm-2">
+                                2019.02.01
+                            </div>
+                            <div class="col-sm-10">
+                                [시스템 점검] 2019년 2월 시스템 점검 안내
+                            </div>
+                            <div class="col-sm-2">
+                                2019.02.01
+                            </div>
+                            <div class="col-sm-10">
+                                [시스템 점검] 2019년 2월 시스템 점검 안내
+                            </div>
+                            <div class="col-sm-2">
+                                2019.02.01
+                            </div>
+                            <div class="col-sm-10">
+                                [시스템 점검] 2019년 2월 시스템 점검 안내
+                            </div>
+                            <div class="col-sm-2">
+                                2019.02.01
+                            </div>
+                            <div class="col-sm-10">
+                                [시스템 점검] 2019년 2월 시스템 점검 안내
+                            </div>
+                            <div class="col-sm-2">
+                                2019.02.01
+                            </div>
+                            
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 client_img1">
+                            <img src="../../../../photos/sisa.PNG" alt="">
+                            </div>
+                            <div class="col-sm-6 client_img2">
+                            <img src="../../../../photos/discount.PNG" alt="">
+                            </div>
+
+                        
+
+                    </div>
+                </div>
+                <div class="row">
+                    <hr class="">
+                </div>
+
+            </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        분실물 문의
+                    </div>
+                    <div class="col-sm-3">
+                        분실물 문의
+                    </div>
+                    <div class="col-sm-3">
+                        분실물 문의
+                    </div>
+                    <div class="col-sm-3">
+                        분실물 문의
+                    </div>
+                </div>
+                <div class="row">
+                    <hr>
+                </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container container-footer" style="margin-top:40px; margin-bottom:0px;">
+        <div class="row">
+            <div class="col-sm-10">
+                <ul class="footer-ul">
+                    <li><a href="http://corp.cgv.co.kr/company/" target="_blank">회사소개</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/ir/financial/financial_list.aspx" target="_blank">IR</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/recruit/step/default.aspx" target="_blank">채용정보</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/advertize/ad_Default.aspx" target="_blank">광고/프로모션문의</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/advertize/af_default.aspx" target="_blank">제휴문의</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/advertize/bp_insert.aspx" target="_blank">출점문의</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/service.aspx">이용약관</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/organized.aspx">편성기준</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/privacy.aspx" class="empha-red">개인정보처리방침</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/disclaimer.aspx">법적고지</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/emreject.aspx">이메일주소무단수집거부</a></li>
+                    <li><a href="http://www.cgv.co.kr/company/coexist.aspx">상생경영</a></li>
+                    <li><a href="http://www.cgv.co.kr/guide/sitemap.aspx">사이트맵</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <div class="share">
+                    <a href="https://www.facebook.com/CJCGV" target="_blank" class="facebook" title="새창"><img src="../../../../photos/footer_facebook.PNG"></a>
+                    <a href="https://twitter.com/cj_cgv" target="_blank" class="twitter" title="새창"><img src="../../../../photos/footer_twitter.PNG"></a>
+                    <a href="https://www.instagram.com/cgv_korea/" target="_blank" class="instagram" title="새창"><img src="../../../../photos/footer_instargram.PNG"></a>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row address">
+            <div class="col-sm-2">
+                <img src="../../../../photos/CJ_CGV_logo.jpg" width="100%">
+            </div>
+            <div class="col-sm-8">
+                <p>(04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)</p>
+                <p class="vl">
+                    <span>대표이사 : 최병환</span><span>사업자등록번호 : 104-81-45690</span><span>통신판매업신고번호 : 2017-서울용산-0662</span>
+                </p>
+                <p class="vl">
+                    <span>개인정보보호 책임자 : 정종민</span><span>대표이메일 : cjcgvmaster@cj.net</span><span>CGV고객센터 : 1544-1122</span>
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <div class="familysite">
+                    <label for="familysite" class="hidden">CJ그룹 계열사 바로가기</label>
+                    <select id="familysite">
+                        <option value="">계열사 바로가기</option>
+                        <optgroup label="CJ그룹">
+                            <option value="http://www.cj.net/">CJ주식회사</option>
+                        </optgroup>
+                        <optgroup label="엔터테인먼트 &amp; 미디어">
+                            <option value="http://www.cjenm.com/">CJ ENM (E&amp;M)</option>
+                            <option value="http://www.cgv.co.kr/">CJ CGV</option>
+                            <option value="http://www.cjhello.com/">CJ Hello</option>
+                            <option value="http://www.cjpowercast.com/">CJ파워캐스트</option>
+                        </optgroup>
+                        <optgroup label="식품 &amp; 식품서비스">
+                            <option value="https://www.cj.co.kr/kr/index">CJ제일제당 (식품)</option>
+                            <option value="http://www.cjfreshway.com/">CJ프레시웨이</option>
+                            <option value="http://www.cjfoodville.co.kr/">CJ푸드빌</option>
+                            <option value="http://www.md1.co.kr/">CJ엠디원</option>
+                        </optgroup>
+                        <optgroup label="생명공학">
+                            <option value="https://www.cj.co.kr/kr/index">CJ제일제당 (바이오)</option>
+                        </optgroup>
+                        <optgroup label="신유통">
+                            <option value="http://display.cjmall.com">CJ ENM (오쇼핑)</option>
+                            <option value="http://www.cjlogistics.com">CJ대한통운</option>
+                            <option value="http://www.cjtelenix.com/">CJ텔레닉스</option>
+                            <option value="http://www.oliveyoung.co.kr/store/main/main.do">CJ올리브네트웍스 (올리브영)</option>
+                        </optgroup>
+                        <optgroup label="인프라">
+                            <option value="http://www.cjenc.co.kr/">CJ대한통운 (건설)</option>
+                            <option value="http://www.cjolivenetworks.co.kr/itbusiness/">CJ올리브네트웍스 (IT사업)</option>
+                        </optgroup>
+                    </select>
+                    <button type="button" title="새창" onclick="goFamilySite()">GO</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="copyright">© CJ CGV. All Rights Reserved</p>
+        </div>
+    </div>
+    <!-- footer -->
+</body></html>

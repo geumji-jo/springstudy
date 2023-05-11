@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	
+	<select id="getRank1MovieByOrderBy" parameterClass="map" resultClass="Movie">
+		select no,korTitle,engTitle,reservationRate,gpa,realMembers,director,genre,ageLimit,runningTime,
+				country,releaseDate,wishList,info,trailer,steelCut,screenYn,price,ac, poster
+		from (
+			select
+		        row_number() over(order by 
+		        <dynamic>
+		      	  <isEqual property="sort" compareValue="1">
+		      		  movie_reservation_rate desc
+		      	  </isEqual>
+		      	  <isEqual property="sort" compareValue="2">
+		      		  movie_kortitle asc
+		      	  </isEqual>
+		      	  <isEqual property="sort" compareValue="3">
+		      	  	  movie_gpa desc
+		      	  </isEqual>
+		      	  <isEqual property="sort" compareValue="4">
+		      	  	  movie_real_members desc
+		      	  </isEqual>
+		        </dynamic>
+				) as ranking,
+		        MOVIE_NO as no,
+		        MOVIE_KORTITLE as korTitle,
+		        MOVIE_ENGTITLE as engTitle,
+		        MOVIE_RESERVATION_RATE as reservationRate,
+		        MOVIE_GPA as gpa,
+		        MOVIE_REAL_MEMBERS realMembers,
+		        MOVIE_DIRECTOR director,
+		        MOVIE_GENRE genre,
+		        MOVIE_AGE_LIMIT ageLimit,
+		        MOVIE_RUNNING_TIME runningTime,
+		        MOVIE_PROD_COUNTRY country,
+		        MOVIE_RELEASE_DATE releaseDate,
+		        MOVIE_WISHLIST wishList,
+		        MOVIE_INFO info, 
+		        MOVIE_TRAILER trailer,
+		        MOVIE_STEEL_CUT steelCut,
+		        MOVIE_SCREEN_YN screenYn,
+		        MOVIE_PRICE price,
+		        MOVIE_ACTORS ac,
+		        MOVIE_POSTER poster
+			from jf_movies
+			where movie_screen_yn = 'Y')
+		where ranking = 1
+	</select>
+
+	<select id="getAllMoviesRankBySort" parameterClass="map" resultClass="Movie">
+		select
+			MOVIE_NO no,
+            MOVIE_KORTITLE korTitle,
+            MOVIE_ENGTITLE engTitle,
+            MOVIE_RESERVATION_RATE reservationRate,
+            MOVIE_GPA gpa,
+            MOVIE_REAL_MEMBERS realMembers,
+            MOVIE_DIRECTOR director,
+            MOVIE_GENRE genre,
+            MOVIE_AGE_LIMIT ageLimit,
+            MOVIE_RUNNING_TIME runningTime,
+            MOVIE_PROD_COUNTRY country,
+            MOVIE_RELEASE_DATE releaseDate,
+            MOVIE_WISHLIST wishList,
+            MOVIE_INFO info, 
+            MOVIE_TRAILER trailer,
+            MOVIE_STEEL_CUT steelCut,
+            MOVIE_SCREEN_YN screenYn,
+            MOVIE_PRICE price,
+            MOVIE_ACTORS actors,
+            MOVIE_POSTER poster
+		from 
+			jf_movies
+		where 
+			movie_screen_yn = 'Y'
+		order by 
+        <dynamic>
+      	  <isEqual property="sort" compareValue="1">
+      		  movie_reservation_rate desc
+      	  </isEqual>
+      	  <isEqual property="sort" compareValue="2">
+      		  movie_kortitle asc
+      	  </isEqual>
+      	  <isEqual property="sort" compareValue="3">
+      	  	  movie_gpa desc
+      	  </isEqual>
+      	  <isEqual property="sort" compareValue="4">
+      	  	  movie_real_members desc
+      	  </isEqual>
+        </dynamic>
+        
+	</select>
+
+	<!-- 예매율순 -->
+	<select id="getAllMoviesRankByResRate" resultClass="Movie">
+		select  no, korTitle, engTitle, reservationRate, gpa, realMembers, director,
+		        genre, ageLimit, runningTime,country, releaseDate, wishList, info, trailer, 
+		        steelCut, screenYn, price, actors, poster
+		from (
+		      select row_number() over(order by movie_reservation_rate desc) row_no,
+	            MOVIE_NO no,
+	            MOVIE_KORTITLE korTitle,
+	            MOVIE_ENGTITLE engTitle,
+	            MOVIE_RESERVATION_RATE reservationRate,
+	            MOVIE_GPA gpa,
+	            MOVIE_REAL_MEMBERS realMembers,
+	            MOVIE_DIRECTOR director,
+	            MOVIE_GENRE genre,
+	            MOVIE_AGE_LIMIT ageLimit,
+	            MOVIE_RUNNING_TIME runningTime,
+	            MOVIE_PROD_COUNTRY country,
+	            MOVIE_RELEASE_DATE releaseDate,
+	            MOVIE_WISHLIST wishList,
+	            MOVIE_INFO info, 
+	            MOVIE_TRAILER trailer,
+	            MOVIE_STEEL_CUT steelCut,
+	            MOVIE_SCREEN_YN screenYn,
+	            MOVIE_PRICE price,
+	            MOVIE_ACTORS actors,
+	            MOVIE_POSTER poster
+	        from jf_movies
+	      )
+			where screenYn = 'Y'
+	</select>
+	
+	<!-- 예매율순 1위 -->
+	<select id="getRank1MovieByResRate" resultClass="Movie">
+		select no,korTitle,engTitle,reservationRate,gpa,realMembers,director,genre,ageLimit,runningTime,
+				country,releaseDate,wishList,info,trailer,steelCut,screenYn,price,ac, poster
+		from (
+			select
+		        row_number() over(order by movie_reservation_rate desc) as ranking,
+		        MOVIE_NO as no,
+		        MOVIE_KORTITLE as korTitle,
+		        MOVIE_ENGTITLE as engTitle,
+		        MOVIE_RESERVATION_RATE as reservationRate,
+		        MOVIE_GPA as gpa,
+		        MOVIE_REAL_MEMBERS realMembers,
+		        MOVIE_DIRECTOR director,
+		        MOVIE_GENRE genre,
+		        MOVIE_AGE_LIMIT ageLimit,
+		        MOVIE_RUNNING_TIME runningTime,
+		        MOVIE_PROD_COUNTRY country,
+		        MOVIE_RELEASE_DATE releaseDate,
+		        MOVIE_WISHLIST wishList,
+		        MOVIE_INFO info, 
+		        MOVIE_TRAILER trailer,
+		        MOVIE_STEEL_CUT steelCut,
+		        MOVIE_SCREEN_YN screenYn,
+		        MOVIE_PRICE price,
+		        MOVIE_ACTORS ac,
+		        MOVIE_POSTER poster
+			from jf_movies
+			where movie_screen_yn = 'Y')
+		where ranking = 1
+	</select>
+	
+	<!-- 예매하기 -->
+	<select id="getTicketingsByMovieNo" parameterClass="int" resultClass="Ticketing">
+		select
+			m.movie_no			movieNo,
+			m.movie_kortitle 	movieTitle,
+			t.theater_city		theaterCity,
+			t.theater_name		theaterName,
+			s.screening_date	screeningDate,
+			s.screening_time	screeningTime,
+			r.room_name			roomName,
+			r.room_seat			roomSeat,
+			s.screening_no		screeningNo
+		from
+			jf_movies m, jf_theaters t, jf_screening_rooms r, jf_screenings s
+		where
+			m.movie_no = s.movie_no
+		and
+			s.room_no = r.room_no
+		and
+			r.theater_no = t.theater_no
+		and
+			to_char(s.screening_date, 'yyyy-mm-dd') >= to_char(sysdate, 'yyyy-mm-dd')
+		and
+			m.movie_no = #value#
+	</select>
+	
+	<select id="getCountCitiesByMovieNo" parameterClass="int" resultClass="CityCount">
+		select 
+			movie_no								movieNo,
+			sum(decode(theater_city, '서울', 1, 0)) seoul,
+			sum(decode(theater_city, '인천', 1, 0)) incheon,
+			sum(decode(theater_city, '부산/울산', 1, 0)) bsus,
+			sum(decode(theater_city, '광주/전라/제주', 1, 0)) gjj,
+			sum(decode(theater_city, '강원', 1, 0)) kangwon,
+			sum(decode(theater_city, '대전/충청', 1, 0)) djcc,
+			sum(decode(theater_city, '대구', 1, 0)) daegu,
+			sum(decode(theater_city, '경상', 1, 0)) kyeongsang,
+			sum(decode(theater_city, '경기', 1, 0)) kyeongi
+	
+		from (select distinct
+				m.movie_no,
+				t.theater_city,
+				t.theater_name
+				from
+					jf_movies m, jf_theaters t, jf_screening_rooms r, jf_screenings s
+				where
+					m.movie_no = s.movie_no
+				and
+					s.room_no = r.room_no
+				and
+					r.theater_no = t.theater_no
+				and
+					to_char(s.screening_date, 'yyyy-mm-dd') >= to_char(sysdate, 'yyyy-mm-dd')
+				and
+					m.movie_no = #value#)
+		group by movie_no
+	</select>
+	
+	<select id="getTheaterNameByMnoCity" parameterClass="map" resultClass="string">
+		select distinct
+			t.theater_name		theaterName
+		from
+			jf_movies m, jf_theaters t, jf_screening_rooms r, jf_screenings s
+		where
+			m.movie_no = s.movie_no
+		and
+			s.room_no = r.room_no
+		and
+			r.theater_no = t.theater_no
+		and
+			m.movie_no = #movieNo#
+		and
+			theater_city = #theaterCity#
+		and
+			to_char(s.screening_date, 'yyyy-mm-dd') >= to_char(sysdate, 'yyyy-mm-dd')
+	</select>
+	
+	<select id="getDatesByMnoTname" parameterClass="map" resultClass="string">
+		select distinct
+			to_char(s.screening_date, 'MM-dd-dy')	screeningDate
+		from 
+			jf_screenings s, jf_screening_rooms r, jf_theaters t
+		where 
+			s.room_no = r.room_no
+		and 
+			t.theater_no = r.theater_no
+		and
+			to_char(s.screening_date, 'yyyy-mm-dd') >= to_char(sysdate, 'yyyy-mm-dd')
+		and
+			s.movie_no = #movieNo#
+		and
+			t.theater_name = #theaterName#
+		order by 1 asc
+	</select>
+	
+	<select id="getScreeningsByMDT" parameterClass="map" resultClass="Ticketing">
+		select
+			s.screening_no			screeningNo,
+			t.theater_name			theaterName,
+			r.room_name				roomName,
+			r.room_seat				roomSeat,
+			s.screening_date		screeningDate,
+			s.screening_time		screeningTime,
+			s.movie_no				movieNo
+		from 
+			jf_screening_rooms r, jf_theaters t, jf_screenings s
+		where
+			r.room_no = s.room_no
+		and
+			t.theater_no = r.theater_no
+		and
+			s.movie_no = #movieNo#
+		and 
+			to_char(s.screening_date, 'mm-dd-dy') = #screeningDate#
+		and 
+			t.theater_name = #theaterName#
+		<dynamic>
+			<isEqual property="screeningDate" compareProperty="date">
+				and
+					s.screening_time >= to_char(sysdate, 'HH24:MI')
+			</isEqual>
+		</dynamic>
+		order by
+			r.room_name, s.screening_no
+	</select>
+	
+	<select id="getReservationCount" resultClass="hashmap">
+		select
+			s.screening_no			screeningNo,
+			sum(reservation_count)	count
+		from
+			jf_reservations res, jf_screenings s
+		where
+			res.screening_no = s.screening_no
+		and 
+			res.reservation_yn = 'Y'
+		group by s.screening_no
+	</select>
+	
+	<insert id="insertReservation" parameterClass="Reservation">
+		insert into jf_reservations 
+			(reservation_no, member_id, screening_no, reservation_date, reservation_yn, reservation_count)
+		values 
+			(jf_res_seq.nextval, #memberId#, #screeningNo#, sysdate, 'Y', #reservationCount#)
+	</insert>
+	
+	<select id="getMovieNoBySno" parameterClass="int" resultClass="int">
+		select movie_no
+		from jf_screenings
+		where screening_no = #value#
+	</select>
+	
+	<update id="updateMoviesByMno" parameterClass="map">
+		update jf_movies
+		set movie_real_members = #count#,
+			movie_reservation_rate = #resRate#
+		where movie_no = #movieNo#
+	</update>
+	
+	<select id="getSumRealMembers" resultClass="int">
+		select sum(movie_real_members)
+		from jf_movies
+	</select>
+	
+	<select id="getRealMembersByMno" parameterClass="int" resultClass="int">
+		select movie_real_members
+		from jf_movies
+		where movie_no = #value#
+	</select>
+	
+	<select id="getDatesBySort" parameterClass="map" resultClass="string">
+		select distinct
+			to_char(s.screening_date, 'MM-dd-dy')	screeningDate
+		from 
+			jf_screenings s, jf_screening_rooms r, jf_theaters t
+		where 
+			s.room_no = r.room_no
+		and 
+			t.theater_no = r.theater_no
+		and
+			to_char(s.screening_date, 'yyyy-mm-dd') >= to_char(sysdate, 'yyyy-mm-dd')
+		<dynamic>
+			<isEqual property="type" compareProperty="movieNo">
+				and
+					s.movie_no = #movieNo#		
+			</isEqual>
+			<isEqual property="type" compareProperty="theaterName">
+				and
+					t.theater_name = #theaterName#
+			</isEqual>
+		</dynamic>
+		order by 1 asc
+	</select>
+	
+	<select id="getScreeningsByMD" parameterClass="map" resultClass="Ticketing">
+		select
+			s.screening_no			screeningNo,
+			t.theater_name			theaterName,
+			r.room_name				roomName,
+			r.room_seat				roomSeat,
+			s.screening_date		screeningDate,
+			s.screening_time		screeningTime,
+			s.movie_no				movieNo,
+			t.theater_city			theaterCity
+		from 
+			jf_screening_rooms r, jf_theaters t, jf_screenings s
+		where
+			r.room_no = s.room_no
+		and
+			t.theater_no = r.theater_no
+		and
+			s.movie_no = #movieNo#
+		and 
+			to_char(s.screening_date, 'MM-dd-dy') = #screeningDate#
+		<dynamic>
+			<isEqual property="screeningDate" compareProperty="date">
+				and
+					s.screening_time >= to_char(sysdate, 'HH24:MI')
+			</isEqual>
+		</dynamic>
+		order by
+			t.theater_name, s.screening_no
+	</select>
+	
+	<select id="getMovieInfosByMno" parameterClass="int" resultClass="Movie">
+		select 
+			movie_no 				no, 
+			movie_kortitle			korTitle, 
+			movie_poster			poster, 
+			movie_release_date		releaseDate, 
+			movie_genre				genre, 
+			movie_running_time		runningTime
+		from 
+			jf_movies
+		where
+			movie_no = #value#
+	</select>
+	
+	<select id="getAllMovieInfos" resultClass="Movie">
+		select 
+			movie_no 				no, 
+			movie_kortitle			korTitle, 
+			movie_poster			poster, 
+			movie_release_date		releaseDate, 
+			movie_genre				genre, 
+			movie_running_time		runningTime
+		from 
+			jf_movies
+	</select>
+	
+	<select id="getTicketingsByTname" parameterClass="map" resultClass="Ticketing">
+		select 
+			m.movie_no			movieNo,
+			m.movie_kortitle	movieTitle,
+			t.theater_city		theaterCity,
+			t.theater_name		theaterName,
+			s.screening_date	screeningDate,
+			s.screening_time	screeningTime,
+			r.room_name			roomName,
+			r.room_seat			roomSeat,
+			s.screening_no		screeningNo
+		from 
+			jf_theaters t, jf_screenings s, jf_screening_rooms r, jf_movies m
+		where 
+			s.room_no = r.room_no
+		and 
+			r.theater_no = t.theater_no
+		and
+			m.movie_no = s.movie_no
+		and 
+			to_char(s.screening_date, 'yyyy-mm-dd') >= to_char(sysdate, 'yyyy-mm-dd')
+		<dynamic>
+			<isEqual property="screeningDate" compareProperty="date">
+				and
+					s.screening_time >= to_char(sysdate, 'HH24:MI')
+			</isEqual>
+		</dynamic>
+		and 
+			t.theater_name = #tname#
+		order by
+			m.movie_no, s.screening_no
+	</select>
+	
+	<select id="getAllAgeLimit" resultClass="hashmap">
+		select
+			movie_no			movieNo,
+			movie_age_limit		movieAgeLimit
+		from
+			jf_movies
+	</select>
+	
+	<select id="getTheatersByCityName" parameterClass="string" resultClass="string">
+		select
+			theater_name
+		from
+			jf_theaters
+		where
+			theater_city = #value#
+	</select>
+	
+	<select id="getDatesByMC" parameterClass="map" resultClass="string">
+		select distinct
+			to_char(s.screening_date, 'MM-dd-dy')	screeningDate
+		from 
+			jf_screenings s, jf_screening_rooms r, jf_theaters t
+		where 
+			s.room_no = r.room_no
+		and 
+			t.theater_no = r.theater_no
+		and
+			to_char(s.screening_date, 'yyyy-mm-dd') >= to_char(sysdate, 'yyyy-mm-dd')
+		and
+			s.movie_no = #movieNo#
+		and
+			t.theater_city = #theaterCity#
+		order by 1 asc
+	</select>
+	
+	<select id="getTicketingBySno" parameterClass="int" resultClass="Ticketing">
+		select 
+			m.movie_no				movieNo,
+			m.movie_kortitle		movieTitle,
+			t.theater_city			theaterCity,
+			t.theater_name			theaterName,
+			s.screening_date		screeningDate,
+			s.screening_time		screeningTime,
+			r.room_name				roomName,
+			r.room_seat				roomSeat,
+			s.screening_no			screeningNo
+		from 
+			jf_screenings s, jf_movies m, jf_screening_rooms r, jf_theaters t
+		where
+			s.movie_no = m.movie_no
+		and
+			r.room_no = s.room_no
+		and
+			t.theater_no = r.theater_no
+		and
+			screening_no = #value#
+	</select>
+	
+	<select id="getScreeningsByDT" parameterClass="map" resultClass="Ticketing">
+		select
+			s.screening_no			screeningNo,
+			t.theater_name			theaterName,
+			r.room_name				roomName,
+			r.room_seat				roomSeat,
+			s.screening_date		screeningDate,
+			s.screening_time		screeningTime,
+			s.movie_no				movieNo
+		from 
+			jf_screening_rooms r, jf_theaters t, jf_screenings s, jf_movies m
+		where
+			r.room_no = s.room_no
+		and
+			t.theater_no = r.theater_no
+		and 
+			m.movie_no = s.movie_no
+		and
+			to_char(s.screening_date, 'mm-dd-dy') = #screeningDate#
+		and 
+			t.theater_name = #theaterName#
+		and
+			m.movie_screen_yn = 'Y'
+		<dynamic>
+			<isEqual property="screeningDate" compareProperty="date">
+				and
+					s.screening_time >= to_char(sysdate, 'HH24:MI')
+			</isEqual>
+		</dynamic>
+		order by
+			s.movie_no, s.screening_no
+	</select>
+	
+</sqlMap>

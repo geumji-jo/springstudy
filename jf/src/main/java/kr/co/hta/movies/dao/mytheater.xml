@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<select id="selectMyTheatersById" parameterClass="string" resultClass="MyTheater">
+	select 
+    	mt.mytheater_no as no,
+    	mem.member_id as memberId, 
+    	the.theater_name as theaterName,
+    	the.theater_no as theaterNo,
+    	the.theater_city as city
+	from 
+    	jf_mytheaters mt,
+    	jf_members mem,
+    	jf_theaters the
+	where 
+		mt.theater_no = the.theater_no
+	and 
+		mt.member_id = mem.member_id
+	and 
+		mem.member_id = #value#
+	and
+		mytheater_used_yn = 'Y'
+	</select>
+	
+	<insert id="addMyTheater" parameterClass="MyTheater">
+		insert into jf_mytheaters (mytheater_no, member_id, theater_no)
+		values
+		(jf_mytheater_seq.nextval, #memberId#, #theaterNo#)
+	</insert>
+	
+	<select id="getTheatersByCity" parameterClass="string" resultClass="Theater">
+		select 
+			THEATER_NO no,
+			THEATER_NAME name,
+			THEATER_LOCATION location, 
+			THEATER_TEL tel, 
+			THEATER_ROOM room,
+			THEATER_SEAT seat,
+			THEATER_TRAFFIC_INFO trafficInfo,
+			THEATER_PARKING_INFO parkingInfo,
+			THEATER_CITY city,
+			THEATER_PHOTO photo
+		from
+			jf_theaters
+		where theater_city = #value#
+	</select>
+	
+	<update id="modifyMytheaterByNo" parameterClass="int">
+		update 
+			jf_mytheaters
+		set
+			mytheater_used_yn = 'N'
+		where
+			mytheater_no = #value#
+	</update>
+</sqlMap>

@@ -1,0 +1,45 @@
+.col-sm-12 > a{
+	text-decoration: none;
+}
+.mygpa_movieName_div{
+	margin-bottom : 5px;
+}
+.mygpa_movieName{
+	font-size: 17px;
+	font-weight: bold;
+}
+.mygpa_idAndDate{
+	font-size : 13px;
+	color : #595959;
+}
+.mygpa_contents{
+	margin-top:10px;
+	font-size : 13px;
+	height: 170px;
+}
+.mygpa_bottom_hr{
+	margin-top : 15px;
+	margin-bottom : 35px;
+}
+.mygpa_modify{
+	color: #595959;
+	font-size : 13px;
+}
+.mygpa_ul {
+	display : inline-block;
+	margin-left : 20px;
+}
+.mygpa_likes{
+	position: relative;
+	bottom:2px;
+	font-size : 7px;
+	opacity: 0.3;
+}
+.mygpa_likes_number{
+	font-size : 13px;
+}
+.mygpa_likes_right{
+	position: relative;
+	color:#595959;
+	top:2px;
+}

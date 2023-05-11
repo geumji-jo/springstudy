@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<select id="getAllMembers" resultClass="Member">
+		select
+		    MEMBER_ID id,
+		    MEMBER_PWD pwd,
+		    MEMBER_NAME name,
+		    MEMBER_NICKNAME nickName,
+		    MEMBER_PHONE phone,
+		    MEMBER_EMAIL email,
+		    MEMBER_BIRTH birth,
+		    MEMBER_GENDER gender,
+		    MEMEBER_POINT point,
+		    MEMBER_CREATE_DATE createDate,
+		    MEMBER_TYPE type,
+		    MEMBER_USED_YN usedYn,
+		    MEMBER_HINT hint
+	from jf_members 
+	</select>
+	
+	<select id="getMemberById" parameterClass="string" resultClass="Member">
+		select
+		    MEMBER_ID id,
+		    MEMBER_PWD pwd,
+		    MEMBER_NAME name,
+		    MEMBER_NICKNAME nickName,
+		    MEMBER_PHONE phone,
+		    MEMBER_EMAIL email,
+		    MEMBER_BIRTH birth,
+		    MEMBER_GENDER gender,
+		    MEMEBER_POINT point,
+		    MEMBER_CREATE_DATE createDate,
+		    MEMBER_TYPE type,
+		    MEMBER_USED_YN usedYn,
+		    MEMBER_HINT hint
+		from jf_members
+		where member_id = #value#
+		and member_used_yn = 'Y'
+	</select>
+	<insert id="insertMember" parameterClass="Member">
+		insert into jf_members
+			(
+			MEMBER_ID,
+			MEMBER_PWD,
+			MEMBER_NAME,
+			MEMBER_NICKNAME,
+			MEMBER_PHONE,
+			MEMBER_EMAIL,
+			MEMBER_BIRTH,
+			MEMBER_GENDER,
+			MEMBER_HINT,
+			MEMBER_USED_YN
+			)
+		values
+			(
+			#id#,#pwd#,#name#,#nickName#,#phone#,#email#,#birth#,#gender#,#hint#,#usedYn#
+			)
+	</insert>
+	<update id="updateMemberById" parameterClass="Member">
+		update jf_members
+		set	MEMBER_PWD = #pwd#,
+			MEMBER_NAME = #name#,
+			MEMBER_NICKNAME = #nickName#,
+			MEMBER_PHONE = #phone#,
+			MEMBER_EMAIL = #email#,
+			MEMBER_BIRTH = #birth#,
+			MEMBER_GENDER = #gender#,
+			MEMBER_USED_YN = #usedYn#,
+		    MEMBER_HINT =#hint#
+		where
+			member_id = #id#
+	</update>
+	<select id="getWishListByIdandMovieNo" parameterClass="map" resultClass="WishList">
+		select
+			WISHLISTS_NO no,
+			MEMBER_ID memberId,
+			MOVIE_NO movieNo,
+			WISHLIST_YN yn
+		from
+			jf_wishLists
+		where member_id = #memberId#
+		and movie_no = #mno#
+		and WISHLIST_YN = 'Y'
+	</select>
+	<select id="getWishListById" parameterClass="string" resultClass="WishList">
+		select
+			WISHLISTS_NO no,
+			MEMBER_ID memberId,
+			MOVIE_NO movieNo,
+			WISHLIST_YN yn
+		from
+			jf_wishLists
+		where member_id = #value#
+		and WISHLIST_YN = 'Y'
+		order by wishlists_no desc
+	</select>
+	<insert id="insertWishListById" parameterClass="WishList">
+		insert into jf_wishLists
+			(
+			WISHLIST_YN,
+			WISHLISTS_NO,
+			MEMBER_ID,
+			MOVIE_NO
+			)
+		values
+			(
+			#yn#,
+			JF_WISHLIST_SEQ.nextval,
+			#memberId#,
+			#movieNo#
+			)
+	</insert>
+	<update id="updateWishList" parameterClass="WishList">
+		update jf_wishlists
+		set
+			wishlist_yn = #yn#
+		where member_id = #memberId#
+		and movie_no = #movieNo#
+	</update>
+	
+	<select id="getCountWishListById" parameterClass="string" resultClass="int">
+		select nvl(count(*),0)
+		from jf_wishlists
+		where member_id = #value#
+		and wishlist_yn = 'Y'
+	</select>
+	<select id="getIdByInfoes" parameterClass="map" resultClass="string">
+		select member_id
+		from jf_members
+		where
+			member_name  = #userName#
+		and 
+			member_phone = #userPhone#
+		and 
+			member_birth = #userBirth#
+	</select>
+	<select id="getReservationNumsById" parameterClass="string" resultClass="int">
+		select a.movie_no no
+		from jf_screenings a, jf_reservations b
+		where a.screening_no = b.screening_no
+		and b.member_id = #value#
+		group by a.movie_no
+	</select>
+	<select id="getMnoMemberIdByReview" parameterClass="map" resultClass="string">
+		select member_id
+		from jf_reviews
+		where member_id = #memberId#
+		and movie_no = #mno#
+	</select>
+</sqlMap>

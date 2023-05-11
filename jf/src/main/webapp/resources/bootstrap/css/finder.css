@@ -1,0 +1,96 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    font-size: 100%;
+    margin: 0;
+    border: 0;
+    vertical-align: baseline;
+    word-break: break-all;
+}
+
+.legend-title{
+    text-align: center;
+}
+
+.sect-finder{ width:auto; height:auto; background:#29353d;}
+.sect-finder h3{ height:auto; margin:0; padding-left :17%; background:none;}
+.sect-finder h3 img{ background:none;}
+.sect-finder table{ border-collapse:collapse;}
+.sect-finder table .finder-col01{ width:107px;}
+.sect-finder th, .sect-finder td{ padding:11px 0; border-top:1px solid #3e484f; color:#fdfcf0; font-size:13px; vertical-align:middle; }
+#keyword_type {color: black;}
+#keyword {color: black;}
+.sect-finder th{ padding-left:34px; text-align:left;}
+.sect-finder td ui:after{ content:''; clear:both; display:block; }
+.sect-finder td li{ float:left; width:14%;}
+.sect-finder td ul:first-child li:first-child{ width:14%; margin:0;}
+.sect-finder td .collage{ color:#23b7e8; width:86%}
+.sect-finder td label{ display:inline-block; padding:1px 0; font-weight: 400;}
+.sect-finder .maketype + td li{ width:auto; margin-right:28px}
+.sect-finder .gradetype + td li{ width:auto; margin-right:35px;}
+.sect-finder .wrap-submit{ padding-top:10px; text-align:center;}
+.sect-finder .wrap-submit > button{ margin:0 3px;}
+.sect-finder .wrap-submit .round { 
+    width:71px;
+    margin-bottom: 10px;
+    
+    line-height: 23px;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.round.inred{
+	background: #e71a0f;
+    border: 2px solid #e71a0f;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    color: #ffffff;
+    line-height: 21px;
+
+}
+
+.round.red {
+    border: 2px solid #e71a0f;
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    color: #e71a0f;
+    background: #29353d;
+}
+
+#year_start {color: black;}
+#year_end {color: black;}
+
+.result-title {
+    height: 40px;
+    margin: 30px 0 15px;
+    background: url(http://img.cgv.co.kr/R2014/images/common/bg/bg_h3_line.jpg) repeat-x 0 50%;
+    line-height: 41px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.spec {
+    padding: 20px 22px;
+    background: #f5f3e8;
+    line-height: 1.8;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.spec dt {
+    width: 90px;
+    padding-left: 6px;
+}
+.spec dt {
+    float: left;
+}
+
+.result-chart {
+    border-top: 1px solid black;
+    padding: 10px;
+    margin-top: 20px;
+}

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../resources/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/GPA.css">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Nunito" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="jquery-3.4.0.min.js"></script>
+</head>
+
+<body>
+    <iframe src="http://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@TopBar_EX" width="100%" height="80" title="영화광고-기생충" frameborder="0" scrolling="no" topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" name="TopBanner" id="TopBanner"></iframe>
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="">개봉영화</a></li>
+                <li class=""><a href="">개봉예정영화</a></li>
+                <li><a href="">박스오피스</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">로그인</a></li>
+                <li class=""><a href="">회원 가입</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container main_container">
+        <div class="row text-center header top_header">
+            <div class="col-sm-3">
+                <a href="">
+                    <img src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png" alt="" style="max-width:45%;">
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12 header_center1">
+                        <div class="row">
+                            <a href=""><img src="http://img.cgv.co.kr/R2014/images/title/h2_cultureplex.png" alt="" style="max-width:45%;"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 header_center2">
+                        <div class="row">
+                            <div class="col-sm-3 main_header">
+                                <a href="">영화</a>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">예매</a>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">극장</a>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">이벤트&컬쳐</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href=""><img src="http://img.cgv.co.kr/WingBanner/2018/0905/15361078064330.png" alt="" style=" height:33px;"></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <fieldset>
+                            <input type="text" title="통합검색" id="header_keyword" name="header_keyword" minlength="2" maxlength="10">
+                            <input type="hidden" id="header_ad_keyword" name="header_ad_keyword">
+                            <button type="button" class="btn btn-danger" id="btn_header_search">검색</button>
+                            <iframe src="http://ad.cgv.co.kr/NetInsight/html/CGV/CGV_201401/main@Search_txt" width="0" height="0" title="" frameborder="0" scrolling="no" marginwidth="0" marginheight="0"></iframe>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <h1>평점</h1>
+                </div>
+                <div class="col-sm-4 col-sm-offset-6 GPA_header">
+                    <a href=""><span class="GPA GPA1">일반평점<span class="glyphicon glyphicon-play"></span></span></a>
+                    <a href=""><span class="GPA GPA2">내가 쓴 평점</span></a>
+                </div>
+            </div>
+            <div class="row GPA_main">
+                <div class="col-md-3 imgs">
+                    <div class="thumbnail thumbnail_active">
+                        <img class="GPA_main_posterimgs" src="/jf/photos/akain.jpg" style="">
+                        <div class="caption">
+                            <h4 class="" id="thumbnail_active">어벤져스</h4>
+                            <p class="" id="thumbnail_active">예매율:65%</p>
+                            <p clas=="" id="thumbnail_active">2019.05.16 개봉</p>
+                            <div class="likes thumbnail_active" id="thumbnail_active"><span class="glyphicon glyphicon-heart"></span> 50
+                                <span class="glyphicon glyphicon-check reservation_img">예매하기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 imgs">
+                    <div class="thumbnail">
+                        <img class="GPA_main_posterimgs" src="/jf/photos/akain.jpg" style="">
+                        <div class="caption">
+                            <h4>어벤져스</h4>
+                            <p>예매율:65%</p>
+                            <p>2019.05.16 개봉</p>
+                            <div class="likes"><span class="glyphicon glyphicon-heart"></span> 50
+                                <span class="glyphicon glyphicon-check reservation_img">예매하기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 imgs">
+                    <div class="thumbnail">
+                        <img class="GPA_main_posterimgs" src="/jf/photos/akain.jpg" style="">
+                        <div class="caption">
+                            <h4>어벤져스</h4>
+                            <p>예매율:65%</p>
+                            <p>2019.05.16 개봉</p>
+                            <div class="likes"><span class="glyphicon glyphicon-heart"></span> 50
+                                <span class="glyphicon glyphicon-check reservation_img">예매하기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 imgs">
+                    <div class="thumbnail">
+                        <img class="GPA_main_posterimgs" src="/jf/photos/akain.jpg" style="">
+                        <div class="caption ">
+                            <h4>어벤져스</h4>
+                            <p>예매율:65%</p>
+                            <p>2019.05.16 개봉</p>
+                            <div class="likes"><span class="glyphicon glyphicon-heart"></span> 50
+                                <span class="glyphicon glyphicon-check reservation_img">예매하기</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="row GPA_main_2">
+                <div class="col-sm-10">
+                    <div class="col-sm-2 GPA3 GPA3_1 text-center">
+                        실관람객 평점<span class="glyphicon glyphicon-play"></span>
+                    </div>
+                    <div class="col-sm-7 GPA3 GPA3_2 text-center">
+                        관람일 포함 7일 이내 관람평을 남기시면 <span class="cjPoint">CJ ONE 20P</span>가 적립됩니다.
+                    </div>
+                    <div class="col-sm-3 GPA3 text-center GPA3_buttonDiv">
+                        <button class="btn btn-danger btn-sm GPA3_button GPA3_button_1">평점작성</button>
+                        <button class="btn btn-primary btn-sm GPA3_button GPA3_button_2">내 평점<span class="glyphicon glyphicon-play"></span></button>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 GPA4_1">
+
+                            <a href=""><strong>GOLDEN EGG지수</strong></a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 GPA4_2 text-center">
+                            <img src="/jf/photos/GREAT.PNG" alt="" class="GPA4_2_img">
+                            <span class="GPA4_2_1">97%</span>
+                        </div>
+                        <div class="col-sm-5 GPA4_3 text-center">
+                            <div class="h2">145,461 <span class="h4">명의</span></div> <span class="cjPoint">CGV 실관람객이</span> 평가해 주셨습니다.
+                        </div>
+                        <div class="col-sm-2 GPA4_4">
+                            <img src="/jf/photos/attractive.png" alt="">
+                        </div>
+                    </div>
+                    <div class="row GPA_main_3">
+                        <div class="col-sm-2">
+                            <span>최신순</span><span class="glyphicon glyphicon-menu-down GPA_main_3_1"></span>
+
+                            <span>평점순</span>
+                        </div>
+                    </div>
+                    <div class="row GPA_main_4">
+
+                        <div class="col-sm-6 GPA_main_4_detail">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="/jf/photos/profile.PNG" alt="">
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <div class="row">
+                                        <div class="col-sm-1 GPA_main_4_1">
+                                            <img class="gpa_small_egg" src="/jf/photos/GREAT.PNG" alt="">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <span class="GPA_main_4_2_id">지나고보니</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="GPA_main_4_3_form">
+                                                <span class="GPA_main_4_3_contents">
+                                                    믿고보는 어벤져스 여러번 관람해도 재밌는것같아요 저는 2번봤습니다
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 GPA_main_4_3_date">
+                                                    2019.05.17
+                                                </div>
+                                                <div class="col-sm-3 GPA_main_4_3_likes">
+                                                    <span class="glyphicon likes glyphicon-thumbs-up"></span>0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 GPA_main_4_3_glyphicon">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 GPA_main_4_detail">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="/jf/photos/profile.PNG" alt="">
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <div class="row">
+                                        <div class="col-sm-1 GPA_main_4_1">
+                                            <img class="gpa_small_egg" src="/jf/photos/GREAT.PNG" alt="">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <span class="GPA_main_4_2_id">지나고보니</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="GPA_main_4_3_form">
+                                                <span class="GPA_main_4_3_contents">
+                                                    믿고보는 어벤져스 여러번 관람해도 재밌는것같아요 저는 2번봤습니다
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 GPA_main_4_3_date">
+                                                    2019.05.17
+                                                </div>
+                                                <div class="col-sm-3 GPA_main_4_3_likes">
+                                                    <span class="glyphicon likes glyphicon-thumbs-up"></span>0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 GPA_main_4_3_glyphicon">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 GPA_main_4_detail">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="/jf/photos/profile.PNG" alt="">
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <div class="row">
+                                        <div class="col-sm-1 GPA_main_4_1">
+                                            <img class="gpa_small_egg" src="/jf/photos/GREAT.PNG" alt="">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <span class="GPA_main_4_2_id">지나고보니</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="GPA_main_4_3_form">
+                                                <span class="GPA_main_4_3_contents">
+                                                    믿고보는 어벤져스 여러번 관람해도 재밌는것같아요 저는 2번봤습니다
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 GPA_main_4_3_date">
+                                                    2019.05.17
+                                                </div>
+                                                <div class="col-sm-3 GPA_main_4_3_likes">
+                                                    <span class="glyphicon likes glyphicon-thumbs-up"></span>0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 GPA_main_4_3_glyphicon">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 GPA_main_4_detail">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="/jf/photos/profile.PNG" alt="">
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <div class="row">
+                                        <div class="col-sm-1 GPA_main_4_1">
+                                            <img class="gpa_small_egg" src="/jf/photos/GREAT.PNG" alt="">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <span class="GPA_main_4_2_id">지나고보니</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="GPA_main_4_3_form">
+                                                <span class="GPA_main_4_3_contents">
+                                                    믿고보는 어벤져스 여러번 관람해도 재밌는것같아요 저는 2번봤습니다
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 GPA_main_4_3_date">
+                                                    2019.05.17
+                                                </div>
+                                                <div class="col-sm-3 GPA_main_4_3_likes">
+                                                    <span class="glyphicon likes glyphicon-thumbs-up"></span>0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 GPA_main_4_3_glyphicon">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 GPA_main_4_detail GPA_main_4_detail_left">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="/jf/photos/profile.PNG" alt="">
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <div class="row">
+                                        <div class="col-sm-1 GPA_main_4_1">
+                                            <img class="gpa_small_egg" src="/jf/photos/GREAT.PNG" alt="">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <span class="GPA_main_4_2_id">지나고보니</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="GPA_main_4_3_form">
+                                                <span class="GPA_main_4_3_contents">
+                                                    믿고보는 어벤져스 여러번 관람해도 재밌는것같아요 저는 2번봤습니다
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 GPA_main_4_3_date">
+                                                    2019.05.17
+                                                </div>
+                                                <div class="col-sm-3 GPA_main_4_3_likes">
+                                                    <span class="glyphicon likes glyphicon-thumbs-up"></span>0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 GPA_main_4_3_glyphicon">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 GPA_main_4_detail">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="/jf/photos/profile.PNG" alt="">
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <div class="row">
+                                        <div class="col-sm-1 GPA_main_4_1">
+                                            <img class="gpa_small_egg" src="/jf/photos/GREAT.PNG" alt="">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <span class="GPA_main_4_2_id">지나고보니</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="GPA_main_4_3_form">
+                                                <span class="GPA_main_4_3_contents">
+                                                    믿고보는 어벤져스 여러번 관람해도 재밌는것같아요 저는 2번봤습니다
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 GPA_main_4_3_date">
+                                                    2019.05.17
+                                                </div>
+                                                <div class="col-sm-3 GPA_main_4_3_likes">
+                                                    <span class="glyphicon likes glyphicon-thumbs-up"></span>0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 GPA_main_4_3_glyphicon">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 GPA_main_4_detail GPA_main_4_detail_left">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="/jf/photos/profile.PNG" alt="">
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <div class="row">
+                                        <div class="col-sm-1 GPA_main_4_1">
+                                            <img class="gpa_small_egg" src="/jf/photos/GREAT.PNG" alt="">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <span class="GPA_main_4_2_id">지나고보니</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="GPA_main_4_3_form">
+                                                <span class="GPA_main_4_3_contents">
+                                                    믿고보는 어벤져스 여러번 관람해도 재밌는것같아요 저는 2번봤습니다
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 GPA_main_4_3_date">
+                                                    2019.05.17
+                                                </div>
+                                                <div class="col-sm-3 GPA_main_4_3_likes">
+                                                    <span class="glyphicon likes glyphicon-thumbs-up"></span>0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 GPA_main_4_3_glyphicon">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 GPA_main_4_detail">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img src="/jf/photos/profile.PNG" alt="">
+                                </div>
+                                <div class="col-sm-8 ">
+                                    <div class="row">
+                                        <div class="col-sm-1 GPA_main_4_1">
+                                            <img class="gpa_small_egg" src="/jf/photos/GREAT.PNG" alt="">
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <span class="GPA_main_4_2_id">지나고보니</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 ">
+                                            <div class="GPA_main_4_3_form">
+                                                <span class="GPA_main_4_3_contents">
+                                                    믿고보는 어벤져스 여러번 관람해도 재밌는것같아요 저는 2번봤습니다
+                                                </span>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-3 GPA_main_4_3_date">
+                                                    2019.05.17
+                                                </div>
+                                                <div class="col-sm-3 GPA_main_4_3_likes">
+                                                    <span class="glyphicon likes glyphicon-thumbs-up"></span>0
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 GPA_main_4_3_glyphicon">
+                                    <span class="glyphicon glyphicon-option-vertical"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <img src="http://adimg.cgv.co.kr/images/201904/Gangster/0515_160x300_1.jpg" alt="">
+                </div>
+                <div class="col-sm-2">
+                    <img src="http://adimg.cgv.co.kr/images/201808/citi/0516_160x300.jpg" alt="">
+                </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-5 col-sm-offset-3">
+                    <ul class="pagination">
+                            <li><a href="">&laquo</a></li>
+                            <li class=""><a href="">1</a></li>
+                            <li class="active"><a href="">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">4</a></li>
+                            <li><a href="">5</a></li>
+                            <li><a href="">6</a></li>
+                            <li><a href="">7</a></li>
+                            <li><a href="">8</a></li>
+                            <li><a href="">9</a></li>
+                            <li><a href="">10</a></li>
+                            <li><a href="">&raquo</a></li>
+                    </ul>
+               </div>
+            </div>
+        </div>
+    </div>
+</body></html>

@@ -1,0 +1,262 @@
+.hrline {
+	border-bottom: solid 0.5px gray;
+}
+
+.trailer {
+	margin-left: -40px;
+}
+
+input {
+	border: none;
+}
+
+textarea {
+	border: none;
+	outline: none;
+	width: 540px;
+	height: 200px;
+	overflow: auto;
+	margin-top: -27px;
+	margin-left: 40px;
+}
+
+.form-control:focus {
+	border-color: inherit;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.poster{
+	width:80px; height:100px;
+}
+.menu a {
+	cursor: pointer;
+	color: #666666;
+	text-decoration: none;
+}
+
+.menu .hide {
+	display: none;
+}
+
+.au {
+	overflow: auto;
+}
+#moviedetail{
+	width: 570px; 
+	height: 130px; 
+	overflow: auto;
+	margin-top:13px;
+}
+
+.diary {
+	width: 605px;
+	margin: 42px;
+}
+.diary_cancel_button{
+	margin-right:10px;
+}
+	
+.list-group-item{
+	background-color: rgb(252, 254, 238);
+}
+
+.whatMovie:focus, .isGoodMovie:focus{
+	background-color: rgb(252, 254, 238);
+}
+.form-control{
+		background-color: white;
+}
+.btn-diary{
+	padding:3px 12px;
+	font-weight: 550;
+	font-size:12px;
+	color: #ffffff;
+	background-color : black;
+	border : 2px double lightgray;
+	letter-spacing : -0.5px;
+	border-radius: 7px;
+}
+a:hover{
+	text-decoration: none;
+}
+.btn-diary:hover{
+	text-decoration: none;
+	color:white;
+}
+
+.diary_col_1{
+	font-size:13px;
+	color:#666666;
+	font-weight:bold;
+	border-bottom : 1px solid lightgray;
+	padding-bottom : 10px;
+}
+.diary_col_2{
+	padding-top : 20px;
+	padding-bottom : 10px;
+}
+/* 파일 시작  */
+.box {
+  display:inline-block;
+  margin-right: 15px;
+}
+
+.filetype {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  *margin-right: 4px;
+}
+
+.filetype * {
+  vertical-align: middle;
+}
+
+.filetype .file-text {
+  position: relative;
+  width: 150px;
+  text-align:center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  height: 20px;
+  background-color: rgb(252, 254, 238);
+  margin: 0;
+  border: 1px solid #666666;
+  font-size:12px;
+  padding:3px;
+  border-radius : 5px;
+  line-height: 20px;
+  z-index: 10;
+}
+.diary_infos{
+	font-size:12px;
+	color:gray;
+}
+.filetype .file-select {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  overflow: hidden;
+}
+
+.filetype .file-select .input-file {
+  width: 60px;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  height: 20px;
+}
+.filetype .file-text + .file-btn {
+  display: inline-block;
+  background-color: rgb(252, 254, 238);
+  font-size:12px;
+  border: 1.5px solid #666666;
+  font-weight : bold;
+  border-radius:5px;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 15px;
+  color: #666666 !important;
+}
+
+/* 파일 끝 */
+.whatMovie, .isGoodMovie{
+	background-color: white;
+}
+.main_select {
+	border: solid 1px #d9d9d9;
+	background-color: white;
+	padding: 10px;
+	font-size:13px;
+	color: #666666;
+}
+.diary_select_button{
+	position: relative;
+	top:60px;
+	color : #666666;
+	background-color:rgb(252, 254, 238);
+	border : 1.5px solid #666666;
+	border-radius : 5px;
+}
+
+
+.bottom_right {
+	margin-left: 370px;
+}
+
+.main_select_bottom {
+	width: 570px; 
+	height: 200px; 
+	overflow: auto;
+	border: solid 1px #d9d9d9;
+	margin-top: 10px;
+	background-color: rgb(252, 254, 238);
+	margin-right: 20px;
+	padding: 10px;
+}
+
+.main_select_bottom_1 {
+	width: 570px; 
+	height: 200px; 
+	overflow: auto;
+	border: solid 1px #d9d9d9;
+	background-color: rgb(252, 254, 238);
+	margin-top: 10px;
+	margin-left: -52px;
+	margin-right: 20px;
+	padding: 10px;
+}
+.red {
+	background-color: red;
+	color: white;
+}
+.main_select_bottom_2 {
+	width: 570px; 
+	border: solid 1px #d9d9d9;
+	background-color: rgb(252, 254, 238);
+	margin-top: 10px;
+	margin-right: 30px;
+	margin-left: -103px;
+	padding: 10px;
+}
+
+.main_select_gray {
+	border: solid 1px #d9d9d9;
+	background-color: #d9d9d9;
+	padding: 10px;
+}
+
+.watched_movie:hover {
+	cursor: pointer;
+}
+
+.diary_review {
+	margin-top: 20px;
+	margin-left: -40px;
+	background-color:rgb(252, 254, 238);
+}
+
+.icon {
+	height: 23px;
+}
+
+.movieImg {
+	margin-top: 30px;
+	width: 80px;
+	height: 100px;
+}
+
+ul>li {
+	list-style: none;
+}
+
+hr {
+	margin-left: 40px;
+	background-color: rgb(102, 102, 102);
+}
+
+.diary_theatername {
+	margin-right: 10px;
+}

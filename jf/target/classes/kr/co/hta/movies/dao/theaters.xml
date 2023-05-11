@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+		
+	<select id="getAllTheaters" resultClass="Theater">
+		select 
+			THEATER_NO no,
+			THEATER_NAME name,
+			THEATER_LOCATION location, 
+			THEATER_TEL tel, 
+			THEATER_ROOM room,
+			THEATER_SEAT seat,
+			THEATER_TRAFFIC_INFO trafficInfo,
+			THEATER_PARKING_INFO parkingInfo,
+			THEATER_CITY city,
+			THEATER_PHOTO photo
+		from
+			jf_theaters
+	</select>
+	<select id="getTheaterByNo" resultClass="Theater">
+		select 
+			THEATER_NO no,
+			THEATER_NAME name,
+			THEATER_LOCATION location, 
+			THEATER_TEL tel, 
+			THEATER_ROOM room,
+			THEATER_SEAT seat,
+			THEATER_TRAFFIC_INFO trafficInfo,
+			THEATER_PARKING_INFO parkingInfo,
+			THEATER_CITY city,
+			THEATER_PHOTO photo
+		from
+			jf_theaters
+		where theater_no = #value#
+	</select>
+	<select id="getAllCities" resultClass="String">
+		select distinct theater_city
+		from jf_theaters
+	</select>
+	
+	<select id="getAllCitiesAndTheater" resultClass="kr.co.hta.vo.CityAndTheater">
+		select theater_city city, theater_no tno
+		from (select row_number() over (partition by theater_city order by theater_city asc) as row_no, theater_city, theater_no
+	    	  from jf_theaters
+	      	 )
+        where row_no = 1
+        order by tno
+	</select>
+	
+	<select id="getTheaterByCity" parameterClass="String" resultClass="Theater">
+		select 
+			THEATER_NO no,
+			THEATER_NAME name,
+			THEATER_LOCATION location, 
+			THEATER_TEL tel, 
+			THEATER_ROOM room,
+			THEATER_SEAT seat,
+			THEATER_TRAFFIC_INFO trafficInfo,
+			THEATER_PARKING_INFO parkingInfo,
+			THEATER_CITY city,
+			THEATER_PHOTO photo
+		from
+			jf_theaters
+		where theater_city like ('%'||#value#||'%')
+	</select>
+	
+	<select id="getSeatsByTheaterNo" parameterClass="int" resultClass="int">
+		select
+			sum(b.room_seat)
+		from
+			jf_theaters a, jf_screening_rooms b
+		where
+			a.theater_no = b.theater_no
+		and
+			a.theater_no = #value#
+		group by
+			b.theater_no
+	</select>
+	
+	<select id="getRoomsByTheaterNo" parameterClass="int" resultClass="int">
+		select
+			count(*)
+		from 
+			jf_theaters a, jf_screening_rooms b
+		where 
+			a.theater_no = b.theater_no
+		and 
+			a.theater_no = #value#
+	</select>
+	<select id="get7DaysByTheaterNo" parameterClass="map" resultClass="String">
+		select dates
+        from (
+        select to_char(a.screening_date,'mm-dd') dates
+		from jf_screenings a, jf_screening_rooms b
+		where a.room_no = b.room_no
+		and b.theater_no = #tno#
+		group by to_char(a.screening_date,'mm-dd')
+		order by to_char(a.screening_date,'mm-dd') asc 
+        )
+        where rownum &lt;= 7
+        and dates >= #sdate#
+	</select>
+	
+	<select id="getScreeningRoomDetail" parameterClass="map" resultClass="kr.co.hta.vo.RoomDetailInfo">
+		select to_char(b.screening_date,'MM-dd') dates, b.screening_time times, a.room_seat leftSeat, b.screening_no screeningNo
+		from jf_screening_rooms a, jf_screenings b
+		where a.room_no = b.room_no
+		and b.room_no = #rno#
+        and to_char(b.screening_date,'mm-dd') = #sdate#
+        and movie_no = #mno#
+		order by b.screening_time asc
+	</select>
+	
+	<!--3시작  -->
+	<select id="getScreeningByTheaterAndDate" parameterClass="map" resultClass="kr.co.hta.vo.ScreeningInfo">
+	select distinct c1.movie_kortitle movieName,
+			c1.movie_no movieNo, 
+			c1.movie_genre genre, 
+			c1.MOVIE_RUNNING_TIME runningTime, 
+			to_char(c1.movie_release_date,'yyyy-MM-dd') releaseDate,
+			c1.MOVIE_AGE_LIMIT ageLimit
+	from(
+			select movie_kortitle
+			from jf_theaters a, jf_movies b, jf_screenings c, jf_screening_rooms d
+			where a.theater_no = d.theater_no
+			and c.room_no =  d.room_no
+			and b.movie_no = c.movie_no
+			and a.theater_no = #tno#
+			and	to_char(c.screening_date, 'mm-dd') = #sdate#
+			group by b.movie_kortitle) a1, jf_screenings b1, jf_movies c1, jf_screening_rooms d1
+	where
+		a1.movie_kortitle = c1.movie_kortitle
+	and
+		b1.movie_no = c1.movie_no
+	and 
+		b1.room_no = d1.room_no
+
+	order by
+		c1.movie_kortitle
+	</select>
+	
+	<select id="getRoomsByMovie" parameterClass="map" resultClass="kr.co.hta.vo.Room">
+		select
+			distinct b.room_no as roomNo, b.room_seat totalSeat
+		from 
+			jf_theaters a, jf_screening_rooms b, jf_screenings c
+		where 
+			a.theater_no = b.theater_no
+        and
+            b.room_no = c.room_no
+		and 
+			a.theater_no = #tno#
+        and 
+            to_char(c.screening_date,'mm-dd') = #sdate#
+        and
+            c.movie_no = #mno#
+        order by b.room_no asc 
+	</select>
+</sqlMap>

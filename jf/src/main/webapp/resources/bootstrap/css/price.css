@@ -1,0 +1,56 @@
+.price_top_region{
+    font-size: 18px;
+    font-weight: bold;
+}
+.event_hr_2{
+    border-top: 1px solid lightgray;
+    
+}
+.price_notice_div{
+    font-size: 27px;
+    font-weight: bold;
+}
+.price_left_1{
+    font-size: 35px;
+}
+.price_1_1{
+    letter-spacing: -0.5px;
+}
+.yellow{
+    color:#F19000;
+}
+.price_table{
+    margin-bottom: 20px;
+}
+.price_table_tr th{
+    text-align: center;
+    font-size: 15px;
+    color: gray;
+}
+.price_table_date{
+    position: relative;
+    top:70px;
+}
+.price_caption{
+    color: black;
+}
+.price_table_title_div{
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.price_description{
+    margin-bottom: 50px;
+}
+.price_circle{
+    width:10px;
+    height:10px;
+    display: inline-block;
+    background-color: black;
+    border:1px solid balck;
+    
+}
+.price_table tr td{
+    font-size: 12px;
+    height: 15px;
+}

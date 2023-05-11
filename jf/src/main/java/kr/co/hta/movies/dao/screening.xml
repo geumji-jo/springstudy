@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	
+	
+	<!-- 번호로 영화이름 받아오기 -->
+	<select id="selectMovieNameByNo" parameterClass="int" resultClass="Movie">
+		select
+				movie_no as no,
+				movie_kortitle as korTitle, 
+				movie_engtitle as engTitle, 
+				movie_reservation_rate as reservationRate, 
+				movie_gpa as gpa, 
+				movie_real_members as realMembers, 
+				movie_director as director, 
+				movie_genre as genre, 
+				movie_age_limit as ageLimit, 
+				movie_running_time as runningTime, 
+				movie_prod_country as country,
+				movie_release_date as releaseDate, 
+				movie_wishlist as wishList, 
+				movie_info as info, 
+				movie_trailer as trailer, 
+				movie_steel_cut as steelCut, 
+				movie_screen_yn as screenYn, 
+				movie_price as price, 
+				movie_poster as poster, 
+				movie_actors as actors, 
+				movie_create_date as createDate
+			from jf_movies
+			where movie_no = #value#
+	</select>
+
+	<!-- 영화관이름 받아오기  -->
+	<select id="selectTheater" resultClass="Theater">
+		select 
+			THEATER_NO 					no
+			,THEATER_NAME  				name
+			,THEATER_LOCATION  			location
+			,THEATER_TEL  				tel
+			,THEATER_ROOM 				room
+			,THEATER_SEAT 				seat
+			,THEATER_TRAFFIC_INFO 		trafficInfo
+			,THEATER_PARKING_INFO 		parkingInfo
+			,THEATER_CITY 				city
+			,THEATER_PHOTO 				photo
+		from JF_THEATERS 
+	</select>
+	
+	<!-- 상영관이름 받아오기  -->
+	<select id="selectRoomByTheater" parameterClass="int" resultClass="kr.co.hta.vo.ScreeningRoom">
+		select 
+			S.ROOM_NO 		no
+			,S.ROOM_NAME 	name
+			,S.ROOM_SEAT 	seat
+			,S.THEATER_NO 	theaterNo
+		from JF_SCREENING_ROOMS S, JF_THEATERS T
+		where S.THEATER_NO = T.THEATER_NO
+		and T.THEATER_NO = #value#
+		
+	</select>
+	
+	<!-- 상영 등록  -->
+	<insert id="insertScreening" parameterClass="kr.co.hta.vo.Screening">
+		insert into JF_SCREENINGS (SCREENING_NO, SCREENING_DATE, SCREENING_TIME, ROOM_NO, MOVIE_NO)
+		VALUES (JF_SCREENING_SEQ.nextval, #screeningDate#, #time#, #roomNo#, #movieNo# )
+	</insert>
+	
+	<select id="selectScreening" parameterClass="kr.co.hta.vo.Criteria"  resultClass="kr.co.hta.vo.ScreeningDetail">
+		select
+			*
+		from (SELECT 
+				row_number() over(order by sc.SCREENING_DATE desc) as row_no
+				, sc.SCREENING_NO 		no
+				, sc.SCREENING_DATE 	screeningDate
+				, sc.SCREENING_TIME 	time
+				, m.MOVIE_KORTITLE 		korTitle
+				, scr.ROOM_NAME 		roomName
+				, t.THEATER_NAME 		theaterName
+			FROM JF_SCREENINGS sc, JF_SCREENING_ROOMS scr, JF_THEATERS t, JF_MOVIES m
+			where sc.ROOM_NO = scr.ROOM_NO
+			and sc.MOVIE_NO = m.MOVIE_NO
+			and t.THEATER_NO = scr.THEATER_NO
+			)
+		where row_no >= #begin# and row_no &lt;= #end#
+		<dynamic>
+            <isNotNull property="option">
+                <isEqual property="option" compareValue="korTitle">
+                    and korTitle like '%' || #keyword# || '%'
+                </isEqual>
+                
+            </isNotNull>
+        </dynamic>
+
+	</select>
+	<select id="selectScreeningSearchCount" parameterClass="kr.co.hta.vo.Criteria"  resultClass="int">
+		select
+			count(*)
+		from (SELECT 
+				row_number() over(order by sc.SCREENING_DATE desc) as row_no
+				, sc.SCREENING_NO 		no
+				, sc.SCREENING_DATE 	screeningDate
+				, sc.SCREENING_TIME 	time
+				, m.MOVIE_KORTITLE 		korTitle
+				, scr.ROOM_NAME 		roomName
+				, t.THEATER_NAME 		theaterName
+			FROM JF_SCREENINGS sc, JF_SCREENING_ROOMS scr, JF_THEATERS t, JF_MOVIES m
+			where sc.ROOM_NO = scr.ROOM_NO
+			and sc.MOVIE_NO = m.MOVIE_NO
+			and t.THEATER_NO = scr.THEATER_NO
+			)
+		
+		<dynamic>
+            <isNotNull property="option">
+                <isEqual property="option" compareValue="korTitle">
+                    where korTitle like '%' || #keyword# || '%'
+                </isEqual>
+                
+            </isNotNull>
+        </dynamic>
+
+	</select>
+	
+	<select id="countScreening" resultClass="int">
+		SELECT count(*)
+		FROM JF_SCREENINGS
+		
+	</select>
+	
+	<delete id="deleteScreening" parameterClass="int">
+		DELETE FROM JF_SCREENINGS WHERE SCREENING_NO = #value# 
+	</delete>
+	
+	
+</sqlMap>

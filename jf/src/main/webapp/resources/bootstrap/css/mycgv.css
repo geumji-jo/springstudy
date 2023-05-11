@@ -1,0 +1,496 @@
+@charset "UTF-8";
+/* 모달 위치 css 시작 */
+.modal.modal-center { text-align: center; }
+
+@media screen and (min-width: 768px) { 
+        .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+        }
+}
+.modal-dialog.modal-center {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle; 
+}
+.changeinfo_1{
+	margin-bottom: 70px;
+}
+.changeinfo_1 p {
+	font-size:19px;
+	padding:10px;
+}
+.changeinfo_1 span{
+	letter-spacing: -0.5px;
+	font-size:14px;
+}
+/* 모달 위치 css 끝*/
+.backimg {
+    height: 500px;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+body{
+    background-color: rgb(252, 254, 238);
+}
+.mycgv_novlaue_content{
+	font-size : 14px;
+}
+.mycgv-info {
+    position: absolute;
+    background-image: url(http://img.cgv.co.kr/R2014/images/common/bg/bg_mycgv_info.gif);
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    margin-left: 70px;
+    height: 460px;
+    z-index: 1;
+}
+.mycgv_right_top_div{
+	background-color: #F1F2E3;
+}
+.info-contents {
+    position: relative;
+    z-index: 2;
+    padding-left: 110px;
+    padding-top: 80px;
+}
+
+.info-content2 {
+    width: 670px;
+    height: 55px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #8c7652;
+}
+
+.info-content3 {
+    margin-top: 15px;
+}
+.mycgv_myFT_div{
+	padding-top: 15px;
+}
+.info-content4 {
+    margin-top: 30px;
+    width: 500px;
+    height: 100px;
+}
+.top-row{
+    height: 500px;
+}
+.profile-photo img {
+    border: 5px solid #7b6746;
+    border-radius: 50%;
+    width: 150px;
+}
+.mycgv_left_title{
+    font-size: 20px;
+    
+    font-weight: bold;
+    padding:5px;
+    display: inline-block;
+}
+.mycgv_left_title2{
+    margin-bottom: 15px;
+}
+.mycgv_left_title3{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+    display: inline-block;
+}
+.mycgv_left_subtitle{
+    padding-left: 30px;
+    font-size: 12px;
+    color: gray;
+}
+.mycgv_main_right_col > .row{
+    margin-bottom: 25px;
+}
+.mycgv_right_top_div{
+    border: 1px solid gray;
+}
+.mycgv_right_top_div a:hover{
+	text-decoration: none;
+	color:black;
+}
+.mycgv_right_top_div a{
+	text-decoration: none;
+}
+.mycgv_right_top_box{
+    margin : 4px 0px;
+    
+}
+.mycgv_right_top_box div div img{
+	width:35px;
+	height:35px;
+}
+.mycgv_reservationRecord{
+    font-size: 17px;
+    font-weight: bold;
+}
+.mycgv_reservationRecord2{
+    font-size: 18px;
+    color: rgba(0,0,0,0.8);
+    font-weight: 610;
+}
+.mycgv_plus{
+    position: relative;
+    top:5px;
+    display: inline-block;
+    text-align: center;
+    width:20px;
+    height:20px;
+    background-color: gray;
+    color:white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.mycgv_myqna_div{
+    
+}
+.mycgv_hr_1{
+    margin: 10px 0px;
+    border: 0px;
+    height: 1.5px;
+    background-color: lightgray;
+}
+.mycgv_modal_hr_1{
+    border-top: 1px dotted lightgray;
+}
+.mycgv_hr_2{
+    margin: 10px 0px;
+    border: 0px;
+    height: 1px;
+    background-color: lightgray;
+}
+.mycgv_howmany{
+    color: gray;
+    font-size: 14px;
+}
+.mycgv_plus > a{
+    color: white;
+}
+.mycgv_plus > a > span{
+    position: relative;
+    bottom:3px;
+}
+.mycgv_part{
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 10px;
+    margin: 5px 0px;
+}
+.mycgv_right_top_box{
+    height:130px;
+    padding:7px;
+}
+.mycgv_dotted_class{
+    border-right: 1px dotted gray;
+}
+.mycgv_part:nth-last-child(1){
+    padding-bottom: 0;
+}
+.mycgv_right_topBoxTitle{
+    font-size: 17px;
+    font-weight: bold;
+}
+.mycgv_right_topBoxContent{
+    font-size: 12px;   
+    color: gray;
+    letter-spacing: -1px;
+}
+.mycgv_heart{
+    color:#b3b3b3;
+    font-size: 25px;
+}
+.mycgv_reservation_right{
+    font-size: 13px;
+    color:gray;
+}
+.mycgv_reservation_records{
+    padding : 20px;
+    border: 1px solid black;
+    color: #666666;
+}
+
+.reservationList {
+	font-size : 13px !important;
+	font-weight :800;
+	border-bottom : 1px dashed gray;
+	margin-bottom : 13px;
+}
+
+.reservationList .newline {
+	margin-bottom:1px;
+}
+.newline:nth-child(1){
+	margin-top:17px;
+}
+
+.reservationList strong {
+	color:black;
+	font-size:15px;
+}
+
+.reservationList .newline2 {
+	margin-bottom:20px;
+}
+
+#info-name {
+	position : relative;
+	bottom:5px;
+    font-size: 35px;
+    font-family: 'Gamja Flower';
+    font-weight: bold;
+}
+
+#info-id {
+	display:inline-block;
+    margin-left: 20px;
+    font-size: 16.5px;
+    font-family: Comic Sans MS;
+}
+
+#info-info {
+    margin-left: 30px;
+    display: block;
+    font-size: 20px;
+    font-family: Comic Sans MS;
+}
+
+#horizen {
+    background-color: white;
+}
+
+.info-ul ul{
+    margin-left: 20px;
+}
+
+.info-ul {
+    width: 1100px;
+    height: 160px;
+    margin-left: -220px;
+}
+.modal-header{
+	padding-top : 0px !important;
+}
+.mycgv_modal_top_title{
+	font-size: 30px;
+	color:white;
+	padding:10px;
+	border : 1px solid #737373;
+}
+.mycgv_modal_top{
+	background-color : #363636;
+	padding:10px;
+}
+.mycgv_setMyTheater{
+	position : relative;
+	bottom:7px;
+	width:200px;
+	font-size : 14px;
+	border : 2px solid #8c7652;
+	padding:7px;
+	background-color: #3D3927;
+	
+}
+.mycgv_setMyTheater a{
+	color: #D9C787;
+}
+.mycgv_setMyTheater a:hover{
+	color: #D9C787;
+}
+#mytheater-ul{
+	padding-left:0px;
+}
+.mycgv_modal_row_2{
+	margin-bottom : 20px;
+}
+.mycgv_modal_every_row{
+	margin:20px 0px; 
+}
+.info-ul li {
+    min-width: 210px;
+    height: 30px;
+    padding: 7px;
+    
+    padding-bottom : 25px;
+    margin-bottom : 10px;
+    list-style: none;
+    border: 2px solid #8c7652;
+    float: left;
+    font-size: 100%;
+    text-align : center;
+}
+.info-ul a {
+	color : #3D3927;
+}
+.info-ul li a:hover {
+	text-decoration: none;
+	color : #3D3927;
+}
+.info-ul li:nth-child(n){
+    margin-top:5px;
+    margin-right: 10px;
+}
+
+#my-movie {
+    font-size: 40px;
+    font-family: 'Hi Melody';
+    font-weight : bold;
+    margin-left: 70px;
+    margin-right : 40px;
+}
+
+/* content */
+.my-content{
+    margin-top: 20px;
+}
+
+.box {
+    margin-left: 45px;
+    height: 200px;
+    width: 1000px;
+}
+.box-inner{
+    display: block;
+    float: left;
+    border: 1px solid black;
+    border-style: dashed;
+    height: 150px;
+    width: 250px;
+}
+
+ .box-inner span{
+     display: block;
+     text-align: center;
+     margin-top: 80px;
+}
+
+.wishlist {                                             background:url(http://img.cgv.co.kr/R2014/images/common/ico/icon_wishlist.png) no-repeat;
+    background-color: #f2f0e4;
+    background-position: 100px 30px;
+}
+
+.moviediary {                                             background:url(http://img.cgv.co.kr/R2014/images/common/ico/icon_moviediary.png) no-repeat;
+    background-color: #f2f0e4;
+    background-position: 100px 30px;
+}
+
+.watched {                                             background:url(http://img.cgv.co.kr/R2014/images/common/ico/icon_watched.png) no-repeat;
+    background-color: #f2f0e4;
+    background-position: 100px 30px;
+}
+
+.myqna {
+    background-color: #f2f0e4;
+    font-size: 20px;
+}
+
+.myqna span {
+    margin-top: 55px;
+}
+
+.box-title {
+        background-color: #e71a0f;
+    background-position: center;
+    color: #fdfcf0;
+    font-size: 50px;
+}
+
+.content-box {
+    border: 1px solid black;
+}
+
+.content-box-inner {
+    padding: 10px;   
+}
+
+.box-table tr {
+    height : 30px;
+    border-bottom : 1px dashed black;
+}
+
+.box-table th{
+    border-bottom : 2px solid black;
+    text-align: left;
+    width : 200px;
+}
+
+.third-content {
+    padding-left: 60px;
+}
+
+/* modal content */
+.modal-content {
+	width:750px;
+}
+.mycgv_modal_row_1{
+	margin-top:30px;
+	padding : 10px 0px;
+	font-size:14px;
+}
+.modal-body{
+	padding : 30px 0px;
+}
+.modal-body ul{
+}
+.mycgv_selects{
+	width:120px;
+	border : 1px solid lightgray;
+	font-size:14px;
+	padding:5px;
+	margin-right : 13px;
+}
+
+.modal-body ul li {
+	list-style : none;
+	margin-right:10px;
+	margin-top : 10px;
+	float:left;
+}
+.mycgv_th{
+	font-size:13px;
+	color:gray;
+}
+.mycgv_table{
+	margin-top:15px;
+}
+.mycgv_table tr td{
+	font-size:13px;
+	padding:30px 15px !important;
+}
+.li-box {
+	border: 2px solid #363636;
+	padding:5px;
+}
+
+.mytheater-li {
+	padding:5px;
+	margin-left:5px;
+	display:block;
+	float:left;
+	font-size :13px;
+}
+
+.remove-button {
+	position:relative;
+	top: 3px;
+    left: inherit;
+    right: 0;
+	width : 20px;
+	background: #e2e2e0 url(http://img.cgv.co.kr/R2014/images/common/ico/ico_close.png) no-repeat 6px 50%;
+	height : 20px;
+	border: 0;
+    font: 0/0 a;
+    zoom: 1;
+    padding : 0;
+}
+

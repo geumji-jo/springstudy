@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+		<select id="getMoviesChartBySort" parameterClass="map" resultClass="Movie">
+				select no,korTitle,engTitle,reservationRate,gpa,realMembers,director,genre,ageLimit,runningTime,
+						country,releaseDate,wishList,info,trailer,steelCut,screenYn,price,ac, poster
+				from (
+					select
+				        row_number() over(order by 
+					<dynamic>
+						<isEqual property="sort" compareValue="1">
+							movie_reservation_rate desc
+						</isEqual>
+						<isEqual property="sort" compareValue="2">
+							movie_gpa desc
+						</isEqual>
+						<isEqual property="sort" compareValue="3">
+							movie_real_members desc
+						</isEqual>
+					</dynamic>) as ranking,
+				        MOVIE_NO as no,
+				        MOVIE_KORTITLE as korTitle,
+				        MOVIE_ENGTITLE as engTitle,
+				        MOVIE_RESERVATION_RATE as reservationRate,
+				        MOVIE_GPA as gpa,
+				        MOVIE_REAL_MEMBERS realMembers,
+				        MOVIE_DIRECTOR director,
+				        MOVIE_GENRE genre,
+				        MOVIE_AGE_LIMIT ageLimit,
+				        MOVIE_RUNNING_TIME runningTime,
+				        MOVIE_PROD_COUNTRY country,
+				        MOVIE_RELEASE_DATE releaseDate,
+				        MOVIE_WISHLIST wishList,
+				        MOVIE_INFO info, 
+				        MOVIE_TRAILER trailer,
+				        MOVIE_STEEL_CUT steelCut,
+				        MOVIE_SCREEN_YN screenYn,
+				        MOVIE_PRICE price,
+				        MOVIE_ACTORS ac,
+				        MOVIE_POSTER poster
+					from jf_movies
+					where movie_screen_yn = 'Y'
+					)
+				where ranking >= 2
+			</select>
+
+	<select id="getRank1MovieBySort" parameterClass="map" resultClass="Movie">
+		select no,korTitle,engTitle,reservationRate,gpa,realMembers,director,genre,ageLimit,runningTime,
+				country,releaseDate,wishList,info,trailer,steelCut,screenYn,price,ac, poster
+		from (
+			select
+		        row_number() over(order by 
+			<dynamic>
+				<isEqual property="sort" compareValue="1">
+					movie_reservation_rate desc
+				</isEqual>
+				<isEqual property="sort" compareValue="2">
+					movie_gpa desc
+				</isEqual>
+				<isEqual property="sort" compareValue="3">
+					movie_real_members desc
+				</isEqual>
+			</dynamic>) as ranking,
+		        MOVIE_NO as no,
+		        MOVIE_KORTITLE as korTitle,
+		        MOVIE_ENGTITLE as engTitle,
+		        MOVIE_RESERVATION_RATE as reservationRate,
+		        MOVIE_GPA as gpa,
+		        MOVIE_REAL_MEMBERS realMembers,
+		        MOVIE_DIRECTOR director,
+		        MOVIE_GENRE genre,
+		        MOVIE_AGE_LIMIT ageLimit,
+		        MOVIE_RUNNING_TIME runningTime,
+		        MOVIE_PROD_COUNTRY country,
+		        MOVIE_RELEASE_DATE releaseDate,
+		        MOVIE_WISHLIST wishList,
+		        MOVIE_INFO info, 
+		        MOVIE_TRAILER trailer,
+		        MOVIE_STEEL_CUT steelCut,
+		        MOVIE_SCREEN_YN screenYn,
+		        MOVIE_PRICE price,
+		        MOVIE_ACTORS ac,
+		        MOVIE_POSTER poster
+			from jf_movies
+			where movie_screen_yn = 'Y'
+			)
+		where ranking = 1
+	</select>
+</sqlMap>

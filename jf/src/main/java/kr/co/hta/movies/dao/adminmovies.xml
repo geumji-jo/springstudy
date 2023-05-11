@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	
+	<typeAlias alias="Criteria" type="kr.co.hta.vo.Criteria" />
+	
+	<!-- 번호로 받아오기 -->
+	<select id="selectMovieByNo" parameterClass="int" resultClass="Movie">
+		select
+				movie_no as no,
+				movie_kortitle as korTitle, 
+				movie_engtitle as engTitle, 
+				movie_reservation_rate as reservationRate, 
+				movie_gpa as gpa, 
+				movie_real_members as realMembers, 
+				movie_director as director, 
+				movie_genre as genre, 
+				movie_age_limit as ageLimit, 
+				movie_running_time as runningTime, 
+				movie_prod_country as country,
+				movie_release_date as releaseDate, 
+				movie_wishlist as wishList, 
+				movie_info as info, 
+				movie_trailer as trailer, 
+				movie_steel_cut as steelCut, 
+				movie_screen_yn as screenYn, 
+				movie_price as price, 
+				movie_poster as poster, 
+				movie_actors as actors, 
+				movie_create_date as createDate
+			from jf_movies
+			where movie_no = #value#
+	</select>
+
+	<!--영화상영종료 표시  -->
+	<update id="closeMovie" parameterClass="int">
+	update jf_movies
+	set
+		movie_screen_yn = 'N'
+	where movie_no = #value#
+		
+	</update>
+	
+	<!-- 영화정보등록 -->
+	<insert id="insertMovie" parameterClass="Movie">
+		insert into jf_movies 
+			(movie_no, movie_kortitle, movie_engtitle, movie_reservation_rate, movie_gpa, movie_real_members, movie_director, 
+			movie_genre, movie_age_limit, movie_running_time, movie_prod_country, movie_release_date, movie_wishlist, movie_info, 
+			movie_trailer, movie_steel_cut, movie_screen_yn, movie_price, movie_poster, movie_actors, movie_create_Date)
+		values
+		(jf_movies_seq.nextval, #korTitle#, #engTitle#, 0.0, 0, 0, #director#, 
+		  #genre#, #ageLimit#, #runningTime#, #country#, #releaseDate#, 0, #info#, #trailer#, #steelCut#, 
+		  'Y', 10000, #poster#, #actors#, sysdate)
+	</insert>
+		
+		<!-- 영화정보  -->
+	<select id="adminMovieDetil" parameterClass="int" resultClass="Movie">
+		select
+			movie_no as no,
+			movie_kortitle as korTitle, 
+			movie_engtitle as engTitle, 
+			movie_reservation_rate as reservationRate, 
+			movie_gpa as gpa, 
+			movie_real_members as realMembers, 
+			movie_director as director, 
+			movie_genre as genre, 
+			movie_age_limit as ageLimit, 
+			movie_running_time as runningTime, 
+			movie_prod_country as country,
+			movie_release_date as runningTime, 
+			movie_wishlist as wishList, 
+			movie_info as info, 
+			movie_trailer as trailer, 
+			movie_steel_cut as steelCut, 
+			movie_screen_yn as screenYn, 
+			movie_price as price, 
+			movie_poster as poster, 
+			movie_actors as actors, 
+			movie_create_date
+		from jf_movies
+		where movie_no =#value#	
+	</select>	
+	
+	<!-- 한페이지 에 8개씩 -->
+	<select id="adminMovieListByRange" parameterClass="kr.co.hta.vo.Criteria" resultClass="Movie">
+		select 
+			movie_no as no,
+			movie_kortitle as korTitle, 
+			movie_engtitle as engTitle, 
+			movie_reservation_rate as reservationRate, 
+			movie_gpa as gpa, 
+			movie_real_members as realMembers, 
+			movie_director as director, 
+			movie_genre as genre, 
+			movie_age_limit as ageLimit, 
+			movie_running_time as runningTime, 
+			movie_prod_country as country,
+			movie_release_date as runningTime, 
+			movie_wishlist as wishList, 
+			movie_info as info, 
+			movie_trailer as trailer, 
+			movie_steel_cut as steelCut, 
+			movie_screen_yn as screenYn, 
+			movie_price as price, 
+			movie_poster as poster, 
+			movie_actors as actors, 
+			movie_create_date
+		from( select
+					row_number() over (order by movie_no desc ) row_no,
+					movie_no, movie_kortitle, movie_engtitle, movie_reservation_rate, movie_gpa, movie_real_members, movie_director, movie_genre, movie_age_limit, movie_running_time, movie_prod_country,
+					movie_release_date, movie_wishlist, movie_info, movie_trailer, movie_steel_cut, movie_screen_yn, movie_price, movie_actors, movie_poster, movie_create_date
+				from jf_movies
+				where movie_screen_yn = 'Y'
+				<dynamic>
+		            <isNotNull property="option">
+		                <isEqual property="option" compareValue="korTitle">
+		                    and movie_kortitle like '%' || #keyword# || '%'
+		                </isEqual>
+		                <isEqual property="option" compareValue="director">
+		                    and movie_director like '%' || #keyword# || '%'
+		                </isEqual>
+		                <isEqual property="option" compareValue="actors">
+		                    and movie_actors like '%' || #keyword# || '%'
+		                </isEqual>
+		            </isNotNull>
+		        </dynamic>)
+		where (row_no >= #begin# and row_no &lt;= #end#)
+	</select>
+	
+	<!--영화정보 총갯수 -->
+	<select id="movieTotalCount" parameterClass="Criteria" resultClass="int">
+		select count(*)
+		FROM jf_movies
+		<dynamic>
+            <isNotNull property="option">
+                <isEqual property="option" compareValue="korTitle">
+                    where movie_kortitle like '%' || #keyword# || '%'
+                </isEqual>
+                <isEqual property="option" compareValue="director">
+                    where movie_director like '%' || #keyword# || '%'
+                </isEqual>
+                <isEqual property="option" compareValue="actors">
+                    where movie_actors like '%' || #keyword# || '%'
+                </isEqual>
+            </isNotNull>
+	   </dynamic>
+	</select>
+</sqlMap>

@@ -1,0 +1,49 @@
+.c_left {
+	margin-top: 20px;
+}
+
+.c_input {
+	width: 185px;
+}
+
+.tr_background {
+	background: #d2cbc1;
+}
+
+#btn_header_search {
+	background-color: black;
+	color: white
+}
+
+.tbl_area {
+	overflow: hidden;
+	padding-top: 10px;
+}
+
+.notice_td_area {
+	font-size: 13px;
+}
+
+.tr_background th {
+	font-size: 14px;
+}
+#notice {
+	font-size: 20px;
+	font-weight: 900;
+}
+
+.notice1 {
+	padding-bottom: 27px;
+	margin-top: 27px;
+}
+
+#count {
+	padding-bottom: 20px;
+}
+
+select {
+	line-height: 27px;
+	height: 29px;
+	padding: 3px 5px;
+	border: 1px solid #b4b3aa;
+}

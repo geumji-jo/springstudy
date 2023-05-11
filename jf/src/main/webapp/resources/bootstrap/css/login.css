@@ -1,0 +1,57 @@
+.login_main_row{
+    margin-top:50px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    border-top : 1px solid gray;
+    border-bottom: 1px solid gray;
+    
+}
+.login_info{
+    color:#666666;
+    opacity: 0.8;
+    margin-bottom: 20px;
+}
+.login_button_div{
+    padding-left: 5px;
+}
+.login_button{
+    height:45px;
+    width:302.5px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.page-header > h1{
+	font-size : 30px;
+	color:black;
+}
+.login_alert_top_div{
+	position:relative;
+	right:150px;
+	margin-top : 135px;
+}
+.login_searchform{
+	margin-top : 7px;
+	text-decoration: underline;
+	padding-right : 0px;	
+}
+.login_searchform a{
+	color : gray;
+}
+.login_searchId{
+	font-size : 12px;
+	margin-right: 5px;
+}
+.login_searchPwd{
+	font-size : 12px;
+}
+.login_goLoginForm{
+	font-size : 15px;
+}
+#msg-box, #msg-box2, #msg-box3, #msg-box4{
+	position: relative;
+	top:6px;
+} 
+.changePwd_userId{
+	position: relative;
+	top:7px;
+}

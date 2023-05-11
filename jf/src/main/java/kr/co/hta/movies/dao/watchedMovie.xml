@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+		<select id="CountReservationList" parameterClass="string" resultClass="int">
+			select count(*)
+			from
+				(select 
+				    r.reservation_no		no, 
+				    r.member_id				memberId,
+				    r.screening_no			screeningNo,
+				    r.reservation_date		reservationDate,
+				    r.reservation_yn		reservationYn,
+				    r.reservation_count		reservationCount,
+				    t.theater_name			theaterName,
+				    t.theater_no			theaterNo,
+				    sr.room_name			roomName,
+				    s.screening_date		screeningDate,
+				    m.movie_kortitle		movieKorTitle,
+				    m.movie_poster			moviePoster,
+				    m.movie_no				movieNo,
+				    m.movie_engtitle		movieEngTitle
+				from 
+				    jf_screenings s,
+				    jf_movies m, 
+				    jf_reservations r,
+				    jf_screening_rooms sr,
+				    jf_theaters t
+				where 
+				    s.movie_no = m.movie_no
+				and 
+				    s.screening_no = r.screening_no
+				and
+				    sr.theater_no = t.theater_no
+				and
+				    s.room_no = sr.room_no
+				and
+				    r.member_id = #value#)
+		</select>
+
+		<select id="getAllReservationList" parameterClass="string" resultClass="Reservation">
+			select 
+			    r.reservation_no		no, 
+			    r.member_id				memberId,
+			    r.screening_no			screeningNo,
+			    r.reservation_date		reservationDate,
+			    r.reservation_yn		reservationYn,
+			    r.reservation_count		reservationCount,
+			    t.theater_name			theaterName,
+			    t.theater_no			theaterNo,
+			    sr.room_name			roomName,
+			    s.screening_date		screeningDate,
+			    s.screening_time		screeningTime,
+			    m.movie_kortitle		movieKorTitle,
+			    m.movie_poster			moviePoster,
+			    m.movie_no				movieNo,
+			    m.movie_engtitle		movieEngTitle
+			from 
+			    jf_screenings s,
+			    jf_movies m, 
+			    jf_reservations r,
+			    jf_screening_rooms sr,
+			    jf_theaters t
+			where 
+			    s.movie_no = m.movie_no
+			and 
+			    s.screening_no = r.screening_no
+			and
+			    sr.theater_no = t.theater_no
+			and
+			    s.room_no = sr.room_no
+			and
+			    r.member_id = #value#
+			order by
+				r.reservation_date desc
+		</select>
+
+		<select id="getAllWatchedMovieById" parameterClass="string" resultClass="Reservation">
+			select 
+			    r.reservation_no		no, 
+			    r.member_id				memberId,
+			    r.screening_no			screeningNo,
+			    r.reservation_date		reservationDate,
+			    r.reservation_yn		reservationYn,
+			    r.reservation_count		reservationCount,
+			    t.theater_name			theaterName,
+			    sr.room_name			roomName,
+			    s.screening_date		screeningDate,
+			    m.movie_kortitle		movieKorTitle,
+			    m.movie_poster			moviePoster,
+			    m.movie_no				movieNo,
+			    m.movie_engtitle		movieEngTitle
+			from 
+			    jf_screenings s,
+			    jf_movies m, 
+			    jf_reservations r,
+			    jf_screening_rooms sr,
+			    jf_theaters t
+			where 
+			    s.movie_no = m.movie_no
+			and 
+			    s.screening_no = r.screening_no
+			and
+			    sr.theater_no = t.theater_no
+			and
+			    s.room_no = sr.room_no
+			and 
+			    r.reservation_yn = 'Y'
+			and
+			    r.member_id = #value#
+		</select>
+		
+		<select id="countAllWatched" parameterClass="string" resultClass="int">
+			select count(*)
+			from
+				(select 
+				    r.reservation_no		no, 
+				    r.member_id				memberId,
+				    r.screening_no			screeningNo,
+				    r.reservation_date		reservationDate,
+				    r.reservation_yn		reservationYn,
+				    r.reservation_count		reservationCount,
+				    t.theater_name			theaterName,
+				    sr.room_name			roomName,
+				    s.screening_date		screeningDate,
+				    m.movie_kortitle		movieKorTitle,
+				    m.movie_poster			moviePoster,
+				    m.movie_no				movieNo,
+				    m.movie_engtitle		movieEngTitle
+				from 
+				    jf_screenings s,
+				    jf_movies m, 
+				    jf_reservations r,
+				    jf_screening_rooms sr,
+				    jf_theaters t
+				where 
+				    s.movie_no = m.movie_no
+				and 
+				    s.screening_no = r.screening_no
+				and
+				    sr.theater_no = t.theater_no
+				and
+				    s.room_no = sr.room_no
+				and 
+				    r.reservation_yn = 'Y'
+				and
+				    r.member_id = #value#)
+		</select>
+</sqlMap>

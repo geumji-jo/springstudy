@@ -1,0 +1,514 @@
+@charset "UTF-8";
+
+.container {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.title {
+	font-size: 36px;
+}
+
+.movie-menu {
+	padding-left: 0px;
+}
+
+.movie-menu li.on {
+	background-color: #000;
+}
+
+.movie-menu li .movie-title {
+	color: #fff;
+	font-weight: bold;
+	margin-left: 30px;
+}
+
+.time-table {
+	height: 75px;
+}
+
+.time-table div {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px;
+}
+
+ul {
+	list-style: none;
+}
+
+.movie-menu li:hover {
+	color: #fff;
+	background-color: #000;
+}
+
+.movie-menu li a:hover {
+	color: #fff;
+	background-color: #000;
+}
+
+.theater-list button {
+	margin-right: 10px;
+	color: #000;
+}
+
+.theater-list {
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.theater-list a {
+	color: #666;
+	float: left;
+	padding: 0px 25px;
+}
+
+.theater-name {
+	color: #666;
+	float: left;
+}
+
+.theater-name.theater-name-on {
+	color: #fff;
+}
+
+.theater_border_right_hr {
+	width: 8px;
+	height: 15px;
+	margin-right: 8px;
+	display: inline-block;
+	border-right: 0.1px solid #a6a6a6;
+}
+
+.col-movie-detail img {
+	width: 190px;
+	height: auto;
+	margin-bottom: 5px;
+}
+
+p {
+	margin-bottom: 0px;
+	margin-top: 1px;
+}
+
+.movie-menu li {
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 15px;
+	border-radius: 5px;
+}
+
+ul {
+	list-style: none;
+}
+
+.sect-favorite div {
+	border: 1px solid #aaa;
+	height: 50px;
+	font-size: 12px;
+	text-align: center;
+}
+
+.sect-favorite div p {
+	color: #fff;
+	margin-top: 18px;
+}
+
+.col-sm-1 {
+	text-align: center;
+}
+
+body {
+	background-color: rgb(252, 253, 238);
+}
+
+.age-limit-12 {
+	width: 30px;
+	height: 30px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+}
+
+.age-limit-15 {
+	width: 28px;
+	height: 30px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+}
+
+.age-limit-18 {
+	width: 28px;
+	height: 27px;
+	margin-right: 2px;
+	margin-bottom: 2px;
+}
+
+.screening-y {
+	width: 55px;
+	height: 29px;
+	margin-bottom: 3px;
+}
+
+.col-movie-detail {
+	text-align: center;
+	margin-top: 13px;
+}
+
+.movie-detail {
+	font-size: 14px;
+	margin-left: -5px;
+	color: #999999;
+}
+
+.select-left {
+	width: 58px;
+	height: 26px;
+	margin-left: -10px;
+}
+
+.select-right {
+	width: 58px;
+	height: 25px;
+	margin-left: -20px;
+}
+
+.movie-sun {
+	width: 21px;
+	height: 21px;
+}
+
+.movie-moon {
+	width: 15px;
+	height: 20px;
+}
+
+.day {
+	font-size: 30px;
+	padding: 0px;
+}
+
+.month-week {
+	font-size: 12px;
+	margin-top: 9px;
+}
+
+.select-date a {
+	color: #717171;
+}
+
+.selected {
+	border: 1px solid black;
+	border-radius: 10%;
+	background-color: #fff;
+}
+
+.selected-tt {
+	font-weight: bold;
+}
+
+.selected a {
+	color: #000;
+}
+
+.tab-menu {
+	background:
+		url(http://img.cgv.co.kr/R2014/images/common/bg/bg_showtimes_favorite.gif)
+		no-repeat 0;
+	height: 500px;
+	background-size: 100%;
+}
+
+.movie-section {
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+.thumb {
+	background-color: #000;
+	border-radius: 10px;
+}
+
+.select-tam a, .select-tam span {
+	color: #fff;
+	font-size: 18px;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.select-tam {
+	display: inline-block;
+	background-color: #e71a0f;
+	padding: 7px;
+	margin-bottom: 10px;
+}
+/*
+      .ribbon-right {
+          background: url(http://img.cgv.co.kr/R2014/images/common/bg/ribon_right.png) right no-repeat;
+          padding-right: 20px;
+      }*/
+.gly span {
+	color: #000;
+	font-size: 10px;
+}
+
+.ribbon-left {
+	background:
+		url(http://img.cgv.co.kr/R2014/images/sprite/sprite_corner.png) 0
+		-20px no-repeat;
+	padding-right: 19px;
+	padding-bottom: 19px;
+}
+
+.box-movie-type {
+	width: 299px;
+	height: 247px;
+	padding: 10px 0 30px 34px;
+	background:
+		url(http://img.cgv.co.kr/R2014/images/common/bg/bg_box_movie.png)
+		no-repeat 0 0;
+}
+
+.type-text {
+	font-size: 18px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 10px;
+	margin-left: 3px;
+	background-color: #262626;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+.type-text a {
+	color: #fff;
+}
+
+.icon {
+	margin-bottom: 10px;
+}
+
+.icon span {
+	color: #666;
+}
+
+.icon a.on span {
+	color: #e71a0f;
+}
+
+.icon a {
+	margin-left: 15px;
+}
+
+.ico-grade {
+	display: block;
+	position: absolute;
+	width: 21px;
+	height: 21px;
+	background:
+		url("http://img.cgv.co.kr/R2014/images/sprite/sprite_icon.png")
+		no-repeat;
+	font: 0/0 a;
+	zoom: 1;
+}
+
+.ico {
+	display: inline-block;
+	padding: 0 20px;
+	background:
+		url(http://img.cgv.co.kr/R2014/images/sprite/sprite_icon.png) left 4px
+		no-repeat;
+	color: #666666;
+}
+
+.ico-grade.grade-0 {
+	background-position: -30px 0;
+} /* 전체 */
+.ico-grade.grade-12 {
+	background-position: -51px 0;
+} /* 12세 */
+.ico-grade.grade-15 {
+	background-position: -72px 0;
+} /* 15세 */
+.ico-grade.grade-18 {
+	background-position: -93px 0;
+} /* 청불 */
+.ico.ticket {
+	background-position: -300px -100px;
+}
+
+.ico.grade {
+	background-position: -296px -117px;
+}
+
+.ico.person {
+	padding-left: 30px;
+	background-position: -300px -137px;
+}
+
+.ico.ticket.on {
+	background-position: -300px -157px;
+}
+
+.ico.grade.on {
+	background-position: -296px -177px;
+}
+
+.ico.person.on {
+	padding-left: 30px;
+	background-position: -300px -197px;
+}
+
+.cgv-title span {
+	color: #000;
+	display: block;
+	font-weight: bold;
+}
+
+.cgv-movie-info span {
+	margin-top: 5px;
+}
+
+.cgv-movie-info a {
+	margin-left: 27px;
+	color: #000;
+	font-weight: bold;
+	margin-top: -20px;
+	font-size: 17px;
+}
+
+.cgv-movie-info div {
+	display: inline-block;
+	color: #aaa;
+}
+
+.cgv-movie-info img {
+	margin-left: 2px;
+	margin-bottom: -9px;
+}
+
+.timetable-list {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.favorite-cgv {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.favorite-cgv img {
+	margin-left: 90px;
+	margin-bottom: -20px;
+}
+
+.favorite-cgv-list {
+	margin-left: 250px;
+	margin-top: -20px;
+	
+}
+
+.favorite-cgv-item {
+ 	display:block;
+	float: left;
+	width: 20%;
+	border: 1px solid #aaa;
+	overflow:hidden;
+    white-space: nowrap;
+	text-align: center;
+	text-overflow: ellipsis;
+	padding: 10px;
+	color: #fff;
+}
+
+.favorite-cgv-item a {
+
+	font-size: 13px;
+	color: #fff;
+}
+
+.theater-list-a {
+	margin-top: 20px;
+	border-top: 2px solid #aaa;
+	border-bottom: 2px solid #aaa;
+	
+}
+
+.theater-list-a span {
+	color: #b9b9b9;
+	float: left;
+	padding: 15px;
+	margin-left: 15px;
+}
+
+.theater-list-a a {
+	color: #b9b9b9;
+}
+
+.theater-list-a-items {
+	margin-top: 20px;
+}
+
+.theater-list-a-items span {
+	padding: 10px 10px;
+	float: left;
+}
+
+.theater-list-a-items span a {
+	color: #b9b9b9;
+}
+
+.selected-item {
+	color: #fff !important;
+}
+
+.last-line:last-child {
+	display: none;
+}
+
+.select-city {
+	color: #fff !important;
+}
+
+.select-city-movie {
+	color: #333;
+	font-weight: 400;
+}
+
+.select-city-movie.on {
+	color: #000;
+}
+
+li {
+	cursor: pointer;
+}
+
+.theater-top-favoriteTheaters >li {
+    list-style: none;
+    float: left;
+    width: 117px;
+    height: 49px;
+    border: 4px double #6E6B6D;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    padding-top: 9px;
+}
+
+.theater_btn_set_myFavorite {
+    position: relative;
+    bottom: 10px;
+    float: left;
+    width: 49px;
+    height: 49px;
+    border: 1px solid #6E6B6D;
+    background-color: #6E6B6D;
+}
+
+.theater-top-favoriteTheaters > li > a {
+    text-decoration: none;
+    font-size = 13px: ;
+    color: white;
+}

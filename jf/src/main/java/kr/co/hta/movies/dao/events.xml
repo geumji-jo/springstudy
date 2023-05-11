@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+		
+		
+	<insert id="insertEvent" parameterClass="Event">
+		insert into jf_events (
+			EVENT_NO
+			,EVENT_TITLE
+			,EVENT_IMG_NAME
+			,EVENT_START_DATE
+			,EVENT_END_DATE
+			,EVENT_CATEGORY
+			,EVENT_CONTENT
+			) 
+		VALUES 
+			(jf_event_seq.nextval, #title#, #imgName#, #startDate#, #endDate#, #category#, #content#)
+	</insert>
+	
+	<select id="selectAllEvent" resultClass="Event">
+		select
+			EVENT_NO			no
+			,EVENT_TITLE		title
+			,EVENT_IMG_NAME		imgName
+			,EVENT_START_DATE	startDate
+			,EVENT_END_DATE		endDate
+			,EVENT_CATEGORY		category
+		from jf_events
+		order by EVENT_NO 	asc	
+	</select>
+	
+	<select id="selectCountEvent" resultClass="int">
+		select count(*)
+		from jf_events
+	</select>
+	<select id="selectEventByRange" parameterClass="kr.co.hta.vo.Criteria" resultClass="Event">
+		
+			select
+				EVENT_NO			no
+				,EVENT_TITLE		title
+				,EVENT_IMG_NAME		imgName
+				,EVENT_START_DATE	startDate
+				,EVENT_END_DATE		endDate
+				,EVENT_CATEGORY		category	
+			from (select
+						ROW_NUMBER() OVER (ORDER BY EVENT_NO DESC) AS row_no
+						,EVENT_NO			
+						,EVENT_TITLE		
+						,EVENT_IMG_NAME		
+						,EVENT_START_DATE	
+						,EVENT_END_DATE		
+						,EVENT_CATEGORY		
+					from jf_events)
+			where (row_no >= #begin# and row_no &lt;= #end#)
+	</select>
+	
+	
+<!-- made by 해훈 -->
+	<select id="selectEventRange3" resultClass="Event">
+		select
+		    EVENT_NO			no
+		    ,EVENT_TITLE		title
+		    ,EVENT_IMG_NAME		imgName
+		    ,EVENT_START_DATE	startDate
+		    ,EVENT_END_DATE		endDate
+		    ,EVENT_CATEGORY		category
+		    ,EVENT_CONTENT      content
+		from (
+		        select
+		             ROW_NUMBER() OVER (ORDER BY EVENT_END_DATE DESC) AS row_no
+					,EVENT_NO			
+					,EVENT_TITLE		
+					,EVENT_IMG_NAME		
+					,EVENT_START_DATE	
+					,EVENT_END_DATE		
+					,EVENT_CATEGORY		
+					,EVENT_CONTENT
+				from jf_events)
+		where row_no &lt; 4
+	</select>
+	
+	<select id="selectAllEventByIng" parameterClass="string" resultClass="Event">
+		select
+			EVENT_NO			no
+			,EVENT_TITLE		title
+			,EVENT_IMG_NAME		imgName
+			,EVENT_START_DATE	startDate
+			,EVENT_END_DATE		endDate
+			,EVENT_CATEGORY		category
+			,EVENT_CONTENT		content
+		from jf_events
+		where event_end_date > sysdate
+		and	event_category like '%' || #value# || '%'
+		order by EVENT_NO 	asc
+	</select>
+	
+	<select id="selectEventByNo" parameterClass="int" resultClass="Event">
+		select
+			EVENT_NO			no
+			,EVENT_TITLE		title
+			,EVENT_IMG_NAME		imgName
+			,EVENT_START_DATE	startDate
+			,EVENT_END_DATE		endDate
+			,EVENT_CATEGORY		category
+			,EVENT_CONTENT		content
+		from jf_events
+		where event_No = #value#
+	</select>
+</sqlMap>

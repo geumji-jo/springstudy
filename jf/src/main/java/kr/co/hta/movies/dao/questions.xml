@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+	<typeAlias alias="Criteria" type="kr.co.hta.vo.Criteria" />
+	
+	<select id="selectAllQuestion" resultClass="Question">
+		SELECT A.QUESTION_NO 				no
+				, A.QUESTION_TITLE 			title
+				, A.QUESTION_CONTENT 		contents
+				, A.QUESTION_CREATE_DATE 	createDate
+				, A.QUESTION_STATUS 		status
+				, B.THEATER_NAME			theaterName
+				, A.ANSWER_CONTENT			answerContents
+				, A.ANSWER_CREATE_DATE		answerCreateDate
+				, C.MEMBER_NICKNAME			nickname
+		FROM JF_QUESTIONS A, JF_THEATERS B,JF_MEMBERS C
+		WHERE A.THEATER_NO = B.THEATER_NO
+		AND A.MEMBER_ID = C.MEMBER_ID
+		order by QUESTION_NO 	asc	
+	</select>
+	
+	<select id="selectQuestionByNo" parameterClass="int" resultClass="Question">
+		SELECT  A.QUESTION_TITLE 			title
+				, A.QUESTION_NO 				no
+				, A.QUESTION_CONTENT		contents
+				, A.QUESTION_CREATE_DATE 	createDate
+				, A.QUESTION_STATUS 		status
+				, B.THEATER_NAME			theaterName
+				, A.ANSWER_CONTENT			answerContents
+				, A.ANSWER_CREATE_DATE		answerCreateDate
+				, C.MEMBER_NICKNAME			nickname
+		FROM JF_QUESTIONS A, JF_THEATERS B,JF_MEMBERS C
+		WHERE A.THEATER_NO = B.THEATER_NO
+		AND A.MEMBER_ID = C.MEMBER_ID
+		AND A.QUESTION_NO = #value#
+	</select>
+	
+	<update id="updateQuestion" parameterClass="Question" >
+		Update jf_Questions
+		set
+			QUESTION_STATUS = '답변완료'		
+			, ANSWER_CONTENT = #answerContents#			
+			, ANSWER_CREATE_DATE = #answerCreateDate#		
+		where QUESTION_NO = #no#
+	</update>
+	
+	<!-- 로그인한유저가 질문 등록 -->
+	<insert id="insertQuestion" parameterClass="Question">
+	insert into jf_questions
+		(question_no, question_title, question_status, theater_no, member_id, question_content)
+	values
+		(jf_question_seq.nextval, #title#, '답변대기중', #theaterNo#, #memberId#, #contents#)
+	</insert>
+	
+	<!-- 질문삭제 -->
+	<delete id="deleteQuestions" parameterClass="int">
+	delete jf_questions
+	where question_no = #value#
+	</delete>
+	
+	<!-- 한페이지당 10개씩 -->
+<select id="questionListByRange" parameterClass="map" resultClass="Question">
+		select
+			question_no no,
+			theater_name theaterName,
+			question_title title,
+			question_content contents,
+			question_status status,
+			member_id memberId,
+			question_create_date createDate
+		from( select
+				row_number() over (order by question_no desc) row_no,
+				A.question_no, B.theater_name, A.question_title, A.question_content,
+				A.question_status, C.member_id,  A.question_create_date
+			from jf_questions A, jf_theaters B, jf_members C
+	    	where A.theater_no = B.theater_no
+	    	and A.member_id = C.member_id
+			and C.member_id = #memberId#
+			<dynamic>
+	            <isNotNull property="criteria.option">
+	                <isEqual property="criteria.option" compareValue="title">
+	                    and question_title like '%' || #criteria.keyword# || '%'
+	                </isEqual>
+	                <isEqual property="criteria.option" compareValue="theaterName">
+	                    and theater_name like '%' || #criteria.keyword# || '%'
+	                </isEqual>
+	            </isNotNull>
+	        </dynamic>
+	        )
+	where row_no >= #criteria.begin# and row_no &lt;= #criteria.end#	
+</select>
+	
+	<!-- 문의정보 총갯수 -->
+	<select id="questionTotalCount" parameterClass="map" resultClass="int">
+		select
+				count(*)
+		from jf_questions A, jf_theaters B, jf_members C
+    	where A.theater_no = B.theater_no
+    	and A.member_id = C.member_id
+		and C.member_id = #memberId#
+		<dynamic>
+            <isNotNull property="criteria.option">
+                <isEqual property="criteria.option" compareValue="title">
+                    and A.question_title like '%' || #criteria.keyword# || '%'
+                </isEqual>
+                <isEqual property="criteria.option" compareValue="theaterName">
+                    and B.theater_name like '%' || #criteria.keyword# || '%'
+                </isEqual>
+            </isNotNull>
+        </dynamic>
+	</select>
+	
+
+	
+	
+</sqlMap>

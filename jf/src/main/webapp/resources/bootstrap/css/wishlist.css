@@ -1,0 +1,120 @@
+a{
+    text-decoration: none;
+    color:black;
+}
+.wish_mainleft_col{
+}
+.wish_main_row{
+    margin-top: 40px;
+}
+.wish_profile{
+    width:170px;
+    margin-bottom: 13px;
+}
+.wish_username{
+     font-size:18px;
+    font-weight: bold;
+    margin-bottom:20px;
+}
+.whole_profile_div{
+    padding-top:10px;
+    padding-bottom:40px;
+    border:1px solid #B8B8AC;
+}
+
+.whole_profile_div > a > .glyphicon-tag{
+    font-size: 12px;
+}
+.wish_right{
+    position: relative;
+    left:15px;
+    top:20px;
+    font-size: 23px;
+}
+.wish_1_2_number{
+    font-size:30px;
+}
+.wish_1{
+    padding: 20px 0px 20px 0px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 15px;
+    border : 1px solid #B8B8AC;
+}
+
+.wish_1_active > a{
+    color:white;
+}
+
+.wish_1_active{
+    color:white;
+    background-color: #F00000;
+}
+
+.wish_main_rightcol{
+    position: relative;
+    right:30px;
+}
+
+.wish_2_1_1{
+    font-size: 19px;
+    font-weight: bold;
+}
+.wish_2_1_2{
+    font-size: 14px;
+    color: #666666;
+}
+.wish_2_2_imgdiv{
+    margin-top: 20px;
+    height:400px;
+}
+.wish_2_2_remove{
+    position: absolute;
+    font-size: 25px;
+    top:10px;
+    left:180px;
+    color:lightgray;
+}
+.wish_img_div > a > img{
+    width: 100%;
+}
+.wish_heart{
+    position: relative;
+    top:7px;
+    font-size: 25px;
+    color:red;
+}
+.wish_2_2_moviename_div{
+    margin-top:5px;
+}
+.wish_2_2_moviename{
+    font-size: 18px;
+    font-weight: bold;
+}
+.wish_2_2_releaseDate{
+    font-size:15px;
+    color:#666666;
+}
+.wish_2_2_release_div{
+    margin-top: 5px;    
+    margin-bottom: 5px;    
+}
+.wish_likes{
+    border: 1px solid #6666;
+    padding:1px 5px 1px 5px;
+    border-radius: 10px;
+    
+}
+.wish_usedYn{
+    border : 1px solid gray;
+    font-weight: bold;
+    font-size: 14px;
+    padding : 3px 5px 3px 5px;
+    background-color: #363636;
+    color:white;
+    border-radius: 5px;
+}
+.wish_2_2_div > span{
+    margin-left : 2px;
+    margin-right : 2px;
+}

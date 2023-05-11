@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Nunito" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../../resources//bootstrap/css/mycgv.css">
+    <link rel="stylesheet" href="../../../../resources//bootstrap/css/wishlist.css">
+</head>
+
+<body>
+    <!--헤더 시작-->
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="">무비 차트</a></li>
+                <li class=""><a href="">빠른 예매</a></li>
+                <li><a href="">이벤트</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">로그인</a></li>
+                <li><a href="">로그아웃</a></li>
+                <li class=""><a href="">회원가입</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container main_container">
+        <div class="row text-center header top_header">
+            <div class="col-sm-3">
+                <a href="">
+                    <img src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png" alt="" style="max-width:70%; margin-top: 1px;">
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12 header_center1">
+                        <div class="row">
+                            <a href=""><img src="http://img.cgv.co.kr/R2014/images/title/h2_cultureplex.png" alt="" style="max-width:45%;"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 header_center2">
+                        <div class="row">
+                            <div class="col-sm-3 main_header dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">영화<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">무비차트</a></li>
+                                    <li><a href="">무비 파인더</a></li>
+                                    <li><a href="">트레일러</a></li>
+                                    <li><a href="">평점</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 main_header dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">예매<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">빠른 예매</a></li>
+                                    <li><a href="">상영 시간표</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">극장</a>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">이벤트</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-bricks main bg-bricks backimg"></div>
+    <!--헤더 끝-->
+    <div class="container">
+        <div class="row top-row">
+            <div class="col-sm-12 mycgv-info"></div>
+            <div class="row info-contents">
+                <div class="col-sm-2">
+                    <div class="profile-photo">
+                        <img src="http://img.cgv.co.kr/WebApp/images/couplingclub/config/img_character_09.png" alt="프로필사진">
+                    </div>
+                </div>
+                <div class="col-sm-10">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="info-content2">
+                                <strong id="info-name">박인재님</strong>
+                                <span id="info-id">injae1120 닉네임 : 아임인재</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="info-content3">
+                                <span id="info-info">phone : 010-6324-8000</span>
+                                <span id="info-info">e-mail : injae@naver.com</span>
+                                <span id="info-info">birth : 1998-06-11</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-content4 info-ul">
+                        <span id="my-movie">&lt;My Theater></span>
+                        <ul>
+                            <c:forEach var="m" items="${MyTheaters }">
+                                <li><a href="/jf/cgv/cgvtheaters.jf?tno=${m.theaterNo }">CGV천호</a></li>
+                            </c:forEach>
+                            <li><a href="" data-toggle="modal" data-target="#exampleModal">자주가는 극장 설정<span class="
+						glyphicon glyphicon-cog"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- my cgv 메인 컨텐츠 -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="mycgv_left_title">MY CGV HOME</div>
+                    <div class="mycgv_part">
+                        <a href="">
+                            <div class="mycgv_left_title mycgv_left_title2">나의 예매내역</div>
+                        </a>
+                        <a href="">
+                            <div class="mycgv_left_subtitle">신용카드 영수증 출력</div>
+                        </a>
+                    </div>
+                    <div class="mycgv_part">
+                        <a href="">
+                            <div class="mycgv_left_title mycgv_left_title2">회원정보</div>
+                        </a>
+                        <a href="">
+                            <div class="mycgv_left_subtitle">개인정보 변경</div>
+                        </a>
+                        <a href="">
+                            <div class="mycgv_left_subtitle">회원 탈퇴</div>
+                        </a>
+                    </div>
+                    <div class="mycgv_part">
+                        <a href="">
+                            <div class="mycgv_left_title mycgv_left_title2">나의 문의내역</div>
+                        </a>
+                        <a href="">
+                            <div class="mycgv_left_subtitle">1:1문의</div>
+                        </a>
+                        <a href="">
+                            <div class="mycgv_left_subtitle">분실물 문의</div>
+                        </a>
+                    </div>
+                    <div class="mycgv_part">
+                        <a href="">
+                            <div class="mycgv_left_title3">프로필 관리</div>
+                        </a>
+                    </div>
+                    
+                </div>
+                <div class="col-sm-9 mycgv_main_right_col">
+<!-- BOX 시작-->
+                    <div class="row mycgv_right_top_div">
+                        <div class="col-sm-3 mycgv_right_top_box text-center">
+                           <div class="row">
+                              <div class="col-sm-12 ">
+                               <span class="glyphicon glyphicon-heart mycgv_heart"></span>
+                              </div>
+                            </div>
+                            <div class="row">
+                               <div class="col-sm-12 ">
+                                <span class="mycgv_right_topBoxTitle">위시리스트</span>
+                               </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1 ">
+                                    <span class="mycgv_right_topBoxContent">보고싶은 영화들을 미리 담아두고 싶다면?</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mycgv_right_top_box text-center">
+                           <div class="row">
+                              <div class="col-sm-12 ">
+                               <span class="glyphicon glyphicon-heart mycgv_heart"></span>
+                              </div>
+                            </div>
+                            <div class="row">
+                               <div class="col-sm-12 ">
+                                <span class="mycgv_right_topBoxTitle">위시리스트</span>
+                               </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1 ">
+                                    <span class="mycgv_right_topBoxContent">보고싶은 영화들을 미리 담아두고 싶다면?</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mycgv_right_top_box text-center">
+                           <div class="row">
+                              <div class="col-sm-12 ">
+                               <span class="glyphicon glyphicon-heart mycgv_heart"></span>
+                              </div>
+                            </div>
+                            <div class="row">
+                               <div class="col-sm-12 ">
+                                <span class="mycgv_right_topBoxTitle">위시리스트</span>
+                               </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1 ">
+                                    <span class="mycgv_right_topBoxContent">보고싶은 영화들을 미리 담아두고 싶다면?</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mycgv_right_top_box text-center">
+                           <div class="row">
+                              <div class="col-sm-12 ">
+                               <span class="glyphicon glyphicon-heart mycgv_heart"></span>
+                              </div>
+                            </div>
+                            <div class="row">
+                               <div class="col-sm-12 ">
+                                <span class="mycgv_right_topBoxTitle">위시리스트</span>
+                               </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1 ">
+                                    <span class="mycgv_right_topBoxContent">보고싶은 영화들을 미리 담아두고 싶다면?</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!-- BOX 끝-->
+                       <div class="row">
+                            <div class="col-sm-4">
+                                <span class="mycgv_reservationRecord">MY 예매내역</span>
+                                <span class="mycgv_howmany">0건</span>
+                                <div class="mycgv_plus"><a href=""><span>+</span></a></div>
+                            </div>              
+                            <div class="col-sm-8 text-right">
+                                <span class="mycgv_reservation_right">예매번호로만 티켓을 찾을 수 있으니 반드시 확인 부탁드립니다. </span>
+                            </div> 
+                       </div>
+                       <div class="row">
+                           <div class="col-sm-12 mycgv_reservation_records">
+                               <span>고객님의 최근 예매내역이 존재하지 않습니다.</span>
+                           </div>
+                       </div>
+                       <div class="row">
+                           <div class="col-sm-12 mycgv_reservation_records">
+                               <div class="row">
+                                    <div class="col-sm-4 mycgv_myqna_div">
+                                        <span class="mycgv_reservationRecord2">MY QNA</span>
+                                        <span class="mycgv_howmany">0건</span>
+                                        <div class="mycgv_plus"><a href=""><span>+</span></a></div>
+                                        
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <hr class="mycgv_hr_1"/>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        고객님의 1:1 문의내역이 존재하지 않습니다.
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <hr class="mycgv_hr_2"/>
+                                    </div>
+                               </div>
+                           </div>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body></html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<!-- 
+		Connection 연결을 위한 설정
+	 -->
+	<typeAlias alias="Movie" type="kr.co.hta.vo.Movie"/>
+	<typeAlias alias="Review" type="kr.co.hta.vo.Review"/>
+    <typeAlias alias="Event" type="kr.co.hta.vo.Event"/>
+    <typeAlias alias="Question" type="kr.co.hta.vo.Question"/>
+    <typeAlias alias="Notice" type="kr.co.hta.vo.Notice"/>
+    <typeAlias alias="Theater" type="kr.co.hta.vo.Theater"/>
+    <typeAlias alias="Member" type="kr.co.hta.vo.Member"/>
+	<typeAlias alias="WishList" type="kr.co.hta.vo.WishList"/>
+	<typeAlias alias="FivePoint" type="kr.co.hta.vo.FivePoint"/>
+    <typeAlias alias="Ticketing" type="kr.co.hta.vo.Ticketing"/>
+    <typeAlias alias="CityCount" type="kr.co.hta.vo.CityCount"/>
+    <typeAlias alias="Finder" type="kr.co.hta.vo.Finder"/>
+    <typeAlias alias="Moviediary" type="kr.co.hta.vo.Moviediary"/>
+    <typeAlias alias="Reservation" type="kr.co.hta.vo.Reservation"/>
+    <typeAlias alias="MyTheater" type="kr.co.hta.vo.MyTheater"/>
+    <typeAlias alias="DiaryMovieDetail" type="kr.co.hta.vo.DiaryMovieDetail"/>
+	
+	<transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="oracle.jdbc.OracleDriver"/>
+			
+			<property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+			<property name="JDBC.Username" value="jf"/>
+			<property name="JDBC.Password" value="zxcv1234"/>
+		</dataSource>
+	</transactionManager>
+	
+	<!-- 
+		SQL이 정의된 xml 파일의 이름 설정
+	 -->
+	<sqlMap resource="kr/co/hta/movies/dao/movies.xml"/>
+	<sqlMap resource="kr/co/hta/movies/dao/reviews.xml"/>
+	<sqlMap resource="kr/co/hta/movies/dao/notices.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/events.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/questions.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/theaters.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/member.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/moviechart.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/reservation.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/adminmovies.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/finder.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/moviediary.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/mytheater.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/watchedMovie.xml"/>
+    <sqlMap resource="kr/co/hta/movies/dao/screening.xml"/>
+    
+</sqlMapConfig>

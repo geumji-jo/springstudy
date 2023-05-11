@@ -1,0 +1,146 @@
+        * {
+            font-family: 'Nunito', sans-serif;
+        }
+.form-control:focus {
+        border-color: #ffb3b3 !important;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(255, 179, 179, 0.5) !important;
+ }
+        .imgs {
+            padding: 20px;
+        }
+
+        .header {
+            background-color: #ffffcc;
+            padding-top: 10px;
+        }
+		a:focus{
+			text-decoration: none;
+		}
+		a:hover{
+			text-decoration: none;
+		}
+        .main_header {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .header_center2 {
+
+            padding-top: 10px;
+        }
+
+        .main_header>a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .main_contents_section {
+            margin: 10px;
+        }
+
+        .aside {
+            width: 120px;
+            position: fixed;
+            top: 150px;
+            right: 150px;
+        }
+
+        .aside_imgs {
+            width: 103px;
+        }
+
+        fieldset>input {
+            width: 100px;
+            height: 25px;
+        }
+
+        fieldset>button {
+            height: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 750px;
+            }
+        }
+
+        @media (min-width: 1022px) {
+            .container {
+                width: 1080px;
+            }
+
+            .footer {
+                margin-bottom: 20px;
+            }
+        }
+
+        .bottom {
+            padding: 20px;
+        }
+
+        .likes {
+            margin-left: 15px;
+            margin-right: 10px;
+        }
+
+        .top_header {
+            height: 150px;
+            background-image: url("http://img.cgv.co.kr/R2014/images/common/bg/bg_header.gif");
+            background-repeat: repeat-x;
+        }
+
+        .header_navbar {
+            height: 32px;
+        }
+
+        .navbar-default {
+            position: relative;
+            font-size: 1.2rem;
+            top: -20px;
+            margin-bottom: 0;
+        }
+
+        .navbar-nav>li>a {
+        	font-size: 14px;
+            color: black;
+            min-height: 32px;
+            padding-top: 10px;
+            padding-bottom: 12px;
+        }
+
+        .navbar {
+            min-height: 32px;
+            margin: 0;
+        }
+
+        .main_container {
+            position: relative;
+        }
+        
+                .main-contents {
+            margin-top: 30px;
+        }
+        
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+        body {
+            background-color: rgb(252, 254, 238);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+         }
+        
+.dropdown .dropdown-menu {display:none; position:absolute; top:31px; z-index:100; width:164px; padding:4px; background:url(http://img.cgv.co.kr/R2014/images/common/bg/bg_smenu.png) repeat-y 0 0; margin-top:5px; margin-left: -20px}
+.dropdown .dropdown-menu .smenu {padding:10px 10px; border:2px solid #828282;}
+.dropdown .dropdown-menu i {display:block; position:absolute; top:-10px; left:50%; width:19px; height:10px; margin-left:-9px; background:url(http://img.cgv.co.kr/R2014/images/common/ico/ico_smenu_arrow.png) no-repeat 0 0;}
+.dropdown .dropdown-menu .smenu li {margin-top:10px; margin-left: -35px; list-style: none;}
+.dropdown .dropdown-menu .smenu li:first-child {margin-top:0;}
+.dropdown .dropdown-menu .smenu li > a {display:block; width:130px; color:#fff; font-weight:500; font-size:13px; line-height:15px;}
+.dropdown .dropdown-menu .smenu li > a:hover, 
+.dropdown .dropdown-menu .smenu li > a:focus, 
+.dropdown .dropdown-menu .smenu li.on > a {background:url(http://img.cgv.co.kr/R2014/images/common/ico/ico_smenu_hand.png) no-repeat 100% 1px; color:#e71a0f;}
+.dropdown .dropdown-menu .smenu li.last {padding-top:15px; border-top:2px solid #828282;}

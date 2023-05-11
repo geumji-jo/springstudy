@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+
+	<select id="selectSearchMovies" parameterClass="string" resultClass="Movie">
+		SELECT 
+			NOTICE_NO
+			, NOTICE_TITLE
+			, NOTICE_CONTENT
+			, NOTICE_CREATE_DATE	
+			, NOTICE_VIEWS 
+		FROM JF_NOTICES 
+		where NOTICE_TITLE like '%#value#%';
+	</select>
+	<select id="selectAllMovies" resultClass="Movie">
+		select
+		MOVIE_NO as no,
+		MOVIE_KORTITLE as korTitle,
+		MOVIE_ENGTITLE as engTitle,
+		MOVIE_RESERVATION_RATE as reservationRate,
+		MOVIE_GPA as gpa,
+		MOVIE_REAL_MEMBERS realMembers,
+		MOVIE_DIRECTOR director,
+		MOVIE_GENRE genre,
+		MOVIE_AGE_LIMIT ageLimit,
+		MOVIE_RUNNING_TIME runningTime,
+		MOVIE_PROD_COUNTRY country,
+		MOVIE_RELEASE_DATE releaseDate,
+		MOVIE_WISHLIST wishList,
+		MOVIE_INFO info,
+		MOVIE_TRAILER trailer,
+		MOVIE_STEEL_CUT steelCut,
+		MOVIE_SCREEN_YN screenYn,
+		MOVIE_PRICE price,
+		MOVIE_ACTORS actors,
+		MOVIE_POSTER poster,
+		MOVIE_CREATE_DATE createDate,
+		MOVIE_GOLDENEGG goldenEgg
+		from
+		jf_movies
+	</select>
+
+	<select id="setlect4MoviesRankByGpa" resultClass="Movie">
+		select row_no,
+		no, korTitle, engTitle, reservationRate, gpa, realMembers, director,
+		genre, ageLimit, runningTime,country, releaseDate, wishList, info,
+		trailer,
+		steelCut, screenYn, price, actors, poster, createDate, goldenEgg
+		from (
+		select row_number() over(Order by movie_gpa desc, movie_kortitle asc) as row_no,
+		MOVIE_NO as no,
+		MOVIE_KORTITLE as korTitle,
+		MOVIE_ENGTITLE as engTitle,
+		MOVIE_RESERVATION_RATE as reservationRate,
+		MOVIE_GPA as gpa,
+		MOVIE_REAL_MEMBERS realMembers,
+		MOVIE_DIRECTOR director,
+		MOVIE_GENRE genre,
+		MOVIE_AGE_LIMIT ageLimit,
+		MOVIE_RUNNING_TIME runningTime,
+		MOVIE_PROD_COUNTRY country,
+		MOVIE_RELEASE_DATE releaseDate,
+		MOVIE_WISHLIST wishList,
+		MOVIE_INFO info,
+		MOVIE_TRAILER trailer,
+		MOVIE_STEEL_CUT steelCut,
+		MOVIE_SCREEN_YN screenYn,
+		MOVIE_PRICE price,
+		MOVIE_ACTORS actors,
+		MOVIE_POSTER poster,
+		MOVIE_CREATE_DATE createDate,
+		MOVIE_GOLDENEGG goldenEgg
+		from jf_movies
+		where MOVIE_SCREEN_YN = 'Y'
+		)
+		where
+			row_no &lt;=4
+		order by gpa desc
+	</select>
+	<select id="setlect8MoviesRankByGpa" resultClass="Movie">
+		select row_no,
+		no, korTitle, engTitle, reservationRate, gpa, realMembers, director,
+		genre, ageLimit, runningTime,country, releaseDate, wishList, info,
+		trailer,
+		steelCut, screenYn, price, actors, poster, createDate, goldenEgg
+		from (
+		select row_number() over(Order by movie_gpa desc, movie_kortitle asc) as row_no,
+		MOVIE_NO as no,
+		MOVIE_KORTITLE as korTitle,
+		MOVIE_ENGTITLE as engTitle,
+		MOVIE_RESERVATION_RATE as reservationRate,
+		MOVIE_GPA as gpa,
+		MOVIE_REAL_MEMBERS realMembers,
+		MOVIE_DIRECTOR director,
+		MOVIE_GENRE genre,
+		MOVIE_AGE_LIMIT ageLimit,
+		MOVIE_RUNNING_TIME runningTime,
+		MOVIE_PROD_COUNTRY country,
+		MOVIE_RELEASE_DATE releaseDate,
+		MOVIE_WISHLIST wishList,
+		MOVIE_INFO info,
+		MOVIE_TRAILER trailer,
+		MOVIE_STEEL_CUT steelCut,
+		MOVIE_SCREEN_YN screenYn,
+		MOVIE_PRICE price,
+		MOVIE_ACTORS actors,
+		MOVIE_POSTER poster,
+		MOVIE_CREATE_DATE createDate,
+		MOVIE_GOLDENEGG goldenEgg
+		from jf_movies
+		where MOVIE_SCREEN_YN = 'Y'
+		)
+		where
+			row_no &lt;=8 and row_no >=5
+		order by gpa desc
+	</select>
+	
+	<select id="setlect12MoviesRankByGpa" resultClass="Movie">
+		select row_no,
+		no, korTitle, engTitle, reservationRate, gpa, realMembers, director,
+		genre, ageLimit, runningTime,country, releaseDate, wishList, info,
+		trailer,
+		steelCut, screenYn, price, actors, poster, createDate, goldenEgg
+		from (
+		select row_number() over(Order by movie_gpa desc, movie_kortitle asc) as row_no,
+		MOVIE_NO as no,
+		MOVIE_KORTITLE as korTitle,
+		MOVIE_ENGTITLE as engTitle,
+		MOVIE_RESERVATION_RATE as reservationRate,
+		MOVIE_GPA as gpa,
+		MOVIE_REAL_MEMBERS realMembers,
+		MOVIE_DIRECTOR director,
+		MOVIE_GENRE genre,
+		MOVIE_AGE_LIMIT ageLimit,
+		MOVIE_RUNNING_TIME runningTime,
+		MOVIE_PROD_COUNTRY country,
+		MOVIE_RELEASE_DATE releaseDate,
+		MOVIE_WISHLIST wishList,
+		MOVIE_INFO info,
+		MOVIE_TRAILER trailer,
+		MOVIE_STEEL_CUT steelCut,
+		MOVIE_SCREEN_YN screenYn,
+		MOVIE_PRICE price,
+		MOVIE_ACTORS actors,
+		MOVIE_POSTER poster,
+		MOVIE_CREATE_DATE createDate,
+		MOVIE_GOLDENEGG goldenEgg
+		from jf_movies
+		where MOVIE_SCREEN_YN = 'Y'
+		)
+		where
+			row_no &lt;=12 and row_no >=9
+		order by gpa desc
+	</select>
+	
+	<select id="selectMoviesRangeRankByGpa" parameterClass="map" resultClass="Movie">
+		select row_no,
+		no, korTitle, engTitle, reservationRate, gpa, realMembers, director,
+		genre, ageLimit, runningTime,country, releaseDate, wishList, info,
+		trailer,
+		steelCut, screenYn, price, actors, poster, createDate, goldenEgg
+		from (
+		select row_number() over(Order by movie_gpa desc, movie_kortitle asc) as row_no,
+		MOVIE_NO as no,
+		MOVIE_KORTITLE as korTitle,
+		MOVIE_ENGTITLE as engTitle,
+		MOVIE_RESERVATION_RATE as reservationRate,
+		MOVIE_GPA as gpa,
+		MOVIE_REAL_MEMBERS realMembers,
+		MOVIE_DIRECTOR director,
+		MOVIE_GENRE genre,
+		MOVIE_AGE_LIMIT ageLimit,
+		MOVIE_RUNNING_TIME runningTime,
+		MOVIE_PROD_COUNTRY country,
+		MOVIE_RELEASE_DATE releaseDate,
+		MOVIE_WISHLIST wishList,
+		MOVIE_INFO info,
+		MOVIE_TRAILER trailer,
+		MOVIE_STEEL_CUT steelCut,
+		MOVIE_SCREEN_YN screenYn,
+		MOVIE_PRICE price,
+		MOVIE_ACTORS actors,
+		MOVIE_POSTER poster,
+		MOVIE_CREATE_DATE createDate,
+		MOVIE_GOLDENEGG goldenEgg
+		from jf_movies
+		where MOVIE_SCREEN_YN = 'Y'
+		)
+		where
+			row_no >=#begin# and row_no &lt;=#end# 
+		order by gpa desc
+	</select>
+	
+	<select id="getMovieByNo" parameterClass="int"
+		resultClass="Movie">
+		select
+		MOVIE_NO as no,
+		MOVIE_KORTITLE as korTitle,
+		MOVIE_ENGTITLE as engTitle,
+		MOVIE_RESERVATION_RATE as reservationRate,
+		MOVIE_GPA as gpa,
+		MOVIE_REAL_MEMBERS realMembers,
+		MOVIE_DIRECTOR director,
+		MOVIE_GENRE genre,
+		MOVIE_AGE_LIMIT ageLimit,
+		MOVIE_RUNNING_TIME runningTime,
+		MOVIE_PROD_COUNTRY country,
+		MOVIE_RELEASE_DATE releaseDate,
+		MOVIE_WISHLIST wishList,
+		MOVIE_INFO info,
+		MOVIE_TRAILER trailer,
+		MOVIE_STEEL_CUT steelCut,
+		MOVIE_SCREEN_YN screenYn,
+		MOVIE_PRICE price,
+		MOVIE_ACTORS actors,
+		MOVIE_POSTER poster,
+		MOVIE_CREATE_DATE createDate,
+		MOVIE_GOLDENEGG goldenEgg
+		from
+			jf_movies
+		where
+			movie_no = #value#
+	</select>
+	<select id="getRank1MovieByGPA" resultClass="Movie">
+		select
+		no,korTitle,engTitle,reservationRate,gpa,realMembers,director,genre,ageLimit,runningTime,
+		country,releaseDate,wishList,info,trailer,steelCut,screenYn,price,ac, createDate
+		from(
+		select
+		row_number() over(order by movie_gpa desc) as ranking,
+		MOVIE_NO as no,
+		MOVIE_KORTITLE as korTitle,
+		MOVIE_ENGTITLE as engTitle,
+		MOVIE_RESERVATION_RATE as reservationRate,
+		MOVIE_GPA as gpa,
+		MOVIE_REAL_MEMBERS realMembers,
+		MOVIE_DIRECTOR director,
+		MOVIE_GENRE genre,
+		MOVIE_AGE_LIMIT ageLimit,
+		MOVIE_RUNNING_TIME runningTime,
+		MOVIE_PROD_COUNTRY country,
+		MOVIE_RELEASE_DATE releaseDate,
+		MOVIE_WISHLIST wishList,
+		MOVIE_INFO info,
+		MOVIE_TRAILER trailer,
+		MOVIE_STEEL_CUT steelCut,
+		MOVIE_SCREEN_YN screenYn,
+		MOVIE_PRICE price,
+		MOVIE_ACTORS ac,
+		MOVIE_CREATE_DATE createDate,
+		MOVIE_GOLDENEGG goldenEgg
+		from jf_movies
+		where MOVIE_SCREEN_YN = 'Y')
+		where ranking=1
+		
+	</select>
+
+	<update id="updateGPAByReview" parameterClass="map">
+		update jf_movies
+		set movie_gpa = #gpa#
+		where movie_no = #mno#
+	</update>
+	<!-- 영화수정SQL -->
+	
+	<update id="updateMovieByNo" parameterClass="Movie">
+		update jf_movies
+		set
+			movie_kortitle = #korTitle#,
+			movie_engtitle = #engTitle#,
+			movie_reservation_rate = #reservationRate#,
+			movie_gpa = #gpa#,
+			movie_real_members = #realMembers#,
+			movie_director = #director#,
+			movie_genre = #genre#,
+			movie_age_limit = #ageLimit#,
+			movie_running_time = #runningTime#,
+			movie_prod_country = #country#,
+			movie_release_date = #releaseDate#,
+			movie_wishlist = #wishList#,
+			movie_info = #info#,
+			movie_trailer = #trailer#,
+			movie_steel_cut = #steelCut#,
+			movie_screen_yn = #screenYn#,
+			movie_poster = #poster#,
+			movie_actors = #actors#,
+			MOVIE_GOLDENEGG =#goldenEgg#
+		where
+			movie_no = #no#
+	</update>
+
+</sqlMap>

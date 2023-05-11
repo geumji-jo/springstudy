@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+	<servlet>
+		<servlet-name>frontController</servlet-name>
+		<servlet-class>kr.co.jhta.mvc.servlet.FrontControllerServlet</servlet-class>
+		<init-param>
+			<param-name>packages</param-name>
+			<param-value>kr.co.hta.controller</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>frontController</servlet-name>
+		<url-pattern>*.jf</url-pattern>
+	</servlet-mapping>
+  <jsp-config>
+  	<jsp-property-group>
+  		<url-pattern>*.jsp</url-pattern>
+  		<!-- url-parttern에서 지정한 패턴에 해당하는 파일의 앞에 자동으로 추가될 파일을 지정 -->
+  		<include-prelude>/WEB-INF/lib.jsp</include-prelude>
+  		<!-- url-parttern에서 지정한 패턴에 해당하는 파일의 끝에 자동으로 추가될 파일을 지정 -->
+  		<!-- <include-coda></include-coda> -->
+  	</jsp-property-group>
+  </jsp-config>
+</web-app>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/main.css">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/header.css" />
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/event.css" />
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/footer.css" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/GPA.css">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/CGVtheater.css" />
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/mymoviegpa.css" />
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/price.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../../../../resources/bootstrap/js/gpaHeader.js"></script>
+</head>
+
+<body>
+    <!--  헤더 시작  -->
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="">무비 차트</a></li>
+                <li class=""><a href="">빠른 예매</a></li>
+                <li><a href="">이벤트</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">로그인</a></li>
+                <li><a href="">로그아웃</a></li>
+                <li class=""><a href="">회원가입</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container main_container">
+        <div class="row text-center header top_header">
+            <div class="col-sm-3">
+                <a href="">
+                    <img src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png" alt="" style="max-width:70%; margin-top: 1px;">
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12 header_center1">
+                        <div class="row">
+                            <a href=""><img src="http://img.cgv.co.kr/R2014/images/title/h2_cultureplex.png" alt="" style="max-width:45%;"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 header_center2">
+                        <div class="row">
+                            <div class="col-sm-3 main_header dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">영화<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">무비차트</a></li>
+                                    <li><a href="">무비 파인더</a></li>
+                                    <li><a href="">트레일러</a></li>
+                                    <li><a href="">평점</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 main_header dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">예매<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">빠른 예매</a></li>
+                                    <li><a href="">상영 시간표</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">극장</a>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">이벤트</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--      헤더 끝  -->
+    <div class="container">
+        <div class="row GPA_header_col_1">
+            <div class="col-sm-4">
+                <span class="GPA_left_1 price_left_1">관람가격 안내</span>
+            </div>
+           <div class="col-sm-12">
+                <hr class="event_hr_2" />
+           </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3 text-center">
+                <span class="price_notice_div">Standard Zone 가격 안내</span>
+            </div>
+            <div class="col-sm-8 col-sm-offset-2 text-center price_description">
+                <span class="price_1_1"><span class="red">Prime Zone:</span> Standard Zone 가격 + 1,000원 / <span class="yellow">Economy Zone:</span> Standard Zone 가격 - 1,000원<br/>
+(단, 모닝 시간대는 Zone별 관람가격이 동일합니다.)</span>
+            </div>
+        </div>
+        <div class="row">
+          
+           <!-- 1개 테이블 시작-->
+            <div class="col-sm-6">
+                <table class="table table-condensed table-bordered price_table">
+                  <caption class="price_caption"><div class="price_circle"></div> 일반(2D)</caption>
+                   <col-group>
+                       <col width="30%">
+                       <col width="30%">
+                       <col width="20%">
+                       <col width="20%">
+                   </col-group>
+                    <tr class="price_table_tr">
+                        <th>요일</th>
+                        <th>시간대</th>
+                        <th>일반</th>
+                        <th>청소년</th>
+                    </tr>
+                    <tr class="text-center">
+                        <td rowspan="7"><span class="price_table_date">주중</span></td>
+                    </tr>
+                    <tr class="text-center" class="text-center">
+                        <td>모닝( 06:00~ )</td>
+                        <td>7,000</td>
+                        <td>6,000</td>
+                    </tr>
+                   <tr class="text-center">
+                        <td>브런치( 10:01~ )</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>데이라이트( 13:01~ )	</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>프라임( 16:01~ )	</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>문라이트( 22:01~ )	</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>나이트( 24:01~ )</td>
+                        <td>8,000</td>
+                        <td>7,000</td>
+                   </tr>
+                </table>
+            </div>
+<!-- 1개 테이블 끝-->
+       
+           <!-- 1개 테이블 시작-->
+            <div class="col-sm-6">
+                <table class="table table-condensed table-condensed table-bordered price_table">
+                  <caption class="price_caption"><div class="price_circle"></div> 일반(3D)</caption>
+                   <col-group>
+                       <col width="30%">
+                       <col width="30%">
+                       <col width="20%">
+                       <col width="20%">
+                   </col-group>
+                    <tr class="price_table_tr">
+                        <th>요일</th>
+                        <th>시간대</th>
+                        <th>일반</th>
+                        <th>청소년</th>
+                    </tr>
+                    <tr class="text-center">
+                        <td rowspan="7"><span class="price_table_date">월~목</span></td>
+                    </tr>
+                    <tr class="text-center" class="text-center">
+                        <td>모닝( 06:00~ )</td>
+                        <td>9,000</td>
+                        <td>8,000</td>
+                    </tr>
+                   <tr class="text-center">
+                        <td>브런치( 10:01~ )</td>
+                        <td>10,000</td>
+                        <td>9,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>데이라이트( 13:01~ )	</td>
+                        <td>11,000</td>
+                        <td>9,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>프라임( 16:01~ )	</td>
+                        <td>12,000</td>
+                        <td>9,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>문라이트( 22:01~ )	</td>
+                        <td>11,000</td>
+                        <td>9,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>나이트( 24:01~ )</td>
+                        <td>10,000</td>
+                        <td>9,000</td>
+                   </tr>
+                </table>
+            </div>
+<!-- 1개 테이블 끝-->
+       
+           <!-- 1개 테이블 시작-->
+            <div class="col-sm-6">
+                <table class="table table-condensed table-bordered price_table">
+                  <caption class="price_caption"><div class="price_circle"></div> SCREENX (2D)</caption>
+                   <col-group>
+                       <col width="30%">
+                       <col width="30%">
+                       <col width="20%">
+                       <col width="20%">
+                   </col-group>
+                    <tr class="price_table_tr">
+                        <th>요일</th>
+                        <th>시간대</th>
+                        <th>일반</th>
+                        <th>청소년</th>
+                    </tr>
+                    <tr class="text-center">
+                        <td rowspan="7"><span class="price_table_date">월~목</span></td>
+                    </tr>
+                    <tr class="text-center" class="text-center">
+                        <td>모닝( 06:00~ )</td>
+                        <td>7,000</td>
+                        <td>6,000</td>
+                    </tr>
+                   <tr class="text-center">
+                        <td>브런치( 10:01~ )</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>데이라이트( 13:01~ )	</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>프라임( 16:01~ )	</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>문라이트( 22:01~ )	</td>
+                        <td>13,000</td>
+                        <td>9,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>나이트( 24:01~ )</td>
+                        <td>12,000</td>
+                        <td>9,000</td>
+                   </tr>
+                            
+                </table>
+            </div>
+<!-- 1개 테이블 끝-->
+       
+           <!-- 1개 테이블 시작-->
+            <div class="col-sm-6">
+                <table class="table table-condensed table-bordered price_table">
+                  <caption class="price_caption"><div class="price_circle"></div> SCREENX(SCREENX 3D)</caption>
+                   <col-group>
+                       <col width="30%">
+                       <col width="30%">
+                       <col width="20%">
+                       <col width="20%">
+                   </col-group>
+                    <tr class="price_table_tr">
+                        <th>요일</th>
+                        <th>시간대</th>
+                        <th>일반</th>
+                        <th>청소년</th>
+                    </tr>
+                    <tr class="text-center">
+                        <td rowspan="7"><span class="price_table_date">월~목</span></td>
+                    </tr>
+                    <tr class="text-center" class="text-center">
+                        <td>모닝( 06:00~ )</td>
+                        <td>7,000</td>
+                        <td>6,000</td>
+                    </tr>
+                   <tr class="text-center">
+                        <td>브런치( 10:01~ )</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>데이라이트( 13:01~ )	</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>프라임( 16:01~ )	</td>
+                        <td>9,000</td>
+                        <td>7,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>문라이트( 22:01~ )	</td>
+                        <td>16,000</td>
+                        <td>13,000</td>
+                   </tr>
+                    <tr class="text-center">
+                        <td>나이트( 24:01~ )</td>
+                        <td>15,000</td>
+                        <td>12,000</td>
+                   </tr>
+                            
+                </table>
+            </div>
+<!-- 1개 테이블 끝-->
+       
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container container-footer" style="margin-top:40px; margin-bottom:0px;">
+        <div class="row">
+            <div class="col-sm-10">
+                <ul class="footer-ul">
+                    <li><a href="http://corp.cgv.co.kr/company/" target="_blank">회사소개</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/ir/financial/financial_list.aspx" target="_blank">IR</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/recruit/step/default.aspx" target="_blank">채용정보</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/advertize/ad_Default.aspx" target="_blank">광고/프로모션문의</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/advertize/af_default.aspx" target="_blank">제휴문의</a></li>
+                    <li><a href="http://corp.cgv.co.kr/company/advertize/bp_insert.aspx" target="_blank">출점문의</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/service.aspx">이용약관</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/organized.aspx">편성기준</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/privacy.aspx" class="empha-red">개인정보처리방침</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/disclaimer.aspx">법적고지</a></li>
+                    <li><a href="http://www.cgv.co.kr/rules/emreject.aspx">이메일주소무단수집거부</a></li>
+                    <li><a href="http://www.cgv.co.kr/company/coexist.aspx">상생경영</a></li>
+                    <li><a href="http://www.cgv.co.kr/guide/sitemap.aspx">사이트맵</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-2">
+                <div class="share">
+                    <a href="https://www.facebook.com/CJCGV" target="_blank" class="facebook" title="새창"><img src="../../../../photos/footer_facebook.PNG"></a>
+                    <a href="https://twitter.com/cj_cgv" target="_blank" class="twitter" title="새창"><img src="../../../../photos/footer_twitter.PNG"></a>
+                    <a href="https://www.instagram.com/cgv_korea/" target="_blank" class="instagram" title="새창"><img src="../../../../photos/footer_instargram.PNG"></a>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row address">
+            <div class="col-sm-2">
+                <img src="../../../../photos/CJ_CGV_logo.jpg" width="100%">
+            </div>
+            <div class="col-sm-8">
+                <p>(04377)서울특별시 용산구 한강대로 23길 55, 아이파크몰 6층(한강로동)</p>
+                <p class="vl">
+                    <span>대표이사 : 최병환</span><span>사업자등록번호 : 104-81-45690</span><span>통신판매업신고번호 : 2017-서울용산-0662</span>
+                </p>
+                <p class="vl">
+                    <span>개인정보보호 책임자 : 정종민</span><span>대표이메일 : cjcgvmaster@cj.net</span><span>CGV고객센터 : 1544-1122</span>
+                </p>
+            </div>
+            <div class="col-sm-2">
+                <div class="familysite">
+                    <label for="familysite" class="hidden">CJ그룹 계열사 바로가기</label>
+                    <select id="familysite">
+                        <option value="">계열사 바로가기</option>
+                        <optgroup label="CJ그룹">
+                            <option value="http://www.cj.net/">CJ주식회사</option>
+                        </optgroup>
+                        <optgroup label="엔터테인먼트 &amp; 미디어">
+                            <option value="http://www.cjenm.com/">CJ ENM (E&amp;M)</option>
+                            <option value="http://www.cgv.co.kr/">CJ CGV</option>
+                            <option value="http://www.cjhello.com/">CJ Hello</option>
+                            <option value="http://www.cjpowercast.com/">CJ파워캐스트</option>
+                        </optgroup>
+                        <optgroup label="식품 &amp; 식품서비스">
+                            <option value="https://www.cj.co.kr/kr/index">CJ제일제당 (식품)</option>
+                            <option value="http://www.cjfreshway.com/">CJ프레시웨이</option>
+                            <option value="http://www.cjfoodville.co.kr/">CJ푸드빌</option>
+                            <option value="http://www.md1.co.kr/">CJ엠디원</option>
+                        </optgroup>
+                        <optgroup label="생명공학">
+                            <option value="https://www.cj.co.kr/kr/index">CJ제일제당 (바이오)</option>
+                        </optgroup>
+                        <optgroup label="신유통">
+                            <option value="http://display.cjmall.com">CJ ENM (오쇼핑)</option>
+                            <option value="http://www.cjlogistics.com">CJ대한통운</option>
+                            <option value="http://www.cjtelenix.com/">CJ텔레닉스</option>
+                            <option value="http://www.oliveyoung.co.kr/store/main/main.do">CJ올리브네트웍스 (올리브영)</option>
+                        </optgroup>
+                        <optgroup label="인프라">
+                            <option value="http://www.cjenc.co.kr/">CJ대한통운 (건설)</option>
+                            <option value="http://www.cjolivenetworks.co.kr/itbusiness/">CJ올리브네트웍스 (IT사업)</option>
+                        </optgroup>
+                    </select>
+                    <button type="button" title="새창" onclick="goFamilySite()">GO</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <p class="copyright">© CJ CGV. All Rights Reserved</p>
+        </div>
+    </div>
+    <!-- footer -->
+</body>
+
+</html>

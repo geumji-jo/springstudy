@@ -1,0 +1,462 @@
+a{
+	text-decoration: none;
+}
+a:focus{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+}
+/* Google Chart */
+#chart_div{
+	position : relative;
+	right:75px;
+}
+
+.deleteOrReport{
+	position : absolute;
+	right:30px;
+	color:white;
+	background-color: #2F2F2F;
+	border-radius: 10px;
+}
+.deleteOrReport span{
+	margin-right : 5px;
+}
+.glyphicon-option-vertical{
+	cursor: pointer;
+}
+.displayNoneClass{
+	display:none;
+}
+.deleteOrReport div{
+	font-size:12px;
+	padding : 5px 18px;
+	color:white;
+	cursor: pointer;
+	margin : 5px 0px;
+		
+}
+..deleteOrReport div:nth-child(1){
+	border-bottom : 1px solid white;
+}
+/*Modal 시작  */
+.modal-content{
+	background-color:#F5F6F3;
+}
+
+@media screen and (min-width: 768px) { 
+        .modal:before {
+                display: inline-block;
+                vertical-align: middle;
+                content: " ";
+                height: 100%;
+        }
+}
+.modal_footer_row1 .col-sm-2{
+}
+.gpa_active{
+	color:red !important;
+}
+.modal_header_div{
+	background-color : #363636;
+	color: white;
+	font-size:30px;
+}
+.modal_header_div > button{
+	color : white;
+	font-size : 30px;
+}
+ 
+.modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+        width:730px;
+}
+
+.realviewer{
+	background-color: #D00000;
+	color:white;
+	padding:3px 5px 3px 5px;
+	border-radius: 10px;
+	margin-right:5px;
+}
+.GOB{
+	border-radius: 15px;
+}
+.goodOrBad {
+	font-size: 15px;
+	cursor: pointer;
+}
+.goodOrBad > span{
+	padding: 20px 25px 20px 25px;
+	border : 5px solid #E0E2CF;
+}
+.hiddenText{
+	display: none;
+}
+.goodOrBad_selected{
+	border:5px solid #ff6060 !important;
+	border-radius: 15px;
+}
+.userInfo{
+	font-size:14px;
+}
+.like_good{
+	position: relative;
+	left:20px;
+}
+.like_bad{
+	position: relative;
+	right:20px;
+}
+.center_col{
+	margin-bottom:20px;
+}
+.goodOrBad_div{
+	margin-top:40px;	
+}
+.modal_movieTitle{
+	border-bottom : 1px solid #E4E4E4;
+	padding-bottom : 15px;
+}
+.modal_center_row{
+	padding-top : 15px;
+}
+.modal_fotter_row > div > textarea{
+	font-size:15px;
+	height:80px;
+	width:668px;
+	
+}
+.left carousel-control{
+	width:20px;
+}
+.right carousel-control{
+	width:20px;
+}
+.glyphicon-chevron-right{
+	margin:0px;
+}
+.modal_charmingPoint_div{
+	font-size : 17px;
+}
+
+.modal_footer_row1{
+	font-size : 14px;
+	margin-bottom:10px;
+	margin-top:20px;
+}
+
+.theater_border_right_hr{
+    width:5px;
+    height:10px;
+    margin-right:5px;
+    display: inline-block;
+    border-right:0.1px solid #a6a6a6;
+}
+/*Modal 끝  */
+.GPA_main_2 {
+	margin-top: 20px;
+}
+.gpa_orders{
+	display: inline-block;	
+}
+.GPA_main_posterimges {
+	max-width: 100%;
+	margin-top: 20px;
+}
+
+body {
+	background-color: rgb(252, 254, 238);
+}
+
+a.reservation_img {
+	text-decoration: none;
+}
+.GPA_header{
+	position: relative;
+	top:35px;
+}
+.GPA_header_col_1{
+	margin-top : 20px;
+	margin-bottom : 20px;
+}
+.GPA {
+	position: relative;
+	font-size: 18px;
+}
+.GPA_left_1{
+	font-size: 40px;
+	font-weight: bold;
+}
+.GPA1{
+	margin-right : 20px;
+}
+ .GPA2, .GPA1{
+	color : gray;
+	font-size:16px;
+}
+
+.GPA_header>a {
+	text-decoration: none;
+	color: black;
+}
+
+.GPA_main {
+	border: 1px solid gray;
+	background-color: rgb(54, 54, 54);
+}
+
+.GPA_main_posterimgs {
+	border: 10px solid black;
+	width:219.5px;
+	height:305px !important;
+}
+.thumbnail {
+	background-color: rgb(54, 54, 54);
+	border: 1px solid rgb(54, 54, 54);
+	margin-bottom:0px;
+}
+
+.caption>h4 {
+	color: white;
+	height: 34px;
+	vertical-align: middle;
+}
+
+.thumbnail_active {
+	color: black;
+	background-color: rgb(252, 254, 238);
+}
+#thumbnail_active {
+	color: black;
+	background-color: rgb(252, 254, 238);
+}
+
+.gpa_glyphicon_heart{
+	font-size:25px;
+	color:rgb(252, 254, 238);
+}
+.thumbnail_active > .gpa_glyphicon_heart{
+	color : gray;
+}
+.caption>p, .caption>.likes {
+	color: #B3B4AA;
+}
+.white {
+	color: white;
+}
+
+
+.GPA3 {
+	font-size: 1.5rem;
+	padding: 5px;
+	height: 40px;
+	padding-top: 10px;
+	background-color: rgb(224, 226, 207);
+}
+
+.GPA3_1 {
+	background-color: rgb(135, 134, 124);
+	font-size: 13px;
+	color: white;
+}
+
+.GPA3_2 {
+	font-size: 14px;
+	padding-left: 50px;
+}
+
+.GPA3_button {
+	position: relative;
+	bottom: 6px;
+}
+
+.GPA3_button_2 {
+	margin-right: -60px;
+}
+
+.cjPoint {
+	color: firebrick;
+}
+.gpa_main_center_font{
+	position : relative;
+	z-index : 2;
+	font-size : 14px;
+}
+.GPA4_1 {
+	margin-top: 0px;
+}
+
+.GPA4_1>a {
+	color: black;
+	font-size: 13px;
+	text-decoration: underline;
+}
+
+.GPA4_2 {
+	margin-top: 70px;
+}
+
+.GPA4_2_1 {
+	position: relative;
+	bottom: 47px;
+	font-size: 40px;
+	/*            padding-left: 0px;*/
+}
+
+.GPA4_2_img {
+	margin-bottom: 30px;
+}
+
+.GPA4_3 {
+	margin-top: 50px;
+}
+
+.GPA4_4 {
+	padding-left: 30px;
+}
+
+.GPA_main_3 {
+	font-size: 13px;
+}
+
+.GPA_main_3_1 {
+	margin-right: 0px;
+}
+.gpa_orders_span{
+	color:gray;
+}
+.gpa_orders_span:focus{
+	text-decoration: none;
+}
+.gpa_orders_span:hover{
+	color:gray;
+}
+.GPA_main_4 {
+	border-top: 1px solid gray;
+	padding-top: 20px;
+	margin-top: 15px;
+}
+
+.gpa_small_egg {
+	position: relative;
+	right: 16px;
+	width: 25px;
+}
+
+.GPA_main_4 {
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-bottom: 20px;
+}
+
+.GPA_main_4_2_id {
+	position: relative;
+	font-size: 15px;
+	color: #666666;
+	top: 7px;
+	right: 13px;
+}
+
+.GPA_main_4_3_form {
+	font-size: 15px;
+	height: 130px;
+}
+
+.GPA_main_4_3_contents {
+	font-size: 13px;
+}
+
+.GPA_main_4_3_glyphicon {
+	position: relative;
+	right: 10px;
+}
+
+.GPA_main_4_detail {
+	padding: 10px;
+	border-bottom: 1px solid #CCCDBE;
+	border-right: 0.5px solid #CCCDBE;
+}
+
+.GPA_main_4_detail:nth-child(2n+2) {
+	border-right: none;
+}
+
+.GPA_main_4_3_date {
+	width: 120px;
+	font-size:13px;
+}
+
+.glyphicon-option-vertical {
+	font-size: 20px;
+}
+
+.GPA_main_4_3_likes{
+	position: relative;
+	top:2px;
+	right:20px;
+}
+.GPA_main_4_3_likes>.likes {
+	margin-right: 5px;
+}
+
+.GPA_main_4_3_likes > a{
+	color:black;	
+}
+.pagination>li>a {
+	color: black;
+	font-weight: bold;
+}
+
+.pagination>li {
+	background-color: rgb(252, 254, 238);
+}
+
+.thumbnail_active > .gpa_wishListCount{
+	color : gray;
+}
+
+.gpa_reservation_a{
+	float:left;
+	color : #FCFEEE;
+	margin-right : 20px;
+	font-size:13px;
+	text-decoration: none;
+}
+.gpa_reservation_a:hover{
+	text-decoration: none;
+	color : #FCFEEE;
+}
+.gpa_reservation_span{
+	width : 40px;
+}
+.gpa_reservationImg{
+	float:right;
+	width:40%;
+	position : relative;
+	right:10px;
+	border-radius : 5px;
+	margin: 0px !important;
+	display:inline-block !important;
+}
+.gpa_wishListCount{
+	position : relative;
+	bottom:5px;
+	border : 1px solid #FCFEEE;
+	padding : 2px 10px;
+	border-radius: 10px;
+	color:white;
+}
+.likes_active{
+	border : 1px solid gray;
+}
+.red{
+	color : red !important;
+}
+.gpa_thumbnail_bottom_div{
+	padding-left:5px;
+	padding-right:0px;
+}

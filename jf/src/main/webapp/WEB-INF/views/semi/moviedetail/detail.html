@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Nunito" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!--    <link rel="stylesheet" href="jf/resources/bootstrap/css/header.css">-->
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/header.css">
+    <link rel="stylesheet" href="../../../../resources/bootstrap/css/moviedetail.css">
+
+</head>
+
+<body>
+    <!-- header 시작-->
+    <div class="navbar navbar-inverse">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li><a href="">무비 차트</a></li>
+                <li class=""><a href="">빠른 예매</a></li>
+                <li><a href="">이벤트</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">로그인</a></li>
+                <li><a href="">로그아웃</a></li>
+                <li class=""><a href="">회원가입</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container main_container">
+        <div class="row text-center header top_header">
+            <div class="col-sm-3">
+                <a href="">
+                    <img src="http://img.cgv.co.kr/R2014/images/title/h1_cgv.png" alt="" style="max-width:70%; margin-top: 1px;">
+                </a>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12 header_center1">
+                        <div class="row">
+                            <a href=""><img src="http://img.cgv.co.kr/R2014/images/title/h2_cultureplex.png" alt="" style="max-width:45%;"></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 header_center2">
+                        <div class="row">
+                            <div class="col-sm-3 main_header dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">영화<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">무비차트</a></li>
+                                    <li><a href="">무비 파인더</a></li>
+                                    <li><a href="">트레일러</a></li>
+                                    <li><a href="">평점</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 main_header dropdown">
+                                <a href="" class="dropdown-toggle" data-toggle="dropdown">예매<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">빠른 예매</a></li>
+                                    <li><a href="">상영 시간표</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">극장</a>
+                            </div>
+                            <div class="col-sm-3 main_header">
+                                <a href="">이벤트</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- header 끝-->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <h1 class="detail_1_title">영화상세</h1>
+            </div>
+        </div>
+        <hr class="detail_1_hr">
+        <div class="row detail_main_row">
+            <div class="col-sm-3">
+                <a href=""><img class="detail_2_movieposter" src="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81749/81749_185.jpg" alt=""></a>
+                <a href="http://img.cgv.co.kr/Movie/Thumbnail/Poster/000081/81749/81749_1000.jpg" target="_blank">
+                    <span class="ico-posterdetail">포스터 크게 보기</span></a>
+            </div>
+            <div class="col-sm-9">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span class="detail_2_korTitle">어벤져스:엔드게임</span>
+                        <span class="detail_2_nowShowing"> <img src="../../../../photos/NowShowing.PNG" alt="">
+                        </span>
+                    </div>
+                </div>
+                <div class="row detail_2_blank_1">
+                    <div class="col-sm-3 detail_2_engTitle">
+                        <p class="detail_2_engTitle_p">Avengers: Endgame</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2 detail_3_reservationRatiodiv text-center">
+                        <span class="detail_3_reservationRatio">예매율:33.0%</span>
+                    </div>
+                    <div class="col-sm-4 detail_3_eggpercentdiv">
+                        <img class="detail_3_egg" src="../../../../photos/GREAT.PNG" alt="">
+                        <span class="detail_3_eggpercentandviewer">
+                            97% (실관람객 : 148,563명)
+                        </span>
+                    </div>
+                </div>
+                <hr class="detail_3_hr">
+                <div class="row">
+                    <div class="col-sm-8 detail_4_info">
+                        <p>감독: 안소니 루소, 조 루소장르:액션,SF / 기본: 12세 이상, 181분, 미국</p>
+                        <p>개봉:2019.04.24</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 ">
+                        <span class="glyphicon glyphicon-heart detail_4_likes_1"></span>
+                        <span class="detail_4_likes_2">: 94,824</span>
+                        <span class="detail_4_likes_img"><img src="../../../../photos/reservationImg.PNG" alt="">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <p class="detail_5_info">
+                            &lt;주요정보, 트레일러, 스틸컷, 평점/리뷰, 상영시간표&gt;</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4 detail_5_movie_explain">
+                        <p>인피니티 워 이후 절반만 살아남은 지구</p>
+                        <p>마지막 희망이 된 어벤져스</p>
+                        <p>먼저 떠난 그들을 위해 모든 것을 걸었다!</p>
+                        <p><strong>위대한 어벤져스</strong></p>
+                        <p><strong>운명을 바꿀 최후의 전쟁이 펼쳐진다</strong></p>
+                    </div>
+                </div>
+                <div class="row detail_5_row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">매력포인트</th>
+                                    <th class="text-center">성별 예매 분포</th>
+                                    <th class="text-center">연령별 예매 분포</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-center">
+                                    <td><img src="../../../../photos/attractive.png" alt=""></td>
+                                    <td><img src="../../../../photos/genderRatio.png" alt=""></td>
+                                    <td><img src="../../../../photos/ageRatio.PNG" alt=""></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 detail_6_event_img">
+                        <img src="http://adimg.cgv.co.kr/images/201808/citi/0516_800x90.jpg" alt="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 detail_6_trailer_info">
+                        <span class="detail_6_trailer_info_1"><strong>트레일러</strong></span><span class="detail_6_trailer_info_2">5건</span>
+                        <a href=""><span class="glyphicon glyphicon-zoom-in"></span></a>
+                    </div>
+                </div>
+                <div class="row youtube_videos">
+                    <div class="col-sm-4 youtube_video_div">
+                        <iframe width="316px" height="202px" src="https://www.youtube.com/embed/WOLoiv40XS0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtube_video"></iframe>
+                    </div>
+                    <div class="col-sm-4 youtube_video_div">
+                        <iframe width="316" height="202" src="https://www.youtube.com/embed/ybhXVSAdIRE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtube_video"></iframe>
+                    </div>
+                    <div class="col-sm-4 youtube_video_div">
+                        <iframe width="316" height="202" src="https://www.youtube.com/embed/TaCE5sAigGQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="youtube_video"></iframe>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4"><a href="">
+                            <p><img src="../../../../photos/HD.PNG" alt=""> 아시아 팬이벤트 하이라이트 영상</p>
+                        </a>
+                        <p class="detail_7_date">2019.04.23</p>
+                    </div>
+                    <div class="col-sm-4"><a href="">
+                            <p><img src="../../../../photos/HD.PNG" alt=""> 60초 파이널 예고편</p>
+                        </a>
+                        <p class="detail_7_date">2019.04.05</p>
+                    </div>
+                    <div class="col-sm-4"><a href="">
+                            <p><img src="../../../../photos/HD.PNG" alt=""> 1차 예고편</p>
+                        </a>
+                        <p class="detail_7_date">2019.03.27</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 detail_6_trailer_info">
+                        <span class="detail_6_trailer_info_1"><strong>스틸컷</strong></span><span class="detail_6_trailer_info_2"><strong>1</strong>/127건</span>
+                        <a href=""><span class="glyphicon glyphicon-zoom-in"></span></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1 detail_6_steelcut_img">
+                        <img src="http://img.cgv.co.kr/Movie/Thumbnail/StillCut/000081/81749/81749166608_727.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 detail_5_sideAD">
+                <ul>
+                    <li> <a href=""><img src="../../../../photos/detail_1.jpg" alt=""></a></li>
+                    <li> <a href=""><img src="http://adimg.cgv.co.kr/images/201808/citi/0516_160x300.jpg" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body></html>
