@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.gdu.staff.domain.StaffDTO;
 import com.gdu.staff.mapper.StaffMapper;
@@ -24,14 +25,6 @@ public class StaffServiceImpl implements StaffService {
 	public List<StaffDTO> getStaffList1() {
 		List<StaffDTO> staffList = staffMapper.getStaffList();
 		return staffList;
-	}
-	
-	@Override
-	public ResponseEntity<List<StaffDTO>> getStaffList2() {
-		List<StaffDTO> staffList = staffMapper.getStaffList();
-		HttpHeaders header = new HttpHeaders();
-		header.setContentType(MediaType.APPLICATION_JSON);
-		return new ResponseEntity<List<StaffDTO>>(staffList, header, HttpStatus.OK);
 	}
 	
 	@Override
@@ -51,16 +44,11 @@ public class StaffServiceImpl implements StaffService {
 		}
 	}
 	
-	@Override
-	public ResponseEntity<String> addStaff2(StaffDTO staffDTO) {
-		try {
-		staffMapper.addStaff(staffDTO);
-		
-		return new ResponseEntity<String>("사원 등록이 성공했습니다.", HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<String>("사원 등록이 실패했습니다.", HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	
 
+	
+@Override
+public List<StaffDTO> getSearch(StaffDTO staffDTO) {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

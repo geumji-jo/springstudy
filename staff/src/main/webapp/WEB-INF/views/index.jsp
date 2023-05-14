@@ -63,6 +63,32 @@
 		})
 		
 	}
+	
+	function fnSearch() {
+		  var sno = $('#query').val();
+		  $.ajax({
+		    type: 'get',
+		    url: '${contextPath}/query.json?sno=' + sno,
+		    dataType: 'json',
+		    success: function (resData) {
+		      $('#query').val('');
+		      var a = '';
+		      $.each(resData, function (i, staff) {
+		        a += '<tr>';
+		        a += '<td>' + staff.sno + '</td>';
+		        a += '<td>' + staff.name + '</td>';
+		        a += '<td>' + staff.dept + '</td>';
+		        a += '<td>' + staff.salary + '</td>';
+		        a += '</tr>';
+		      });
+		      $('#staffList').html(a);
+		    },
+		    error: function () {
+		      alert('조회된 사원 정보가 없습니다.');
+		    }
+		  });
+		}
+					
 
 
 </script>

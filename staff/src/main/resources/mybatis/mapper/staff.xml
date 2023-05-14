@@ -31,6 +31,26 @@
 		  	</choose>
 		)
 	</insert>
+	
+	<select id="getSearch" parameterType="StaffDTO" resultType="StaffDTO">
+    SELECT SNO, NAME, DEPT, SALARY
+    FROM STAFF
+    WHERE
+        <if test="sno != null">
+            SNO = #{sno}
+        </if>
+        <if test="name != null">
+            AND NAME LIKE CONCAT('%', #{name}, '%')
+        </if>
+        <if test="dept != null">
+            AND DEPT REGEXP '^[가-힣]{3,5}$'
+        </if>
+        <if test="salary != 0">
+            AND SALARY &gt;= #{salary}
+        </if>
+    ORDER BY SNO DESC 
+</select>
+	
 
 
 </mapper>
