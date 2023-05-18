@@ -7,11 +7,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+@NoArgsConstructor
+public class SleepUserDTO {
 	
-	  private int userNo;
+	private int userNo;
 	  private String id;
 	  private String pw;
 	  private String name;
@@ -24,10 +24,9 @@ public class UserDTO {
 	  private String roadAddress;
 	  private String jibunAddress;
 	  private String detailAddress;
-	  private String extraAddress;
 	  private int agreecode;
 	  private Date joinedAt;
 	  private Date pwModifiedAt;
-	  private String autologinId;
-	  private Date autologinExpiredAt;
+	  private String sleptAt;
+
 }

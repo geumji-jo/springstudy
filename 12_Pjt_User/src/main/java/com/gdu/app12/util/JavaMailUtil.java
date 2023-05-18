@@ -45,7 +45,7 @@ public class JavaMailUtil {
 			properties.put("mail.smtp.host", env.getProperty("spring.mail.host"));
 			properties.put("mail.smtp.port", env.getProperty("spring.mail.port"));
 			properties.put("mail.smtp.auth", env.getProperty("spring.mail.properties.mail.smtp.auth"));
-			properties.put("mail.smtp.starttle.enable", env.getProperty("spring.mail.properties.mail.smtp.starttls.enable"));
+			properties.put("mail.smtp.starttls.enable", env.getProperty("spring.mail.properties.mail.smtp.starttls.enable"));
 			
 			// 이메일을 보내는 계정 정보를 javax.mail.Session에 저장한다.
 			MimeMessage message = new MimeMessage(Session.getInstance(properties, new Authenticator() {
