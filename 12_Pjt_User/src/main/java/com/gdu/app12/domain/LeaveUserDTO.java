@@ -10,10 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class LeaveUserDTO {
-	
-	  private String id;
-	  private String Email;
-	  private Date joinedAt;
-	  private Date leavedAt;
-	 
+  private String id;
+  private String email;
+  private Date joinedAt;
+  private Date leavedAt;
 }

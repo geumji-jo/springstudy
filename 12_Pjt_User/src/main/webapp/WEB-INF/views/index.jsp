@@ -20,7 +20,7 @@
 </head>
 <body>
 
-    <div>
+  <div>
     
     <!-- 로그인이 안 된 상태 -->
     <c:if test="${sessionScope.loginId == null}">    
@@ -31,7 +31,7 @@
     <!-- 로그인이 된 상태 -->
     <c:if test="${sessionScope.loginId != null}">
       <div>
-        <a href="#">${sessionScope.loginId}</a>님 반갑습니다 ♥
+        <a href="${contextPath}/user/checkPw.form">${sessionScope.loginId}</a>님 반갑습니다 ♥
       </div>
       <div>
         <a href="${contextPath}/user/logout.do">로그아웃</a>
@@ -41,6 +41,5 @@
     
   </div>
   
-	
 </body>
 </html>

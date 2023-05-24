@@ -1,0 +1,89 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+.side-menu {
+  height: 100%
+  
+}
+
+.side-menu {
+  font-family:'Roboto Slab', "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+  background-color: rgba( 255, 255, 255, 0);
+  color: #4d4d4d;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+/* Based on http://www.456bereastreet.com/archive/201105/styling_ordered_list_numbers/ */
+.side-menu {
+  max-width: 700px;
+  margin: 0 auto;
+  display: block;
+  
+}
+/* #1- Larger numbers */
+ol.large-numbers {
+  counter-reset:li; /* Initiate a counter */
+  margin-left:0; /* Remove the default left margin */
+  padding-left:0; /* Remove the default left padding */
+  line-height: 1.25;
+}
+ol.large-numbers > li {
+  position:relative; /* Create a positioning context */
+  list-style:none; /* Disable the normal item numbering */
+  margin: 2px 0 5px 2px;
+  padding: 0 0 0 2px;
+}
+ol.large-numbers > li:before {
+  content:counter(li); /* Use the counter as content */
+  counter-increment:li; /* Increment the counter by 1 */
+  /* Position and style the number */
+  position:absolute;
+  z-index: 3;
+  top: -0.3em; /* move numbers up or down as needed */
+  left:-0.9rem;
+  width: 1em;
+  text-align:center;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  font-size: 3em;
+  font-weight: bold;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: rgba( 255, 255, 255, 0);
+  text-shadow:
+       3px 3px 0 #838689,
+     -1px -1px 0 #838689,  
+      1px -1px 0 #838689,
+      -1px 1px 0 #838689,
+       1px 1px 0 #838689;
+}
+ol.large-numbers li:hover:before {
+  color: #fbc49b;
+ 
+}
+
+
+.images {
+   object-fit:cover;
+    width: 100%;
+}
+
+
+.test_obj {
+    position: absolute;
+    width: 70px;
+    height: 350px;
+    right: 50px;
+    border-radius: 70px;
+    top: 400px;
+  z-index: 5;
+    
+    margin-right: 20rem;
+    margin-bottom: 300px;
+   
+}
+

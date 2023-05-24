@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace는 @Mapper를 지정한다. -->
+<mapper namespace="com.gdu.app13.mapper.BlogMapper">
+<select id="getBlogCount" resultType="int">
+SELECT COUNT(*)
+FROM BLOG
+</select>
+<select id="getBlogList" parameterType="Map" resultType="BlogDTO">
+
+</select>
+<insert id="addBlog" parameterType="BlogDTO">
+  INSERT INTO BLOG_T (
+  BLOG_NO
+  ,TITLE
+  ,CONTENT
+  ,HIT
+  ,CREATED_AT
+  ,MODIFIED_AT
+  ,MEMBER_NO
+  ) VALUES (
+  
+  )
+
+</insert>
+</mapper>

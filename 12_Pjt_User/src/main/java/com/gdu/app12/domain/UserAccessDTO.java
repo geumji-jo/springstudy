@@ -10,8 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserAccessDTO {
-	
-	  private String id;
-	  private Date lastLoginAt;
-
+  private String id;
+  private Date lastLoginAt;
 }
