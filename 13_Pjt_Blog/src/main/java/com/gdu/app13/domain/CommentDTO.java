@@ -7,8 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class CommentDTO {
   private int commentNo;
   private String content;
@@ -17,6 +17,5 @@ public class CommentDTO {
   private int groupNo;
   private Date createdAt;
   private int blogNo;
-  private MemberDTO member_No;
-
+  private MemberDTO memberDTO;
 }

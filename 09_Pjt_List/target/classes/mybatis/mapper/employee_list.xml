@@ -87,5 +87,7 @@
             ON D.DEPARTMENT_ID = E.DEPARTMENT_ID
          WHERE ${column} LIKE CONCAT(#{query}, '%')
 	</select>
+	
+
 
 </mapper>

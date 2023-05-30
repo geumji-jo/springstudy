@@ -5,27 +5,27 @@
 
 <!-- namespace는 @Mapper를 지정한다. -->
 <mapper namespace="com.gdu.moovod.mapper.ReviewsMapper">
-
+<!--  
   <select id="getReviewsList" resultType="ReviewsDTO">
-    SELECT REVIEW_NO, VOD_NO, REVIEW_TITLE, ID, REVIEW_CONTENT,
+    SELECT REVIEW_NO, REVIEW_CATEGORY, REVIEW_TITLE, ID, REVIEW_CONTENT,
     REVIEW_CREATED_AT, REVIEW_MODIFIED_AT, REVIEW_HITS, REVIEW_STAR
     FROM REVIEWS
     ORDER BY REVIEW_NO DESC
   </select>
-
+-->
   <insert id="insertReviews" parameterType="ReviewsDTO">
     INSERT INTO REVIEWS
-    (REVIEW_NO, VOD_NO, REVIEW_TITLE, ID, REVIEW_CONTENT, REVIEW_CREATED_AT,
+    (REVIEW_NO, REVIEW_CATEGORY, REVIEW_TITLE, ID, REVIEW_CONTENT, REVIEW_CREATED_AT,
     REVIEW_MODIFIED_AT, REVIEW_HITS, REVIEW_STAR)
     VALUES
-    (REVIEWS_SEQ.NEXTVAL, #{vodNo}, #{reviewTitle}, #{id}, #{reviewContent}, TO_CHAR(SYSDATE,
+    (REVIEWS_SEQ.NEXTVAL, #{reviewCategory}, #{reviewTitle}, #{id}, #{reviewContent}, TO_CHAR(SYSDATE,
     'YYYY-MM-DD HH24:MI:SS'), TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'),
     #{reviewHits}, #{reviewStar})
   </insert>
 
   <select id="selectReviewsByNo" parameterType="int"
     resultType="ReviewsDTO">
-    SELECT REVIEW_NO, VOD_NO, REVIEW_TITLE, ID, REVIEW_CONTENT, REVIEW_CREATED_AT, REVIEW_MODIFIED_AT, REVIEW_HITS, REVIEW_STAR
+    SELECT REVIEW_NO, REVIEW_CATEGORY, REVIEW_TITLE, ID, REVIEW_CONTENT, REVIEW_CREATED_AT, REVIEW_MODIFIED_AT, REVIEW_HITS, REVIEW_STAR
     FROM REVIEWS
     WHERE REVIEW_NO = #{reviewNo}
   </select>
@@ -39,7 +39,7 @@
   <update id="updateReviews" parameterType="ReviewsDTO">
     UPDATE REVIEWS
     SET 
-      VOD_NO = #{vodNo}
+      REVIEW_CATEGORY = #{reviewCategory}
     , REVIEW_TITLE = #{reviewTitle}
     , REVIEW_CONTENT = #{reviewContent}
     , REVIEW_MODIFIED_AT = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
@@ -73,7 +73,7 @@
   <!-- DEPARTMENTS와 EMPLOYEES의 JOIN 결과를 저장할 resultMap 만들기 -->
   <resultMap type="ReviewsDTO" id="ReviewsMap">
     <id column="REVIEW_NO" property="reviewNo" />
-    <result column="VOD_NO" property="vodNo" />
+    <result column="REVIEW_CATEGORY" property="reviewCategory" />
     <result column="REVIEW_TITLE" property="reviewTitle" />
     <result column="ID" property="id" />
     <result column="REVIEW_CONTENT" property="reviewContent" />
@@ -83,12 +83,17 @@
     <result column="REVIEW_STAR" property="reviewStar" />
 </resultMap>
   
+  
+  
+  
+  <!-- pagination -->
+  <!--  
   <select id="getReviewsListUsingPagination" parameterType="Map" resultMap="ReviewsMap">
-    SELECT REVIEW_NO, VOD_NO, REVIEW_TITLE, ID, REVIEW_CONTENT, REVIEW_CREATED_AT, REVIEW_MODIFIED_AT, REVIEW_HITS, REVIEW_STAR
+    SELECT REVIEW_NO, REVIEW_CATEGORY, REVIEW_TITLE, ID, REVIEW_CONTENT, REVIEW_CREATED_AT, REVIEW_MODIFIED_AT, REVIEW_HITS, REVIEW_STAR
       FROM (
       SELECT
             REVIEW_NO,
-            VOD_NO,
+            REVIEW_CATEGORY,
             REVIEW_TITLE,
             ID,
             REVIEW_CONTENT,
@@ -96,47 +101,61 @@
             REVIEW_MODIFIED_AT,
             REVIEW_HITS,
             REVIEW_STAR,
-            ROW_NUMBER() OVER (ORDER BY ${column} ${order}) AS RN
+            ROW_NUMBER() OVER (ORDER BY ${orderColumn} ${order}) AS RN
         FROM
         REVIEWS
         ) A
         WHERE A.RN BETWEEN #{begin} AND #{end}
   </select>
   
+  -->
   
-  <!-- search -->
-  <select id="getReviewsListUsingSearch" parameterType="Map" resultMap="ReviewsMap">
-	SELECT A.RN, A.REVIEW_NO, A.VOD_NO, A.REVIEW_TITLE, A.ID, A.REVIEW_CONTENT,
-	A.REVIEW_CREATED_AT, A.REVIEW_MODIFIED_AT, A.REVIEW_HITS, A.REVIEW_STAR
+  
+  
+  <select id="getReviewsList" parameterType="Map" resultMap="ReviewsMap">
+	SELECT  REVIEW_NO, REVIEW_CATEGORY, REVIEW_TITLE, ID, REVIEW_CONTENT, REVIEW_CREATED_AT, REVIEW_MODIFIED_AT, REVIEW_HITS, REVIEW_STAR
 	FROM (
-	SELECT ROW_NUMBER() OVER(ORDER BY R.REVIEW_NO ASC) AS RN, R.REVIEW_NO,R.VOD_NO,
-	R.REVIEW_TITLE, R.ID, R.REVIEW_CONTENT, R.REVIEW_CREATED_AT,
-	R.REVIEW_MODIFIED_AT, R.REVIEW_HITS, R.REVIEW_STAR
-	FROM REVIEWS R
-	WHERE R.VOD_NO = #{vodNo}
-	) A
-	WHERE A.RN BETWEEN #{begin} AND #{end}
+      SELECT
+            REVIEW_NO,
+            REVIEW_CATEGORY,
+            REVIEW_TITLE,
+            ID,
+            REVIEW_CONTENT,
+            REVIEW_CREATED_AT,
+            REVIEW_MODIFIED_AT,
+            REVIEW_HITS,
+            REVIEW_STAR,
+            ROW_NUMBER() OVER (ORDER BY ${orderColumn} ${order}) AS RN
+        FROM
+        REVIEWS
+        
 	<where>
-		<if test="column != '' and query != ''">
-			${column} LIKE '%' || #{query} || '%'
+		<if test="searchColumn != '' and query != ''">
+			${searchColumn} LIKE '%' || #{query} || '%'
 		</if>
-	</where>
+	</where>) A
+	WHERE A.RN BETWEEN #{begin} AND #{end}
   </select>
-
- 
   
+  
+
+  
+
 <select id="getReviewsSearchCount" parameterType="Map" resultType="int">
     SELECT COUNT(R.REVIEW_NO)
     FROM REVIEWS R
     <where>
-        <if test="column != null and column != '' and query != null and query != ''">
-            ${column} LIKE CONCAT('%', CONCAT(#{query}, '%'))
+        <if test="searchColumn != '' and query != ''">
+            ${searchColumn} LIKE CONCAT('%', CONCAT(#{query}, '%'))
         </if>
     </where>
 </select>
 
-  
-  
-  
+
+  <select id="getAutoComplete" parameterType="Map" resultMap="ReviewsMap">
+  SELECT DISTINCT ${searchColumn}
+  FROM REVIEWS
+  WHERE ${searchColumn} LIKE CONCAT(#{query}, '%')
+</select>
 
 </mapper>

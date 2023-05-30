@@ -51,7 +51,7 @@ function fnBack(){
 <section class="py-5">
     <div id="detail_screen"  class="px-4 px-lg-5 mt-5 text-center text-black">
     <h1>${r.reviewNo}번 게시글 상세보기</h1>
-    <div>카테고리 : ${r.vodNo}</div>
+    <div>카테고리 : ${r.reviewCategory}</div>
     <div>별점 : ${r.reviewStar}</div>
     <div>제목 : ${r.reviewTitle}</div>
     <div>작성자 : ${r.id}</div>
@@ -78,15 +78,12 @@ function fnBack(){
         <input type="text" id="reviewTitle" name="reviewTitle" value="${r.reviewTitle}">
       </div>
      <div>
-        <label for="vodNo"></label>
-           <select name="vodNo" id="vodNo">
-            <option value="vodNo" selected>${r.vodNo}</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
+        <label for="searchColumn"></label>
+          <select name="searchColumn" id="searchColumn">
+            <option value="REVIEW_TITLE">제목</option>
+            <option value="REVIEW_CATEGORY">카테고리</option>
+            <option value="REVIEW_STAR">별점</option>
+         </select>
       </div>
       <div>
         <div><label for="reviewContent">내용</label></div>

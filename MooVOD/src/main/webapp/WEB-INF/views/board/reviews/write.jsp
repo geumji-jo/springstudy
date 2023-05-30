@@ -40,6 +40,12 @@
         $("#submit").click(function() {
         })
     });
+    
+    
+   
+      
+      
+      
   
   
   
@@ -66,15 +72,20 @@ html, body {
     <form method="post" action="${contextPath}/board/reviews/add.do">
   
       <div>
-        <label for="vodNo"></label>
-           <select name="vodNo" id="vodNo">
-            <option value="vodNo" selected></option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            </select>
+         <label for="reviewCategory"></label> 
+          <select name="reviewCategory" id="reviewCategory" >
+                <option value="" selected="selected">영화장르</option>
+                <option value="호러">호러</option>
+                <option value="액션">액션</option>
+                <option value="멜로">멜로</option>
+                <option value="독립영화">독립영화</option>
+                <option value="스릴러">스릴러</option>
+                <option value="뮤지컬">뮤지컬</option>
+                <option value="액션">액션</option>
+                <option value="느와르">느와르</option>
+                <option value="시리즈">시리즈</option>
+                <option value="코미디">코미디</option>
+        </select>
       </div>
       <div>
         <label for="reviewTitle"></label>
@@ -103,14 +114,21 @@ html, body {
       </div>
       <div>
         <div><label for="reviewContent">내용</label></div>
-        <textarea id="reviewContent" name="reviewContent"></textarea>  <!-- summernote 편집기로 바뀌는 textarea -->
+        <textarea id="reviewContent" name="reviewContent"></textarea>
       </div>
       <div>
-        <button id="submit">작성완료</button>
-        <input type="button" value="목록" onclick="fnList()">
+        <button>작성완료</button>
+        <button type="button" class="btn btn-outline-info" value="목록" onclick="fnList()">목록보기</button>
       </div>
     </form>
   </div>
+
+  
+  
+
+  
+  
+  
   
 </body>
 </html>

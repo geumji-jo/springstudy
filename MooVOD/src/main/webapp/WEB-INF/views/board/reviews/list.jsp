@@ -27,36 +27,6 @@
 <script src="${contextPath}/resources/home/js/scripts.js"></script>
 <script src="${contextPath}/resources/bootstrap-4.6.2/js/bootstrap.min.js"></script>
 <script>
-$(function(){
-	  // 자동 완성 목록 초기화
-	  $('#column').on('change', function(){
-	    $('#auto_complete').empty();
-	    $('#query').val('');
-	  })
-
-	  // 자동 완성 목록 가져오기
-	  $('#query').on('keyup', function(){
-	    $('#auto_complete').empty();
-	    var vodNo = $('#column').val();  // 선택된 vodNo 값 가져오기
-
-	    if (vodNo >= 1 && vodNo <= 5) {
-	      $.ajax({
-	        // 요청
-	        type: 'get',
-	        url: '${contextPath}/board/reviews/autoComplete.do',
-	        data: $('#frm1').serialize(),
-	        // 응답
-	        dataType: 'json',
-	        success: function(resData){  // resData = {"reviews": [{"reviewTitle": "xxx"}, {"reviewTitle": "xxx"}, ...]}
-	          $.each(resData.reviews, function(i, review){
-	            $('#auto_complete').append('<option value="' + review.reviewTitle + '" />');
-	          });
-	        }
-	      });
-	    }
-	  });
-	});
-
 
 
 
@@ -71,7 +41,7 @@ $(function(){
     $('#recordPerPage').val(recordPerPage);
     // 제목을 클릭하면 정렬 방식을 바꿈
     $('.title').on('click', function(){
-      location.href = '${contextPath}/board/reviews/list.do?column=' + $(this).data('column') + '&order=' + $(this).data('order') + "&page=${page}";
+      location.href = '${contextPath}/board/reviews/list.do?orderColumn=' + $(this).data('orderColumn') + '&order=' + $(this).data('order') + "&page=${page}";
     })
   })
   function fnNewWrite() {
@@ -99,6 +69,43 @@ $(function(){
     }
   })
   
+  
+  $(function(){
+    // 자동 완성 목록 초기화
+    $('#searchColumn').on('change', function(){
+      $('#auto_complete').empty();
+      $('#query').val('');
+    })
+    // 자동 완성 목록 가져오기
+    $('#query').on('keyup', function(){
+      $('#auto_complete').empty();
+      $.ajax({
+        // 요청
+        type: 'get',
+        url: '${contextPath}/board/reviews/autoComplete.do',
+        data: $('#frm1').serialize(),
+        // 응답
+        dataType: 'json',
+        success: function(resData){  // resData = {"employees": [{"firstName": "xxx", "phoneNumber": "xxx", "deptDTO": {"departmentName": "xxx"}}, {}, {}, ...]}
+          $.each(resData.employees, function(i, review){
+            switch($('#searchColumn').val()) {
+            case "REVIEW_TITLE":
+              $('#auto_complete').append('<option value="' + review.reviewTitle + '" />');
+              break;
+            case "REVIEW_CATEGORY":
+              $('#auto_complete').append('<option value="' + review.reviewCategory + '" />');
+              break;
+            case "REVIEW_STAR":
+              $('#auto_complete').append('<option value="' + review.reviewStar + '" />');
+              break;
+            }
+          })
+        }
+      })
+    })
+  })
+
+
   
   
 </script>
@@ -157,15 +164,12 @@ margin-bottom:10px;
     <h1>리뷰게시판</h1>
     </div>
        <div class="pd-r-68" >
-    <form id="frm1" action="${contextPath}/board/reviews/search.do">
-        <select name="vodNo" id="vodNo">
-            <option value="">전체영화검색</option>
-            <option value="1">호러</option>
-            <option value="2">액션</option>
-            <option value="3">멜로</option>
-            <option value="4">코미디</option>
-            <option value="5">독립영화</option>
-        </select>
+    <form id="frm1" action="${contextPath}/board/reviews/list.do">
+       <select name="searchColumn" id="searchColumn">
+        <option value="REVIEW_TITLE" >제목</option>
+        <option value="REVIEW_CATEGORY" >카테고리</option>
+        <option value="REVIEW_STAR" >별점</option>
+     </select>
       <input list="auto_complete" type="text" name="query" id="query">
       <datalist id="auto_complete"></datalist>
       <button>조회</button>
@@ -206,7 +210,7 @@ margin-bottom:10px;
           <c:forEach items="${reviewsList}" var="r" varStatus="vs">
             <tr>
               <td>${beginNo - vs.index}</td>
-              <td>${r.vodNo}</td>
+              <td>${r.reviewCategory}</td>
               <td><a href="${contextPath}/board/reviews/detail.do?reviewNo=${r.reviewNo}" >${r.reviewTitle}</a></td>
               <td>${r.reviewStar}</td>
               <td>${r.id}</td>

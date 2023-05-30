@@ -1,5 +1,7 @@
 package com.gdu.moovod.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.gdu.moovod.service.ReviewsService;
@@ -28,8 +31,7 @@ public class ReviewsController {
   
   @GetMapping("/list.do")
   public String list(HttpServletRequest request, Model model) {
-    reviewsService.getReviewsListUsingPagination(request, model);
-   
+    reviewsService.getReviewsList(request, model);
     return "board/reviews/list";
   }
   
@@ -76,13 +78,11 @@ public class ReviewsController {
   }
   
   
-  
-  @GetMapping("/search.do")
-  public String search(HttpServletRequest request, Model model) {
-   
-    reviewsService.getReviewsListUsingSearch(request, model);
-  
-    return "board/reviews/list";
+  @ResponseBody
+  @GetMapping(value="/autoComplete.do", produces="application/json")
+  public Map<String, Object> autoComplete(HttpServletRequest request) {
+    return reviewsService.getAutoComplete(request);
   }
- 
+  
+
 }

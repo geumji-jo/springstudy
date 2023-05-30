@@ -14,14 +14,14 @@ import com.gdu.app13.service.MemberService;
 @RequestMapping("/user")
 @Controller
 public class MemberController {
-  
+
   @Autowired
   private MemberService memberService;
   
   @PostMapping("/login.do")
   public String login(HttpServletRequest request) {
-  memberService.login(request);
-  return "index";
+    memberService.login(request);
+    return "index";
   }
   
   @GetMapping("/logout.do")
@@ -30,7 +30,4 @@ public class MemberController {
     return "index";
   }
   
-
-  
-
 }
